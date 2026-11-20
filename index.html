@@ -78,6 +78,8 @@ section.view{padding:6px 0 40px}
 .meta .badge{color:var(--accent)}
 .prompt{font-family:var(--display);font-weight:800;font-size:38px;line-height:1.15;text-align:center;margin:22px 0 6px;text-wrap:balance;word-break:break-word}
 .prompt.long{font-size:28px}
+.artslot{display:inline-block;min-width:1.9em;padding:0 .18em;border-radius:10px;background:var(--line);color:var(--muted);font-size:.8em;vertical-align:.08em;text-align:center}
+.artslot.shown{background:var(--accent-soft);color:var(--accent)}
 .meaning{text-align:center;color:var(--muted);margin:0;min-height:26px}
 
 .recrow{display:flex;flex-direction:column;align-items:center;margin-top:18px}
@@ -201,6 +203,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
       <p class="prompt" id="prompt" lang="de"></p>
       <p class="meaning" id="meaning"></p>
 
+      <p class="meaning" id="art-hint" hidden>Say it with the article you think is right.</p>
       <div class="recrow">
         <button type="button" class="rec" id="rec" aria-label="Record your pronunciation">
           <svg class="mic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/></svg>
@@ -295,7 +298,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
     </div>
 
     <p class="foot">
-      Sprechtrainer v0.1 · Recordings are never saved, only your ratings and schedule.<br>
+      Sprechtrainer v0.2 · Recordings are never saved, only your ratings and schedule.<br>
       <a href="https://claude.ai/artifact/RCJDHi47bSRpPk9ifpbs2o">Pronunciation guide</a> ·
       <button type="button" class="danger" id="reset">Reset all progress</button>
     </p>
@@ -788,8 +791,12 @@ function showNext(){
   document.getElementById("c-group").textContent = card.group;
   document.getElementById("c-badge").textContent = item.isNew ? "New" : (item.failed ? "Again" : "Review");
   const p = document.getElementById("prompt");
-  p.textContent = card.de;
+  const m = card.de.match(/^(der|die|das) (.+)$/);
+  cur.article = m ? m[1] : null;
+  // hide the article until the first recording, so it isn't given away
+  p.innerHTML = m ? `<span class="artslot" id="artslot" aria-label="article">?</span> ${m[2]}` : card.de;
   p.classList.toggle("long", card.de.length > 18);
+  document.getElementById("art-hint").hidden = !m;
   document.getElementById("meaning").textContent = "";
   recBtn.setAttribute("aria-label", "Record your pronunciation");
   setRecStatus("Read it aloud, then tap to record");
@@ -800,7 +807,17 @@ function showNext(){
   document.getElementById("after").hidden = true;
   nextBtn.disabled = true;
 }
+function revealArticle(){
+  const slot = document.getElementById("artslot");
+  if (slot && cur && cur.article){
+    slot.textContent = cur.article;
+    slot.classList.add("shown");
+    slot.removeAttribute("aria-label");
+  }
+  document.getElementById("art-hint").hidden = true;
+}
 function unlockPlays(){
+  revealArticle();
   playModelBtn.disabled = false;
   playMeBtn.disabled = !myAudio;
   playCompareBtn.disabled = !myAudio;
