@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sprechtrainer</title>
+<meta name="theme-color" content="#f2f3f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121417" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Sprechen">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout: one phone-width column; sticky header with counters and tabs; study card with record → compare → rate → next */
+  --bg:#f2f3f5;
+  --surface:#ffffff;
+  --ink:#16191e;
+  --muted:#5a626d;
+  --line:#dcdfe4;
+  --accent:#b3162e;
+  --accent-soft:#fae8eb;
+  --good:#1c7547; --good-soft:#e3f3ea;
+  --warn:#b45309; --warn-soft:#fdf0e1;
+  --r1:#c42640; --r2:#d9622b; --r3:#b8920f; --r4:#4f9a3c; --r5:#1c7547;
+  --display:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body:"Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121417; --surface:#1b1e23; --ink:#eceef1; --muted:#9aa2ad; --line:#2d3239;
+    --accent:#ff5c74; --accent-soft:#3a1d23; --good:#4cc488; --good-soft:#163024;
+    --warn:#f2a54a; --warn-soft:#3a2914;
+    --r1:#ff6b80; --r2:#ff9a5c; --r3:#e8c547; --r4:#8fd473; --r5:#4cc488;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121417; --surface:#1b1e23; --ink:#eceef1; --muted:#9aa2ad; --line:#2d3239;
+  --accent:#ff5c74; --accent-soft:#3a1d23; --good:#4cc488; --good-soft:#163024;
+  --warn:#f2a54a; --warn-soft:#3a2914;
+  --r1:#ff6b80; --r2:#ff9a5c; --r3:#e8c547; --r4:#8fd473; --r5:#4cc488;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
+button{font:inherit;color:inherit}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.wrap{max-width:640px;margin:0 auto;padding:0 max(16px, env(safe-area-inset-left))}
+[hidden]{display:none!important}
+
+header.top{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+.titlebar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px}
+h1{font-family:var(--display);font-weight:800;font-size:21px;letter-spacing:-.01em;margin:0}
+h1 span{color:var(--accent)}
+.counts{display:flex;gap:12px;font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+.counts .c-due{color:var(--good)} .counts .c-new{color:var(--ink)} .counts .c-again{color:var(--accent)}
+.counts small{font-weight:600;color:var(--muted);margin-left:2px}
+nav.tabs{display:flex;gap:4px;margin-top:6px}
+nav.tabs button{flex:1;border:0;background:none;padding:8px 4px 10px;font-weight:700;font-size:15px;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+
+section.view{padding:6px 0 40px}
+.banner{margin:12px 0 0;padding:10px 12px;border-radius:10px;font-size:15px;background:var(--warn-soft);border-left:4px solid var(--warn);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.banner button{border:0;background:var(--ink);color:var(--bg);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap}
+
+/* study card */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 16px 18px;margin-top:14px}
+.meta{display:flex;justify-content:space-between;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.meta .badge{color:var(--accent)}
+.prompt{font-family:var(--display);font-weight:800;font-size:38px;line-height:1.15;text-align:center;margin:22px 0 6px;text-wrap:balance;word-break:break-word}
+.prompt.long{font-size:28px}
+.meaning{text-align:center;color:var(--muted);margin:0;min-height:26px}
+
+.recrow{display:flex;flex-direction:column;align-items:center;margin-top:18px}
+.rec{width:88px;height:88px;border-radius:50%;border:0;background:var(--accent);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px -6px var(--accent);touch-action:manipulation}
+.rec svg{width:34px;height:34px}
+.rec.on{animation:pulse 1.2s ease-in-out infinite}
+.rec .stop{display:none}
+.rec.on .mic{display:none}
+.rec.on .stop{display:block}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 var(--accent-soft)}50%{box-shadow:0 0 0 14px var(--accent-soft)}}
+.recstatus{font-size:14px;color:var(--muted);margin-top:8px;min-height:21px;text-align:center;font-variant-numeric:tabular-nums}
+.recstatus.err{color:var(--warn);font-weight:600}
+
+.plays{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:8px;margin-top:14px}
+.pbtn{border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:10px 6px;font-weight:700;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.pbtn svg{width:16px;height:16px;flex-shrink:0}
+.pbtn:disabled{opacity:.4;cursor:default}
+.pbtn.compare{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pbtn.playing{outline:3px solid var(--accent);outline-offset:1px}
+.listenfirst{display:block;margin:10px auto 0;border:0;background:none;color:var(--muted);font-size:13px;text-decoration:underline;cursor:pointer}
+
+.ratehead{font-size:14px;font-weight:700;color:var(--muted);text-align:center;margin:20px 0 8px}
+.rates{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.rate{border:2px solid var(--line);background:var(--surface);border-radius:12px;padding:8px 2px 6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;line-height:1.15}
+.rate b{font-family:var(--display);font-size:22px}
+.rate span{font-size:11px;color:var(--muted);font-weight:600}
+.rate[data-r="1"] b{color:var(--r1)} .rate[data-r="2"] b{color:var(--r2)} .rate[data-r="3"] b{color:var(--r3)} .rate[data-r="4"] b{color:var(--r4)} .rate[data-r="5"] b{color:var(--r5)}
+.rate[aria-pressed="true"][data-r="1"]{border-color:var(--r1)} .rate[aria-pressed="true"][data-r="2"]{border-color:var(--r2)} .rate[aria-pressed="true"][data-r="3"]{border-color:var(--r3)} .rate[aria-pressed="true"][data-r="4"]{border-color:var(--r4)} .rate[aria-pressed="true"][data-r="5"]{border-color:var(--r5)}
+.rubric{text-align:center;font-size:14px;color:var(--muted);margin:8px 0 0;min-height:21px}
+
+.after{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+.hints{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.hints li{display:flex;gap:8px;align-items:baseline}
+.hints li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0;transform:translateY(-2px)}
+.sched{font-size:14px;color:var(--muted);margin:10px 0 0}
+.next{display:block;width:100%;margin-top:14px;border:0;background:var(--ink);color:var(--bg);border-radius:14px;padding:14px;font-weight:700;font-size:17px;cursor:pointer}
+.next:disabled{opacity:.35;cursor:default}
+
+.done{text-align:center;padding:30px 8px}
+.done h2{font-family:var(--display);font-size:28px;margin:0 0 6px}
+.done p{color:var(--muted);margin:0 0 18px}
+.btn{border:0;background:var(--ink);color:var(--bg);border-radius:999px;padding:11px 22px;font-weight:700;cursor:pointer}
+.btn.ghost{background:none;color:var(--ink);border:1px solid var(--line)}
+.btnrow{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+
+/* words */
+.wsum{display:flex;gap:16px;margin:14px 0 0;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.wsum b{color:var(--ink)}
+.group-h{font-family:var(--display);font-weight:600;font-size:18px;margin:22px 0 8px}
+.rows{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;width:100%;padding:9px 14px;border:0;border-top:1px solid var(--line);background:none;text-align:left;cursor:pointer}
+.row:first-child{border-top:0}
+.row:hover{background:var(--bg)}
+.row .de{font-weight:700;display:block;line-height:1.25}
+.row .en{font-size:14px;color:var(--muted)}
+.pill{font-size:12px;font-weight:700;border-radius:999px;padding:2px 9px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.pill.new{background:var(--line);color:var(--muted)}
+.pill.due{background:var(--good-soft);color:var(--good)}
+.pill.learn{background:var(--accent-soft);color:var(--accent)}
+.pill.later{background:var(--bg);color:var(--muted);border:1px solid var(--line)}
+
+/* settings */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:14px}
+.panel h2{font-family:var(--display);font-weight:600;font-size:19px;margin:0 0 10px}
+.setrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0;border-top:1px solid var(--line)}
+.setrow:first-of-type{border-top:0}
+.setrow label{font-weight:600}
+.setrow small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+select{font:inherit;border:1px solid var(--line);border-radius:8px;padding:5px 8px;background:var(--bg);color:var(--ink)}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
+.seg{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.seg button{border:0;background:none;padding:5px 12px;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.status{font-size:14px;margin:0 0 12px}
+.status .ok{color:var(--good);font-weight:700}
+.status .no{color:var(--warn);font-weight:700}
+.msg{font-size:14px;margin:10px 0 0;min-height:20px}
+.danger{border:0;background:none;color:var(--muted);font-size:13px;text-decoration:underline;cursor:pointer;padding:0}
+.foot{color:var(--muted);font-size:13px;margin-top:22px}
+.foot a{color:var(--muted)}
+
+@media (max-width:400px){
+  .prompt{font-size:32px}
+  .prompt.long{font-size:24px}
+  .rate span{font-size:10px}
+}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="titlebar">
+      <h1>Sprech<span>trainer</span></h1>
+      <div class="counts" aria-label="Cards left today">
+        <span class="c-due" title="Reviews due"><span id="n-due">0</span><small>due</small></span>
+        <span class="c-new" title="New cards"><span id="n-new">0</span><small>new</small></span>
+        <span class="c-again" title="Cards to repeat"><span id="n-again">0</span><small>again</small></span>
+      </div>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button type="button" role="tab" id="tab-study" aria-selected="true" data-view="study">Study</button>
+      <button type="button" role="tab" id="tab-words" aria-selected="false" data-view="words">Words</button>
+      <button type="button" role="tab" id="tab-settings" aria-selected="false" data-view="settings">Settings</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- STUDY -->
+  <section class="view" id="view-study">
+    <div class="banner" id="backup-banner" hidden>
+      <span id="backup-banner-text">You haven't backed up your progress yet.</span>
+      <button type="button" id="banner-backup">Back up</button>
+    </div>
+
+    <div class="card" id="study-card">
+      <div class="meta"><span id="c-group"></span><span class="badge" id="c-badge"></span></div>
+      <p class="prompt" id="prompt" lang="de"></p>
+      <p class="meaning" id="meaning"></p>
+
+      <div class="recrow">
+        <button type="button" class="rec" id="rec" aria-label="Record your pronunciation">
+          <svg class="mic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/></svg>
+          <svg class="stop" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+        </button>
+        <div class="recstatus" id="recstatus" aria-live="polite">Read it aloud, then tap to record</div>
+      </div>
+
+      <div class="plays">
+        <button type="button" class="pbtn" id="play-me" disabled>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Me</button>
+        <button type="button" class="pbtn" id="play-model" disabled>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Model</button>
+        <button type="button" class="pbtn compare" id="play-compare" disabled>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>Compare</button>
+      </div>
+      <button type="button" class="listenfirst" id="listen-first">Can't speak right now? Listen to the model first</button>
+
+      <p class="ratehead">How close was your pronunciation?</p>
+      <div class="rates" id="rates">
+        <button type="button" class="rate" data-r="1" aria-pressed="false"><b>1</b><span>Couldn't</span></button>
+        <button type="button" class="rate" data-r="2" aria-pressed="false"><b>2</b><span>Poor</span></button>
+        <button type="button" class="rate" data-r="3" aria-pressed="false"><b>3</b><span>OK</span></button>
+        <button type="button" class="rate" data-r="4" aria-pressed="false"><b>4</b><span>Good</span></button>
+        <button type="button" class="rate" data-r="5" aria-pressed="false"><b>5</b><span>Native</span></button>
+      </div>
+      <p class="rubric" id="rubric"></p>
+
+      <div class="after" id="after" hidden>
+        <ul class="hints" id="hints"></ul>
+        <p class="sched" id="sched"></p>
+      </div>
+      <button type="button" class="next" id="next" disabled>Next</button>
+    </div>
+
+    <div class="card done" id="done" hidden>
+      <h2>Fertig für heute!</h2>
+      <p id="done-text">No cards left for today.</p>
+      <div class="btnrow">
+        <button type="button" class="btn" id="more-new">Learn 10 more new cards</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORDS -->
+  <section class="view" id="view-words" hidden>
+    <div class="wsum" id="wsum"></div>
+    <div id="wlist"></div>
+  </section>
+
+  <!-- SETTINGS -->
+  <section class="view" id="view-settings" hidden>
+    <div class="panel">
+      <h2>Your progress</h2>
+      <p class="status" id="store-status"></p>
+      <div class="btnrow" style="justify-content:flex-start">
+        <button type="button" class="btn" id="do-backup">Back up now</button>
+        <button type="button" class="btn ghost" id="do-restore">Restore from backup</button>
+        <input type="file" id="restore-file" accept="application/json,.json" hidden>
+      </div>
+      <p class="msg" id="backup-msg" aria-live="polite"></p>
+    </div>
+
+    <div class="panel">
+      <h2>Study</h2>
+      <div class="setrow">
+        <label for="new-per-day">New cards per day</label>
+        <select id="new-per-day">
+          <option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="30">30</option>
+        </select>
+      </div>
+      <div class="setrow">
+        <label for="autoplay">Auto-compare after recording<small>Plays your recording, then the model</small></label>
+        <input type="checkbox" id="autoplay">
+      </div>
+      <div class="setrow">
+        <label>Model speed</label>
+        <div class="seg" role="group" aria-label="Model speed">
+          <button type="button" id="spd-normal" aria-pressed="true">Normal</button>
+          <button type="button" id="spd-slow" aria-pressed="false">Slow</button>
+        </div>
+      </div>
+      <div class="setrow">
+        <label>German voice<small id="voice-name">Looking for a voice…</small></label>
+        <button type="button" class="btn ghost" id="voice-test" style="padding:6px 14px;font-size:14px">Test</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Keyboard shortcuts</h2>
+      <p class="status" style="margin:0">R record · M play me · O play model · C compare · 1–5 rate · Enter next</p>
+    </div>
+
+    <p class="foot">
+      Sprechtrainer v0.1 · Recordings are never saved, only your ratings and schedule.<br>
+      <a href="https://claude.ai/artifact/RCJDHi47bSRpPk9ifpbs2o">Pronunciation guide</a> ·
+      <button type="button" class="danger" id="reset">Reset all progress</button>
+    </p>
+  </section>
+</main>
+
+<script>
+/* ==================== DATA ====================
+   group | German | English
+   Compiled to roughly follow Duolingo German Section 1 (units 1–4) and the
+   free Memrise German lessons up to "Saying How Long You're Staying".
+   The German text is the card's id: fixing a typo resets that card. */
+const VOCAB_RAW = `Café|hallo|hello
+Café|tschüss|bye
+Café|danke|thanks
+Café|bitte|please
+Café|ja|yes
+Café|nein|no
+Café|und|and
+Café|oder|or
+Café|der Kaffee|coffee
+Café|der Tee|tea
+Café|die Milch|milk
+Café|das Wasser|water
+Café|das Brot|bread
+Café|der Wein|wine
+Café|das Bier|beer
+Café|der Saft|juice
+Café|der Zucker|sugar
+Café|der Apfel|apple
+Café|das Ei|egg
+Café|die Wurst|sausage
+Café|der Salat|salad
+Café|das Schnitzel|breaded cutlet
+Café|der Keks|cookie
+Café|Kaffee mit Milch|coffee with milk
+Café|Ein Kaffee, bitte.|A coffee, please.
+Café|Ich möchte Tee.|I'd like tea.
+Café|Wasser oder Saft?|Water or juice?
+Café|Das ist lecker.|That's tasty.
+Café|Die Rechnung, bitte.|The bill, please.
+Introductions|Guten Morgen|good morning
+Introductions|Guten Tag|hello (formal)
+Introductions|Guten Abend|good evening
+Introductions|Gute Nacht|good night
+Introductions|Auf Wiedersehen|goodbye (formal)
+Introductions|Wie geht's?|How are you?
+Introductions|Mir geht's gut.|I'm fine.
+Introductions|gut|good
+Introductions|sehr gut|very good
+Introductions|auch|also, too
+Introductions|Ich heiße Saúl.|My name is Saúl.
+Introductions|Wie heißt du?|What's your name?
+Introductions|Woher kommst du?|Where are you from?
+Introductions|Ich komme aus Venezuela.|I'm from Venezuela.
+Introductions|Ich wohne in Tokio.|I live in Tokyo.
+Introductions|Freut mich!|Nice to meet you!
+Introductions|der Mann|man
+Introductions|die Frau|woman
+Introductions|der Junge|boy
+Introductions|das Mädchen|girl
+Introductions|das Kind|child
+Introductions|der Freund|friend (male)
+Introductions|die Freundin|friend (female)
+Polite|Danke schön.|Thank you very much.
+Polite|Bitte schön.|You're welcome.
+Polite|Entschuldigung!|Excuse me! / Sorry!
+Polite|Es tut mir leid.|I'm sorry.
+Polite|Kein Problem.|No problem.
+Polite|gern|gladly
+Responses|vielleicht|maybe
+Responses|natürlich|of course
+Responses|genau|exactly
+Responses|stimmt|that's right
+Responses|Ich weiß nicht.|I don't know.
+Responses|Ich verstehe nicht.|I don't understand.
+Responses|Noch einmal, bitte.|Once more, please.
+Responses|Sprechen Sie Englisch?|Do you speak English?
+Family|die Familie|family
+Family|der Vater|father
+Family|die Mutter|mother
+Family|die Eltern|parents
+Family|der Bruder|brother
+Family|die Schwester|sister
+Family|der Sohn|son
+Family|die Tochter|daughter
+Family|der Opa|grandpa
+Family|die Oma|grandma
+Family|mein Bruder|my brother
+Family|meine Schwester|my sister
+Family|Das ist meine Mutter.|This is my mother.
+Family|Ich habe einen Bruder.|I have a brother.
+Family|Hast du Kinder?|Do you have children?
+Questions|wer|who
+Questions|was|what
+Questions|wo|where
+Questions|wann|when
+Questions|wie|how
+Questions|warum|why
+Questions|wie viel|how much
+Questions|Was ist das?|What's that?
+Questions|Wie viel kostet das?|How much does it cost?
+Numbers|eins|one
+Numbers|zwei|two
+Numbers|drei|three
+Numbers|vier|four
+Numbers|fünf|five
+Numbers|sechs|six
+Numbers|sieben|seven
+Numbers|acht|eight
+Numbers|neun|nine
+Numbers|zehn|ten
+Getting around|die Stadt|city
+Getting around|die Straße|street
+Getting around|der Bahnhof|train station
+Getting around|der Flughafen|airport
+Getting around|das Hotel|hotel
+Getting around|der Zug|train
+Getting around|der Bus|bus
+Getting around|das Taxi|taxi
+Getting around|das Auto|car
+Getting around|Wo ist der Bahnhof?|Where is the train station?
+Getting around|hier|here
+Getting around|dort|there
+Getting around|links|left
+Getting around|rechts|right
+Getting around|geradeaus|straight ahead
+Getting around|Ich suche das Hotel.|I'm looking for the hotel.
+Getting around|Ist das weit?|Is it far?
+Getting around|nicht weit|not far
+Days|der Montag|Monday
+Days|der Dienstag|Tuesday
+Days|der Mittwoch|Wednesday
+Days|der Donnerstag|Thursday
+Days|der Freitag|Friday
+Days|der Samstag|Saturday
+Days|der Sonntag|Sunday
+Days|heute|today
+Days|morgen|tomorrow
+Days|gestern|yesterday
+Staying|wie lange|how long
+Staying|bleiben|to stay
+Staying|fast|almost
+Staying|dauern|to last, to take (time)
+Staying|die Woche|week
+Staying|ein paar Tage|a few days
+Staying|einen Monat|for a month
+Staying|Wie lange bleibst du hier?|How long are you staying here?
+Staying|Ich bleibe fast zwei Wochen.|I'm staying for almost two weeks.`;
+
+const CARDS = [];
+const seenIds = new Set();
+VOCAB_RAW.split("\n").forEach(line => {
+  const [group, de, en] = line.split("|").map(s => s.trim());
+  if (!de || seenIds.has(de)) return;
+  seenIds.add(de);
+  CARDS.push({ id: de, group, de, en });
+});
+const GROUPS = [...new Set(CARDS.map(c => c.group))];
+
+/* ==================== LOGIC (pure functions) ==================== */
+const DAY_MS = 86400000;
+// Day number in local time, with the day rolling over at 4 am.
+function dayNum(ts){
+  const d = new Date(ts);
+  return Math.floor((ts - d.getTimezoneOffset() * 60000 - 4 * 3600000) / DAY_MS);
+}
+
+/* Rating → schedule.
+   1–2: card repeats later in this session (and counts as due until passed).
+   3–5: interval grows; first pass gives 1 / 2 / 4 days.
+   failedThisSession: a card that was rated 1–2 earlier today gets a short interval. */
+function schedule(prev, rating, today, failedThisSession){
+  const s = prev ? { ...prev } : { iv: 0, ease: 2.5, reps: 0, lapses: 0 };
+  s.last = today;
+  if (rating <= 2){
+    if (s.reps > 0){
+      if (s.iv > 0) s.lapses++;
+      s.ease = Math.max(1.3, +(s.ease - (rating === 1 ? 0.2 : 0.15)).toFixed(2));
+    }
+    s.iv = 0;
+    s.due = today;
+    return { state: s, again: true };
+  }
+  let iv;
+  if (failedThisSession) iv = rating === 5 ? 2 : 1;
+  else if (s.iv === 0) iv = rating === 3 ? 1 : rating === 4 ? 2 : 4;
+  else if (rating === 3) iv = Math.max(s.iv + 1, Math.round(s.iv * 1.2));
+  else if (rating === 4) iv = Math.max(s.iv + 1, Math.round(s.iv * s.ease));
+  else iv = Math.max(s.iv + 2, Math.round(s.iv * s.ease * 1.3));
+  if (rating === 3) s.ease = Math.max(1.3, +(s.ease - 0.05).toFixed(2));
+  if (rating === 5) s.ease = Math.min(3.0, +(s.ease + 0.1).toFixed(2));
+  s.iv = Math.min(iv, 365);
+  s.reps++;
+  s.due = today + s.iv;
+  return { state: s, again: false };
+}
+
+/* Today's queue: due reviews first (oldest first), then new cards up to the daily allowance. */
+function buildQueue(cards, states, today, newAllowance){
+  const due = cards.filter(c => states[c.id] && states[c.id].due <= today)
+                   .sort((a, b) => states[a.id].due - states[b.id].due);
+  const fresh = cards.filter(c => !states[c.id]).slice(0, Math.max(0, newAllowance));
+  return [...due.map(c => ({ id: c.id, isNew: false, failed: states[c.id].iv === 0 })),
+          ...fresh.map(c => ({ id: c.id, isNew: true, failed: false }))];
+}
+
+/* Pronunciation hints: pick up to 3 tricky sounds in the text. */
+const NO_HINT_WORDS = new Set(["saúl", "tokio", "venezuela", "der", "die", "das"]);
+const V_AS_F = new Set(["vater", "viel", "vier", "vielleicht", "von", "vor", "voll"]);
+const HINT_TEXT = {
+  ich:   w => `<b>ch</b> in ${w}: whisper the y of “ya”, tongue high. Not the Spanish j.`,
+  "ü":   w => `<b>ü</b> in ${w}: say i with your lips rounded for u.`,
+  "ö":   w => `<b>ö</b> in ${w}: say e with your lips rounded for o.`,
+  ig:    w => `<b>-ig</b> in ${w} ends like “ich”.`,
+  w:     w => `<b>w</b> in ${w} = English v, teeth on lip. Not b.`,
+  spst:  w => `${w} starts with <b>sh</b>: shp/sht. No extra e in front.`,
+  z:     w => `<b>z</b> in ${w} = ts.`,
+  final: w => `Final <b>b/d/g</b> in ${w} sound like p/t/k.`,
+  s:     w => `<b>s</b> in ${w} buzzes like English z.`,
+  long:  w => `Long vowel in ${w}: hold it longer than in Spanish.`,
+  ach:   w => `<b>ch</b> in ${w}: a soft Spanish j.`,
+  sch:   w => `<b>sch</b> in ${w} = English sh.`,
+  er:    w => `<b>-er</b> at the end of ${w} sounds like a short a.`,
+  schwa: w => `Final <b>-e</b> in ${w} is a weak “uh”, not a full e.`,
+  ei:    w => `<b>ei</b> in ${w} = ai, as in “baile”.`,
+  ie:    w => `<b>ie</b> in ${w} = a long i.`,
+  eu:    w => `<b>eu/äu</b> in ${w} = oi, as in “hoy”.`,
+  "ä":   w => `<b>ä</b> in ${w}: an open e.`,
+  h:     w => `<b>h</b> in ${w} is a real breath out.`,
+  r:     w => `<b>r</b> in ${w}: made in the throat, never tapped or rolled.`,
+  v:     w => `<b>v</b> in ${w} = f.`,
+  j:     w => `<b>j</b> in ${w} = Spanish y.`,
+  "ß":   w => `<b>ß</b> in ${w} = a sharp s.`
+};
+const HINT_ORDER = Object.keys(HINT_TEXT);
+
+function findHints(text){
+  const found = new Map();
+  const words = text.match(/[A-Za-zÄÖÜäöüßÁÉÍÓÚáéíóú']+/g) || [];
+  for (const orig of words){
+    const w = orig.toLowerCase().replace(/'s$/, "");
+    if (NO_HINT_WORDS.has(w)) continue;
+    const add = k => { if (!found.has(k)) found.set(k, orig); };
+    for (let i = w.indexOf("ch"); i !== -1; i = w.indexOf("ch", i + 1)){
+      const p = w[i - 1] || "", pp = w[i - 2] || "";
+      if (p === "s") continue;
+      if ("aou".includes(p) && p !== "" && !(p === "u" && (pp === "e" || pp === "ä"))) add("ach");
+      else if (p) add("ich");
+    }
+    if (/ü/.test(w)) add("ü");
+    if (/ö/.test(w)) add("ö");
+    if (/ig$/.test(w)) add("ig");
+    if (/w/.test(w)) add("w");
+    if (/^s[pt]/.test(w)) add("spst");
+    if (/z/.test(w)) add("z");
+    if (/[bd]$/.test(w) || (/g$/.test(w) && !/ig$/.test(w))) add("final");
+    if (/^s[aeiouäöü]/.test(w)) add("s");
+    if (/(aa|ee|oo)/.test(w) || /[aeiouäöü]h/.test(w)) add("long");
+    if (/sch/.test(w)) add("sch");
+    if (/er$/.test(w) && w.length > 3) add("er");
+    if (/e$/.test(w) && w.length > 3 && !/(ee|ie)$/.test(w)) add("schwa");
+    if (/ei/.test(w)) add("ei");
+    if (/ie/.test(w) && w !== "familie") add("ie");
+    if (/eu|äu/.test(w)) add("eu");
+    if (/ä(?!u)/.test(w)) add("ä");
+    if (/^h/.test(w)) add("h");
+    if (/r(?!$)/.test(w)) add("r");
+    if (V_AS_F.has(w)) add("v");
+    if (/^j/.test(w)) add("j");
+    if (/ß/.test(w)) add("ß");
+  }
+  return HINT_ORDER.filter(k => found.has(k)).slice(0, 3)
+    .map(k => HINT_TEXT[k](`<i>${found.get(k)}</i>`));
+}
+/* ==================== END LOGIC ==================== */
+
+/* ==================== STORAGE ==================== */
+const STORE_KEY = "sprechtrainer-v1";
+const DEFAULT_STORE = () => ({
+  app: "sprechtrainer", version: 1,
+  cards: {},
+  daily: { day: -1, newDone: 0, extra: 0 },
+  settings: { newPerDay: 10, autoplay: true, slow: false },
+  lastBackup: null
+});
+let store = DEFAULT_STORE();
+let storageOk = true;
+function load(){
+  try{
+    const raw = localStorage.getItem(STORE_KEY);
+    if (raw){
+      const parsed = JSON.parse(raw);
+      if (parsed && parsed.app === "sprechtrainer"){
+        store = { ...DEFAULT_STORE(), ...parsed,
+          settings: { ...DEFAULT_STORE().settings, ...(parsed.settings || {}) },
+          daily: { ...DEFAULT_STORE().daily, ...(parsed.daily || {}) } };
+      }
+    }
+  }catch(e){ storageOk = false; }
+}
+function save(){
+  try{ localStorage.setItem(STORE_KEY, JSON.stringify(store)); storageOk = true; }
+  catch(e){ storageOk = false; }
+}
+let persisted = null;
+async function askPersist(){
+  try{
+    if (navigator.storage && navigator.storage.persisted){
+      persisted = await navigator.storage.persisted();
+      if (!persisted && navigator.storage.persist) persisted = await navigator.storage.persist();
+    }
+  }catch(e){}
+  renderStoreStatus();
+}
+const isStandalone = () => (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone === true;
+const hasProgress = () => Object.keys(store.cards).length > 0;
+
+/* ==================== SPEECH (model voice) ==================== */
+const synth = window.speechSynthesis;
+let voice = null;
+function pickVoice(){
+  if (!synth) return;
+  const de = synth.getVoices().filter(v => /^de([-_]|$)/i.test(v.lang));
+  const score = v => (/de[-_]DE/i.test(v.lang) ? 4 : 0) + (/premium|enhanced|natural|neural/i.test(v.name) ? 3 : 0) + (/google|anna|helena|petra|markus|katja/i.test(v.name) ? 2 : 0);
+  de.sort((a, b) => score(b) - score(a));
+  voice = de[0] || null;
+  const el = document.getElementById("voice-name");
+  if (el) el.textContent = voice ? voice.name : (synth.getVoices().length ? "No German voice installed. Add one in your phone's settings." : "Looking for a voice…");
+}
+if (synth){ pickVoice(); synth.onvoiceschanged = pickVoice; }
+function speakModel(text){
+  return new Promise(resolve => {
+    if (!synth){ resolve(); return; }
+    try{
+      synth.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = "de-DE"; if (voice) u.voice = voice;
+      u.rate = store.settings.slow ? 0.6 : 0.9;
+      let done = false;
+      const finish = () => { if (!done){ done = true; clearTimeout(t); resolve(); } };
+      // iOS sometimes never fires onend: fall back on a time estimate
+      const t = setTimeout(finish, 1500 + text.length * 160 / u.rate);
+      u.onend = u.onerror = finish;
+      synth.speak(u);
+    }catch(e){ resolve(); }
+  });
+}
+
+/* ==================== RECORDING ==================== */
+let mediaRec = null, recStream = null, recTimer = null, recStart = 0, myUrl = null, myAudio = null;
+const MAX_REC_MS = 10000;
+function pickMime(){
+  if (!window.MediaRecorder || !MediaRecorder.isTypeSupported) return "";
+  return ["audio/mp4", "audio/webm;codecs=opus", "audio/webm", "audio/ogg;codecs=opus"].find(t => MediaRecorder.isTypeSupported(t)) || "";
+}
+const canRecord = () => !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
+
+async function startRecording(){
+  stopPlayback();
+  if (!canRecord()){ setRecStatus("Recording isn't supported here. Open the app in Safari or Chrome over https.", true); return; }
+  try{
+    recStream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
+  }catch(e){
+    const denied = e && (e.name === "NotAllowedError" || e.name === "SecurityError");
+    setRecStatus(denied ? "Microphone blocked. Allow it for this site in your browser settings." : "Couldn't start the microphone.", true);
+    return;
+  }
+  const mime = pickMime();
+  const chunks = [];
+  try{ mediaRec = mime ? new MediaRecorder(recStream, { mimeType: mime }) : new MediaRecorder(recStream); }
+  catch(e){ mediaRec = new MediaRecorder(recStream); }
+  mediaRec.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
+  mediaRec.onstop = () => {
+    // release the mic right away: on iOS playback is quiet while it's held
+    if (recStream){ recStream.getTracks().forEach(t => t.stop()); recStream = null; }
+    clearInterval(recTimer);
+    recBtn.classList.remove("on");
+    recBtn.setAttribute("aria-label", "Record again");
+    const blob = new Blob(chunks, { type: (mediaRec && mediaRec.mimeType) || mime || "audio/webm" });
+    mediaRec = null;
+    if (!blob.size){ setRecStatus("Nothing was recorded. Try again.", true); return; }
+    if (myUrl) URL.revokeObjectURL(myUrl);
+    myUrl = URL.createObjectURL(blob);
+    myAudio = new Audio(myUrl);
+    cur.recorded = (cur.recorded || 0) + 1;
+    setRecStatus(cur.recorded > 1 ? `Take ${cur.recorded}. Tap the mic to try again.` : "Tap the mic to try again.");
+    unlockPlays();
+    if (store.settings.autoplay) runCompare(["me", "model"]);
+  };
+  mediaRec.start();
+  recStart = Date.now();
+  recBtn.classList.add("on");
+  recBtn.setAttribute("aria-label", "Stop recording");
+  const tick = () => {
+    const s = (Date.now() - recStart) / 1000;
+    setRecStatus(`Recording… ${s.toFixed(1)} s · tap to stop`);
+    if (Date.now() - recStart >= MAX_REC_MS) stopRecording();
+  };
+  tick(); recTimer = setInterval(tick, 100);
+}
+function stopRecording(){
+  if (mediaRec && mediaRec.state !== "inactive"){ try{ mediaRec.stop(); }catch(e){} }
+}
+function abortRecording(){
+  if (mediaRec && mediaRec.state !== "inactive"){
+    mediaRec.onstop = null;
+    try{ mediaRec.stop(); }catch(e){}
+  }
+  mediaRec = null;
+  if (recStream){ recStream.getTracks().forEach(t => t.stop()); recStream = null; }
+  clearInterval(recTimer);
+  recBtn.classList.remove("on");
+}
+
+/* ==================== PLAYBACK ==================== */
+let playId = 0;
+function stopPlayback(){
+  playId++;
+  try{ synth && synth.cancel(); }catch(e){}
+  if (myAudio){ try{ myAudio.pause(); myAudio.currentTime = 0; }catch(e){} }
+  document.querySelectorAll(".pbtn.playing").forEach(b => b.classList.remove("playing"));
+}
+function playMe(){
+  return new Promise(resolve => {
+    if (!myAudio){ resolve(); return; }
+    try{
+      myAudio.currentTime = 0;
+      let done = false;
+      const finish = () => { if (!done){ done = true; resolve(); } };
+      myAudio.onended = finish; myAudio.onerror = finish;
+      const p = myAudio.play();
+      if (p && p.catch) p.catch(finish);
+    }catch(e){ resolve(); }
+  });
+}
+const wait = ms => new Promise(r => setTimeout(r, ms));
+async function runCompare(steps){
+  stopPlayback();
+  const id = ++playId;
+  for (let i = 0; i < steps.length; i++){
+    if (id !== playId) return;
+    const step = steps[i];
+    const btn = step === "me" ? playMeBtn : playModelBtn;
+    btn.classList.add("playing");
+    if (step === "me") await playMe(); else await speakModel(cur.card.de);
+    btn.classList.remove("playing");
+    if (id !== playId) return;
+    if (i < steps.length - 1) await wait(500);
+  }
+}
+
+/* ==================== SESSION ==================== */
+let today = dayNum(Date.now());
+let queue = [];
+let cur = null;   // { item, card, rating, recorded, revealed }
+
+function rollDay(){
+  today = dayNum(Date.now());
+  if (store.daily.day !== today) store.daily = { day: today, newDone: 0, extra: 0 };
+}
+function newAllowance(){
+  return store.settings.newPerDay + store.daily.extra - store.daily.newDone;
+}
+function startSession(){
+  rollDay();
+  queue = buildQueue(CARDS, store.cards, today, newAllowance());
+  showNext();
+}
+function showNext(){
+  abortRecording(); stopPlayback();
+  if (myUrl){ URL.revokeObjectURL(myUrl); myUrl = null; myAudio = null; }
+  updateCounts();
+  if (!queue.length){
+    cur = null;
+    document.getElementById("study-card").hidden = true;
+    document.getElementById("done").hidden = false;
+    const left = CARDS.filter(c => !store.cards[c.id]).length;
+    const tomorrow = CARDS.filter(c => store.cards[c.id] && store.cards[c.id].due <= today + 1).length;
+    document.getElementById("done-text").textContent =
+      `${tomorrow} card${tomorrow === 1 ? "" : "s"} due tomorrow · ${left} new card${left === 1 ? "" : "s"} not started yet.`;
+    document.getElementById("more-new").hidden = left === 0;
+    return;
+  }
+  document.getElementById("study-card").hidden = false;
+  document.getElementById("done").hidden = true;
+  const item = queue[0];
+  const card = CARDS.find(c => c.id === item.id);
+  cur = { item, card, rating: 0, recorded: 0, revealed: false };
+  document.getElementById("c-group").textContent = card.group;
+  document.getElementById("c-badge").textContent = item.isNew ? "New" : (item.failed ? "Again" : "Review");
+  const p = document.getElementById("prompt");
+  p.textContent = card.de;
+  p.classList.toggle("long", card.de.length > 18);
+  document.getElementById("meaning").textContent = "";
+  recBtn.setAttribute("aria-label", "Record your pronunciation");
+  setRecStatus("Read it aloud, then tap to record");
+  [playMeBtn, playModelBtn, playCompareBtn].forEach(b => b.disabled = true);
+  document.getElementById("listen-first").hidden = false;
+  rateBtns.forEach(b => b.setAttribute("aria-pressed", "false"));
+  document.getElementById("rubric").textContent = "";
+  document.getElementById("after").hidden = true;
+  nextBtn.disabled = true;
+}
+function unlockPlays(){
+  playModelBtn.disabled = false;
+  playMeBtn.disabled = !myAudio;
+  playCompareBtn.disabled = !myAudio;
+  document.getElementById("listen-first").hidden = true;
+}
+const RUBRIC = {
+  1: "Couldn't say it, or way off.",
+  2: "Several sounds wrong.",
+  3: "Understandable, but clearly accented.",
+  4: "One small slip.",
+  5: "Sounds like the model."
+};
+function fmtInterval(d){
+  if (d <= 0) return "again later today";
+  if (d === 1) return "tomorrow";
+  if (d < 30) return `in ${d} days`;
+  const m = Math.round(d / 30);
+  return `in about ${m} month${m === 1 ? "" : "s"}`;
+}
+function rate(r){
+  if (!cur) return;
+  cur.rating = r;
+  rateBtns.forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.r === r)));
+  document.getElementById("rubric").textContent = RUBRIC[r];
+  document.getElementById("meaning").textContent = cur.card.en;
+  const hints = findHints(cur.card.de);
+  document.getElementById("hints").innerHTML = hints.map(h => `<li><span>${h}</span></li>`).join("");
+  const preview = schedule(store.cards[cur.card.id], r, today, cur.item.failed);
+  document.getElementById("sched").textContent = `Next time: ${fmtInterval(preview.again ? 0 : preview.state.iv)}`;
+  document.getElementById("after").hidden = false;
+  if (playModelBtn.disabled) unlockPlays();
+  nextBtn.disabled = false;
+}
+function commit(){
+  if (!cur || !cur.rating) return;
+  const { item, card, rating } = cur;
+  const res = schedule(store.cards[card.id], rating, today, item.failed);
+  store.cards[card.id] = res.state;
+  if (item.isNew) store.daily.newDone++;
+  queue.shift();
+  if (res.again){
+    const pos = Math.min(queue.length, 4);
+    queue.splice(pos, 0, { id: card.id, isNew: false, failed: true });
+  }
+  save();
+  if (persisted === null) askPersist();
+  updateBanner();
+  showNext();
+}
+function updateCounts(){
+  const due = queue.filter(q => !q.isNew && !q.failed).length;
+  const fresh = queue.filter(q => q.isNew).length;
+  const again = queue.filter(q => q.failed).length;
+  document.getElementById("n-due").textContent = due;
+  document.getElementById("n-new").textContent = fresh;
+  document.getElementById("n-again").textContent = again;
+}
+
+/* ==================== BACKUP ==================== */
+function daysSince(ts){ return ts ? Math.floor((Date.now() - ts) / DAY_MS) : Infinity; }
+function updateBanner(){
+  const b = document.getElementById("backup-banner");
+  const d = daysSince(store.lastBackup);
+  const show = hasProgress() && Object.keys(store.cards).length >= 10 && d >= 7;
+  b.hidden = !show;
+  if (show) document.getElementById("backup-banner-text").textContent =
+    store.lastBackup ? `Last backup was ${d} days ago.` : "You haven't backed up your progress yet.";
+}
+function renderStoreStatus(){
+  const el = document.getElementById("store-status");
+  const n = Object.keys(store.cards).length;
+  const d = daysSince(store.lastBackup);
+  const parts = [];
+  parts.push(`<b>${n}</b> of ${CARDS.length} cards started.`);
+  parts.push(store.lastBackup ? `Last backup: ${d === 0 ? "today" : d === 1 ? "yesterday" : d + " days ago"}.` : `<span class="no">Never backed up.</span>`);
+  if (!storageOk) parts.push(`<span class="no">This browser isn't saving progress. Back up after each session.</span>`);
+  else if (isStandalone()) parts.push(`<span class="ok">Running from the home screen</span>, so the browser keeps your data.`);
+  else parts.push(`<span class="no">Not on the home screen yet.</span> In Safari, tap Share → Add to Home Screen, then open it from there. Otherwise iOS may clear your progress after 7 days without a visit.`);
+  if (persisted === true) parts.push(`<span class="ok">Storage is marked as persistent.</span>`);
+  el.innerHTML = parts.join("<br>");
+}
+async function doBackup(){
+  const msg = document.getElementById("backup-msg");
+  const now = new Date();
+  const stamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+  const data = { ...store, exported: now.toISOString() };
+  const json = JSON.stringify(data, null, 1);
+  const name = `sprechtrainer-backup-${stamp}.json`;
+  let ok = false;
+  try{
+    const file = new File([json], name, { type: "application/json" });
+    if (navigator.canShare && navigator.canShare({ files: [file] })){
+      await navigator.share({ files: [file], title: "Sprechtrainer backup" });
+      ok = true;
+    }
+  }catch(e){
+    if (e && e.name === "AbortError"){ msg.textContent = "Backup cancelled."; return; }
+  }
+  if (!ok){
+    try{
+      const url = URL.createObjectURL(new Blob([json], { type: "application/json" }));
+      const a = document.createElement("a");
+      a.href = url; a.download = name;
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 4000);
+      ok = true;
+    }catch(e){}
+  }
+  if (ok){
+    store.lastBackup = Date.now(); save();
+    msg.textContent = `Saved ${name}. Keep it in Files or iCloud Drive.`;
+  }else{
+    msg.textContent = "Couldn't create the backup file in this browser.";
+  }
+  renderStoreStatus(); updateBanner();
+}
+let pendingRestore = null;
+function onRestoreFile(e){
+  const f = e.target.files && e.target.files[0];
+  const msg = document.getElementById("backup-msg");
+  e.target.value = "";
+  if (!f) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try{
+      const data = JSON.parse(reader.result);
+      if (!data || data.app !== "sprechtrainer" || typeof data.cards !== "object") throw new Error("bad");
+      pendingRestore = data;
+      const n = Object.keys(data.cards).length;
+      msg.innerHTML = `This backup has ${n} started cards${data.exported ? ` (from ${data.exported.slice(0, 10)})` : ""}. It replaces your current progress. <button type="button" class="danger" id="confirm-restore">Restore it</button>`;
+      document.getElementById("confirm-restore").onclick = () => {
+        store = { ...DEFAULT_STORE(), ...pendingRestore,
+          settings: { ...DEFAULT_STORE().settings, ...(pendingRestore.settings || {}) },
+          daily: { ...DEFAULT_STORE().daily, ...(pendingRestore.daily || {}) } };
+        delete store.exported;
+        pendingRestore = null;
+        save(); applySettings(); renderStoreStatus(); updateBanner(); startSession();
+        msg.textContent = "Progress restored.";
+      };
+    }catch(err){
+      msg.textContent = "That file isn't a Sprechtrainer backup.";
+    }
+  };
+  reader.readAsText(f);
+}
+
+/* ==================== WORDS LIST ==================== */
+function renderWords(){
+  rollDay();
+  const states = store.cards;
+  const started = CARDS.filter(c => states[c.id]);
+  const dueNow = started.filter(c => states[c.id].due <= today).length;
+  const mature = started.filter(c => states[c.id].iv >= 21).length;
+  document.getElementById("wsum").innerHTML =
+    `<span><b>${started.length}</b>/${CARDS.length} started</span><span><b>${dueNow}</b> due</span><span><b>${mature}</b> well known</span>`;
+  const list = document.getElementById("wlist");
+  list.innerHTML = "";
+  GROUPS.forEach(g => {
+    const h = document.createElement("h2"); h.className = "group-h"; h.textContent = g;
+    const box = document.createElement("div"); box.className = "rows";
+    CARDS.filter(c => c.group === g).forEach(c => {
+      const s = states[c.id];
+      let pill;
+      if (!s) pill = `<span class="pill new">New</span>`;
+      else if (s.iv === 0) pill = `<span class="pill learn">Learning</span>`;
+      else if (s.due <= today) pill = `<span class="pill due">Due</span>`;
+      else { const d = s.due - today; pill = `<span class="pill later">${d === 1 ? "Tomorrow" : d < 30 ? d + " days" : Math.round(d / 30) + " mo"}</span>`; }
+      const r = document.createElement("button");
+      r.type = "button"; r.className = "row";
+      r.innerHTML = `<span><span class="de" lang="de">${c.de}</span><span class="en">${c.en}</span></span>${pill}`;
+      r.setAttribute("aria-label", `${c.de}, ${c.en}. Tap to hear it.`);
+      r.onclick = () => speakModel(c.de);
+      box.appendChild(r);
+    });
+    list.append(h, box);
+  });
+}
+
+/* ==================== SETTINGS ==================== */
+function applySettings(){
+  document.getElementById("new-per-day").value = String(store.settings.newPerDay);
+  document.getElementById("autoplay").checked = !!store.settings.autoplay;
+  document.getElementById("spd-normal").setAttribute("aria-pressed", String(!store.settings.slow));
+  document.getElementById("spd-slow").setAttribute("aria-pressed", String(!!store.settings.slow));
+}
+
+/* ==================== WIRING ==================== */
+const recBtn = document.getElementById("rec");
+const playMeBtn = document.getElementById("play-me");
+const playModelBtn = document.getElementById("play-model");
+const playCompareBtn = document.getElementById("play-compare");
+const nextBtn = document.getElementById("next");
+const rateBtns = [...document.querySelectorAll(".rate")];
+function setRecStatus(t, err){
+  const el = document.getElementById("recstatus");
+  el.textContent = t; el.classList.toggle("err", !!err);
+}
+
+recBtn.onclick = () => { if (mediaRec && mediaRec.state === "recording") stopRecording(); else startRecording(); };
+playMeBtn.onclick = () => runCompare(["me"]);
+playModelBtn.onclick = () => runCompare(["model"]);
+playCompareBtn.onclick = () => runCompare(["model", "me", "model"]);
+document.getElementById("listen-first").onclick = () => { unlockPlays(); runCompare(["model"]); };
+rateBtns.forEach(b => b.onclick = () => rate(+b.dataset.r));
+nextBtn.onclick = commit;
+document.getElementById("more-new").onclick = () => { store.daily.extra += 10; save(); startSession(); };
+document.getElementById("banner-backup").onclick = doBackup;
+document.getElementById("do-backup").onclick = doBackup;
+document.getElementById("do-restore").onclick = () => document.getElementById("restore-file").click();
+document.getElementById("restore-file").onchange = onRestoreFile;
+document.getElementById("new-per-day").onchange = e => {
+  store.settings.newPerDay = +e.target.value; save();
+  if (cur && cur.rating === 0 && !cur.recorded) startSession();
+};
+document.getElementById("autoplay").onchange = e => { store.settings.autoplay = e.target.checked; save(); };
+document.getElementById("spd-normal").onclick = () => { store.settings.slow = false; save(); applySettings(); };
+document.getElementById("spd-slow").onclick = () => { store.settings.slow = true; save(); applySettings(); };
+document.getElementById("voice-test").onclick = () => speakModel("Guten Tag! Wie geht's?");
+const resetBtn = document.getElementById("reset");
+let resetArmed = false;
+resetBtn.onclick = () => {
+  if (!resetArmed){
+    resetArmed = true; resetBtn.textContent = "Tap again to erase all progress";
+    setTimeout(() => { resetArmed = false; resetBtn.textContent = "Reset all progress"; }, 3500);
+    return;
+  }
+  const keep = store.settings;
+  store = DEFAULT_STORE(); store.settings = keep;
+  save(); resetArmed = false; resetBtn.textContent = "Reset all progress";
+  renderStoreStatus(); updateBanner(); startSession();
+};
+
+document.addEventListener("keydown", e => {
+  if (e.target && /INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
+  if (document.getElementById("view-study").hidden || !cur) return;
+  const k = e.key.toLowerCase();
+  if (k === "r"){ e.preventDefault(); recBtn.click(); }
+  else if (k === "m" && !playMeBtn.disabled) playMeBtn.click();
+  else if (k === "o" && !playModelBtn.disabled) playModelBtn.click();
+  else if (k === "c" && !playCompareBtn.disabled) playCompareBtn.click();
+  else if (/^[1-5]$/.test(k)) rate(+k);
+  else if (k === "enter" && !nextBtn.disabled && e.target === document.body){ e.preventDefault(); commit(); }
+});
+
+/* tabs (hash routing) */
+const VIEWS = ["study", "words", "settings"];
+function show(view){
+  if (!VIEWS.includes(view)) view = "study";
+  VIEWS.forEach(v => {
+    document.getElementById("view-" + v).hidden = v !== view;
+    document.getElementById("tab-" + v).setAttribute("aria-selected", String(v === view));
+  });
+  if (view !== "study"){ abortRecording(); stopPlayback(); }
+  if (view === "words") renderWords();
+  if (view === "settings"){ pickVoice(); renderStoreStatus(); }
+}
+document.querySelectorAll("nav.tabs button").forEach(b => {
+  b.onclick = () => { const v = b.dataset.view; show(v); try{ history.replaceState(null, "", "#" + v); }catch(e){} window.scrollTo(0, 0); };
+});
+window.addEventListener("hashchange", () => show(location.hash.slice(1)));
+
+/* release the mic and refresh the day when the app goes to the background / comes back */
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden){ abortRecording(); stopPlayback(); }
+  else if (dayNum(Date.now()) !== today && (!cur || (!cur.rating && !cur.recorded))) startSession();
+});
+
+load();
+applySettings();
+updateBanner();
+startSession();
+show(location.hash.slice(1));
+if (hasProgress()) askPersist();
+</script>
+</body>
+</html>
