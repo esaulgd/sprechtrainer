@@ -1,0 +1,28 @@
+# Counts which cards have native-speaker recordings on German Wiktionary; commits a report to qa/.
+name: Check native recordings
+
+on:
+  push:
+    branches: [main]
+    paths: ["tools/check_native.py", ".github/workflows/check-native.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Look up recordings
+        run: python3 tools/check_native.py
+      - name: Commit report
+        run: |
+          git add qa
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Native recordings report"
+          git pull --rebase -q origin main
+          git push
