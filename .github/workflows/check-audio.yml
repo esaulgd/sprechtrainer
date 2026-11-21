@@ -1,0 +1,35 @@
+# Scores every model audio file with Azure pronunciation assessment and commits a report to qa/.
+name: Check model audio
+
+on:
+  push:
+    branches: [main]
+    paths: ["tools/check_audio.py", ".github/workflows/check-audio.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Score model audio
+        env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: japaneast
+        run: python3 tools/check_audio.py
+
+      - name: Commit report
+        run: |
+          git add qa
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Model audio check report"
+          git push
