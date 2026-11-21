@@ -14,7 +14,7 @@ within 15 points of what Azure's own model voice scores on that word.
 Usage: AZURE_SPEECH_KEY=... AZURE_SPEECH_REGION=japaneast python3 tools/fetch_native.py
 Writes audio/native/*.mp3, audio/native/manifest.json and qa/native-selection.md.
 """
-import hashlib, json, os, re, subprocess, sys, time, urllib.error, urllib.parse, urllib.request
+import hashlib, json, os, re, subprocess, sys, time, urllib.error, urllib.parse, urllib.request, zipfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import check_audio  # noqa: E402  (to_wav16k, assess, summarize)
@@ -100,6 +100,10 @@ def duration(mp3):
     return float(out or 0)
 
 STATE = os.path.join(ROOT, "qa", "native-state.json")
+# Wikimedia rate-limits downloads from cloud servers, so the audio can come from a zip that was
+# downloaded on a home connection and uploaded to the repo (files named as on Commons).
+RAW_PATH = os.environ.get("RAW_ZIP", "")
+RAW = zipfile.ZipFile(os.path.join(ROOT, RAW_PATH)) if RAW_PATH and os.path.exists(os.path.join(ROOT, RAW_PATH)) else None
 
 def process_card(c, info, base, key, region):
     """Score this card's candidates; return (manifest entry or None, report rows)."""
@@ -120,7 +124,10 @@ def process_card(c, info, base, key, region):
         if not meta:
             row["result"] = "not on Commons"; scored.append(row); continue
         try:
-            raw = download(meta["url"])
+            raw = RAW.read(name) if RAW and name in RAW.namelist() else None
+            if raw is None:
+                if RAW: row["result"] = "not in uploaded zip"; scored.append(row); continue
+                raw = download(meta["url"])
             mp3 = to_mp3(raw, name); log(f"converted {name}: {len(mp3)} bytes")
             dur = duration(mp3); log(f"duration {dur:.2f}s")
             if not 0.2 <= dur <= 6:
