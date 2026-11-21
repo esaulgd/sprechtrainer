@@ -320,7 +320,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
    Compiled to roughly follow Duolingo German Section 1 (units 1–4) and the
    free Memrise German lessons up to "Saying How Long You're Staying".
    The German text is the card's id: fixing a typo resets that card. */
-const APP_VERSION = "0.4";
+const APP_VERSION = "0.5";
 
 const VOCAB_RAW = `Café|hallo|hello
 Café|tschüss|bye
@@ -677,6 +677,7 @@ const hasProgress = () => Object.keys(store.cards).length > 0;
 /* ==================== SPEECH (model voice) ==================== */
 const synth = window.speechSynthesis;
 let voice = null;
+let modelFiles = {}, modelVoice = "";
 function pickVoice(){
   if (!synth) return;
   const de = synth.getVoices().filter(v => /^de([-_]|$)/i.test(v.lang));
@@ -684,10 +685,48 @@ function pickVoice(){
   de.sort((a, b) => score(b) - score(a));
   voice = de[0] || null;
   const el = document.getElementById("voice-name");
-  if (el) el.textContent = voice ? voice.name : (synth.getVoices().length ? "No German voice installed. Add one in your phone's settings." : "Looking for a voice…");
+  if (!el) return;
+  if (modelVoice) el.textContent = `${modelVoice} (recorded, ${Object.keys(modelFiles).length} cards)`;
+  else el.textContent = voice ? `${voice.name} (device voice)` : (synth.getVoices().length ? "No German voice installed. Add one in your phone's settings." : "Looking for a voice…");
 }
 if (synth){ pickVoice(); synth.onvoiceschanged = pickVoice; }
+/* Recorded model voice (Azure neural TTS files in audio/). Falls back to the device voice
+   for any text without a file, or when the files can't be loaded. */
+const modelEl = new Audio();   // one element, reused, so iOS keeps it unlocked after the first tap
+modelEl.preload = "auto";
+async function loadModelAudio(){
+  try{
+    const res = await fetch("audio/manifest.json", { cache: "no-cache" });
+    if (!res.ok) return;
+    const m = await res.json();
+    modelFiles = m.files || {};
+    modelVoice = (m.voice || "").replace(/^de-DE-|Neural$/g, "");
+  }catch(e){}
+  pickVoice();
+  if (cur) preloadModel(cur.card.de);
+}
+function preloadModel(text){
+  const f = modelFiles[text];
+  if (f && !modelEl.src.endsWith("audio/" + f)){ modelEl.src = "audio/" + f; try{ modelEl.load(); }catch(e){} }
+}
+function playModelFile(file){
+  return new Promise(resolve => {
+    try{
+      if (!modelEl.src.endsWith("audio/" + file)) modelEl.src = "audio/" + file;
+      modelEl.currentTime = 0;
+      const rate = store.settings.slow ? 0.7 : 1;
+      modelEl.playbackRate = rate;
+      modelEl.preservesPitch = true; modelEl.webkitPreservesPitch = true;
+      let done = false;
+      const finish = () => { if (!done){ done = true; resolve(); } };
+      modelEl.onended = finish; modelEl.onerror = finish;
+      const p = modelEl.play();
+      if (p && p.catch) p.catch(finish);
+    }catch(e){ resolve(); }
+  });
+}
 function speakModel(text){
+  if (modelFiles[text]) return playModelFile(modelFiles[text]);
   return new Promise(resolve => {
     if (!synth){ resolve(); return; }
     try{
@@ -824,6 +863,7 @@ function stopPlayback(){
   playId++;
   try{ synth && synth.cancel(); }catch(e){}
   if (myAudio){ try{ myAudio.pause(); myAudio.currentTime = 0; }catch(e){} }
+  try{ modelEl.pause(); }catch(e){}
   document.querySelectorAll(".pbtn.playing").forEach(b => b.classList.remove("playing"));
 }
 function playMe(){
@@ -892,6 +932,7 @@ function showNext(){
   const item = queue[0];
   const card = CARDS.find(c => c.id === item.id);
   cur = { item, card, rating: 0, recorded: 0, revealed: false };
+  preloadModel(card.de);
   document.getElementById("c-group").textContent = card.group;
   document.getElementById("c-badge").textContent = item.isNew ? "New" : (item.failed ? "Again" : "Review");
   const p = document.getElementById("prompt");
@@ -1141,7 +1182,7 @@ document.getElementById("autoplay").onchange = e => { store.settings.autoplay = 
 document.getElementById("trim").onchange = e => { store.settings.trim = e.target.checked; save(); };
 document.getElementById("spd-normal").onclick = () => { store.settings.slow = false; save(); applySettings(); };
 document.getElementById("spd-slow").onclick = () => { store.settings.slow = true; save(); applySettings(); };
-document.getElementById("voice-test").onclick = () => speakModel("Guten Tag! Wie geht's?");
+document.getElementById("voice-test").onclick = () => speakModel("Wie geht's?");
 const resetBtn = document.getElementById("reset");
 let resetArmed = false;
 resetBtn.onclick = () => {
@@ -1224,6 +1265,7 @@ document.getElementById("ver-foot").textContent = APP_VERSION;
 load();
 applySettings();
 checkForUpdate();
+loadModelAudio();
 updateBanner();
 startSession();
 show(location.hash.slice(1));
