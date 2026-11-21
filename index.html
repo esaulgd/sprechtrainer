@@ -102,6 +102,29 @@ section.view{padding:6px 0 40px}
 .pbtn.playing{outline:3px solid var(--accent);outline-offset:1px}
 .listenfirst{display:block;margin:10px auto 0;border:0;background:none;color:var(--muted);font-size:13px;text-decoration:underline;cursor:pointer}
 
+.score{margin-top:16px;border:1px solid var(--line);border-radius:14px;padding:12px;background:var(--bg)}
+.scoremsg{margin:0;font-size:14px;color:var(--muted);text-align:center}
+.scoremsg.err{color:var(--warn);font-weight:600}
+.shead{display:flex;align-items:center;gap:14px}
+.sbig{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;min-width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:3px solid var(--line);font-variant-numeric:tabular-nums}
+.sbig.hi{border-color:var(--r5);color:var(--r5)} .sbig.mid{border-color:var(--r3);color:var(--r3)} .sbig.lo{border-color:var(--r1);color:var(--r1)}
+.sstats{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.sstats b{color:var(--ink);font-size:16px;margin-right:4px}
+.score .words{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.wchip{display:inline-flex;align-items:center;gap:6px;border-radius:10px;padding:4px 9px;background:var(--surface);border:2px solid var(--line);font-size:16px}
+.wchip.hi{border-color:var(--r5)} .wchip.mid{border-color:var(--r3)} .wchip.lo{border-color:var(--r1)}
+.wchip.omit{border-style:dashed;color:var(--muted)} .wchip.omit b{text-decoration:line-through}
+.wsc{font-size:12px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+.wtag{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--warn)}
+.phones{display:inline-flex;align-items:flex-end;gap:2px;height:20px}
+.phones i{display:block;width:4px;border-radius:2px;background:var(--line)}
+.phones i.hi{background:var(--r5)} .phones i.mid{background:var(--r3)} .phones i.lo{background:var(--r1)}
+.snote{font-size:12px;color:var(--muted);margin:10px 0 0}
+.rate.suggested{position:relative}
+.rate.suggested::after{content:"";position:absolute;top:-5px;left:50%;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:var(--accent)}
+.field{display:flex;flex-direction:column;gap:4px;padding:8px 0;border-top:1px solid var(--line)}
+.field label{font-weight:600}
+.field input{font:inherit;font-size:15px;border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--bg);color:var(--ink);width:100%}
 .ratehead{font-size:14px;font-weight:700;color:var(--muted);text-align:center;margin:20px 0 8px}
 .rates{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
 .rate{border:2px solid var(--line);background:var(--surface);border-radius:12px;padding:8px 2px 6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;line-height:1.15}
@@ -227,6 +250,8 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
       </div>
       <button type="button" class="listenfirst" id="listen-first">Can't speak right now? Listen to the model first</button>
 
+      <div class="score" id="score" hidden aria-live="polite"></div>
+
       <p class="ratehead">How close was your pronunciation?</p>
       <div class="rates" id="rates">
         <button type="button" class="rate" data-r="1" aria-pressed="false"><b>1</b><span>Couldn't</span></button>
@@ -302,6 +327,27 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
     </div>
 
     <div class="panel">
+      <h2>Pronunciation scoring</h2>
+      <p class="status">Sends each recording to Microsoft Azure for a score. Recordings aren't stored by the app.</p>
+      <div class="setrow">
+        <label for="score-on">Score my recordings</label>
+        <input type="checkbox" id="score-on">
+      </div>
+      <div class="field">
+        <label for="score-url">Server address</label>
+        <input type="url" id="score-url" placeholder="https://….azurewebsites.net/api/assess" autocomplete="off" autocapitalize="off" spellcheck="false">
+      </div>
+      <div class="field">
+        <label for="score-pass">Passphrase</label>
+        <input type="password" id="score-pass" autocomplete="off" autocapitalize="off" spellcheck="false">
+      </div>
+      <div class="btnrow" style="justify-content:flex-start;margin-top:10px">
+        <button type="button" class="btn ghost" id="score-test">Test connection</button>
+      </div>
+      <p class="msg" id="score-msg" aria-live="polite"></p>
+    </div>
+
+    <div class="panel">
       <h2>Keyboard shortcuts</h2>
       <p class="status" style="margin:0">R record · M play me · O play model · C compare · 1–5 rate · Enter next</p>
     </div>
@@ -320,7 +366,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
    Compiled to roughly follow Duolingo German Section 1 (units 1–4) and the
    free Memrise German lessons up to "Saying How Long You're Staying".
    The German text is the card's id: fixing a typo resets that card. */
-const APP_VERSION = "0.5";
+const APP_VERSION = "0.6";
 
 const VOCAB_RAW = `Café|hallo|hello
 Café|tschüss|bye
@@ -631,6 +677,48 @@ function encodeWav(samples, sampleRate){
   }
   return buf;
 }
+/* Downsample mono PCM (fallback when OfflineAudioContext isn't available).
+   Averages each output sample's source window, which doubles as a crude low-pass filter. */
+function downsample(pcm, srIn, srOut){
+  if (srIn === srOut) return pcm;
+  const ratio = srIn / srOut, n = Math.floor(pcm.length / ratio), out = new Float32Array(n);
+  for (let i = 0; i < n; i++){
+    const a = Math.floor(i * ratio), b = Math.min(pcm.length, Math.floor((i + 1) * ratio));
+    let s = 0; for (let j = a; j < b; j++) s += pcm[j];
+    out[i] = b > a ? s / (b - a) : pcm[a] || 0;
+  }
+  return out;
+}
+
+/* Azure pronunciation assessment → what the app shows.
+   Handles both the flat REST shape and the nested "PronunciationAssessment" shape. */
+function parseAssessment(json){
+  if (!json || json.RecognitionStatus !== "Success") return { ok: false, reason: (json && json.RecognitionStatus) || "NoResult" };
+  const nb = json.NBest && json.NBest[0];
+  if (!nb) return { ok: false, reason: "NoResult" };
+  const pa = nb.PronunciationAssessment || nb;
+  const num = v => (typeof v === "number" ? Math.round(v) : null);
+  const words = (nb.Words || []).map(w => {
+    const p = w.PronunciationAssessment || w;
+    return {
+      word: w.Word,
+      score: num(p.AccuracyScore),
+      error: p.ErrorType || "None",
+      phones: (w.Phonemes || []).map(ph => num((ph.PronunciationAssessment || ph).AccuracyScore)).filter(v => v !== null)
+    };
+  });
+  return {
+    ok: true,
+    overall: num(pa.PronScore ?? pa.PronunciationScore ?? pa.AccuracyScore),
+    accuracy: num(pa.AccuracyScore), fluency: num(pa.FluencyScore), completeness: num(pa.CompletenessScore),
+    heard: nb.Display || nb.Lexical || "",
+    words
+  };
+}
+function suggestRating(score){
+  if (score === null || score === undefined) return 0;
+  return score >= 90 ? 5 : score >= 78 ? 4 : score >= 60 ? 3 : score >= 40 ? 2 : 1;
+}
 /* ==================== END LOGIC ==================== */
 
 /* ==================== STORAGE ==================== */
@@ -639,7 +727,7 @@ const DEFAULT_STORE = () => ({
   app: "sprechtrainer", version: 1,
   cards: {},
   daily: { day: -1, newDone: 0, extra: 0 },
-  settings: { newPerDay: 10, autoplay: true, slow: false, trim: true },
+  settings: { newPerDay: 10, autoplay: true, slow: false, trim: true, score: true, scoreUrl: "", scorePass: "" },
   lastBackup: null
 });
 let store = DEFAULT_STORE();
@@ -779,7 +867,7 @@ async function startRecording(){
     if (!blob.size){ setRecStatus("Nothing was recorded. Try again.", true); return; }
     const forCard = cur;
     setRecStatus("Processing…");
-    prepareRecording(blob).then(({ playable, trimmed, silent }) => {
+    prepareRecording(blob).then(({ playable, trimmed, silent, pcm, sr }) => {
       if (cur !== forCard) return;           // moved on to another card meanwhile
       if (myUrl) URL.revokeObjectURL(myUrl);
       myUrl = URL.createObjectURL(playable);
@@ -790,6 +878,7 @@ async function startRecording(){
       else setRecStatus(`${take}${trimmed ? "Silence trimmed. " : ""}Tap the mic to try again.`);
       unlockPlays();
       if (store.settings.autoplay) runCompare(["me", "model"]);
+      if (scoringOn() && pcm && !silent) scoreTake(pcm, sr, forCard);
     });
   };
   mediaRec.start();
@@ -814,7 +903,7 @@ function getAudioCtx(){
   return audioCtx;
 }
 async function prepareRecording(blob){
-  if (!store.settings.trim) return { playable: blob, trimmed: false, silent: false };
+  if (!store.settings.trim && !scoringOn()) return { playable: blob, trimmed: false, silent: false, pcm: null };
   try{
     const ctx = getAudioCtx();
     if (!ctx) throw new Error("no audio context");
@@ -830,18 +919,98 @@ async function prepareRecording(blob){
       for (let i = 0; i < len; i++) mono[i] += ch[i] / audio.numberOfChannels;
     }
     const b = findSpeechBounds(mono, sr);
-    if (!b) return { playable: blob, trimmed: false, silent: true };
+    if (!b) return { playable: blob, trimmed: false, silent: true, pcm: null };
     const s = Math.floor(b.start * sr), e = Math.ceil(b.end * sr);
     const cut = mono.subarray(s, e);
     // short fades so the cut edges don't click
     const fade = Math.min(Math.floor(sr * 0.015), Math.floor(cut.length / 4));
     const out = new Float32Array(cut);
     for (let i = 0; i < fade; i++){ const g = i / fade; out[i] *= g; out[out.length - 1 - i] *= g; }
+    if (!store.settings.trim) return { playable: blob, trimmed: false, silent: false, pcm: out, sr };
     const trimmed = (len - (e - s)) / sr > 0.1;
-    return { playable: new Blob([encodeWav(out, sr)], { type: "audio/wav" }), trimmed, silent: false };
+    return { playable: new Blob([encodeWav(out, sr)], { type: "audio/wav" }), trimmed, silent: false, pcm: out, sr };
   }catch(err){
-    return { playable: blob, trimmed: false, silent: false };
+    return { playable: blob, trimmed: false, silent: false, pcm: null };
   }
+}
+
+/* ==================== SCORING (Azure pronunciation assessment via the proxy) ==================== */
+const scoringOn = () => !!(store.settings.score && store.settings.scoreUrl && store.settings.scorePass);
+async function to16k(pcm, sr){
+  const OAC = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+  if (OAC && sr !== 16000){
+    try{
+      const frames = Math.ceil(pcm.length * 16000 / sr);
+      const oc = new OAC(1, frames, 16000);
+      const buf = oc.createBuffer(1, pcm.length, sr);
+      buf.getChannelData(0).set(pcm);
+      const src = oc.createBufferSource(); src.buffer = buf; src.connect(oc.destination); src.start();
+      const rendered = await oc.startRendering();
+      return rendered.getChannelData(0);
+    }catch(e){}
+  }
+  return downsample(pcm, sr, 16000);
+}
+async function callScorer(text, wav){
+  const base = store.settings.scoreUrl.trim();
+  const url = base + (base.includes("?") ? "&" : "?") + "text=" + encodeURIComponent(text);
+  const ctl = new AbortController();
+  const t = setTimeout(() => ctl.abort(), 20000);
+  try{
+    const res = await fetch(url, { method: "POST", body: wav, signal: ctl.signal,
+      headers: { "Content-Type": "audio/wav", "x-passphrase": store.settings.scorePass } });
+    let body = null; try{ body = await res.json(); }catch(e){}
+    return { status: res.status, body };
+  }finally{ clearTimeout(t); }
+}
+let scoreSeq = 0;
+async function scoreTake(pcm, sr, forCard){
+  const id = ++scoreSeq;
+  const panel = document.getElementById("score");
+  panel.hidden = false;
+  panel.innerHTML = `<p class="scoremsg">Scoring…</p>`;
+  let result;
+  try{
+    const wav = encodeWav(await to16k(pcm, sr), 16000);
+    const { status, body } = await callScorer(forCard.card.de, wav);
+    if (id !== scoreSeq || cur !== forCard) return;
+    if (status === 401) throw new Error("The scoring passphrase is wrong. Check it in Settings.");
+    if (status !== 200) throw new Error((body && body.error) ? `Scoring failed: ${body.error}.` : `Scoring failed (error ${status}).`);
+    result = parseAssessment(body);
+  }catch(e){
+    if (id !== scoreSeq || cur !== forCard) return;
+    const msg = e.name === "AbortError" ? "Scoring took too long. Try again." :
+                (e instanceof TypeError ? "Couldn't reach the scoring server. Check your connection." : e.message);
+    panel.innerHTML = `<p class="scoremsg err">${msg}</p>`;
+    return;
+  }
+  renderScore(result);
+}
+const scoreClass = v => v === null ? "" : v >= 80 ? "hi" : v >= 60 ? "mid" : "lo";
+function renderScore(r){
+  const panel = document.getElementById("score");
+  rateBtns.forEach(b => b.classList.remove("suggested"));
+  if (!r.ok){
+    const why = { NoMatch: "Azure couldn't make out the words. Try again a bit louder or closer.",
+                  InitialSilenceTimeout: "Azure heard only silence.", BabbleTimeout: "Too much background noise." }[r.reason] || "Azure couldn't score this take.";
+    panel.innerHTML = `<p class="scoremsg err">${why}</p>`;
+    return;
+  }
+  const sug = suggestRating(r.overall);
+  if (sug) rateBtns.forEach(b => b.classList.toggle("suggested", +b.dataset.r === sug));
+  const words = r.words.map(w => {
+    const tag = w.error === "Omission" ? `<span class="wtag">missing</span>` : w.error === "Insertion" ? `<span class="wtag">extra</span>` : "";
+    const bars = w.phones.length ? `<span class="phones" aria-label="Sound scores ${w.phones.join(", ")}">${w.phones.map(p => `<i class="${scoreClass(p)}" style="height:${Math.max(12, p)}%"></i>`).join("")}</span>` : "";
+    return `<span class="wchip ${w.error === "Omission" ? "omit" : scoreClass(w.score)}"><b>${w.word}</b>${w.score !== null && w.error !== "Omission" ? `<span class="wsc">${w.score}</span>` : ""}${tag}${bars}</span>`;
+  }).join("");
+  const stat = (l, v) => v === null ? "" : `<span><b>${v}</b>${l}</span>`;
+  panel.innerHTML = `
+    <div class="shead">
+      <span class="sbig ${scoreClass(r.overall)}">${r.overall ?? "–"}</span>
+      <span class="sstats">${stat("accuracy", r.accuracy)}${stat("fluency", r.fluency)}${stat("complete", r.completeness)}</span>
+    </div>
+    <div class="words">${words}</div>
+    <p class="snote">Bars = each sound in order. Suggested rating: <b>${sug || "–"}</b> (marked below). Your rating decides.</p>`;
 }
 function stopRecording(){
   if (mediaRec && mediaRec.state !== "inactive"){ try{ mediaRec.stop(); }catch(e){} }
@@ -950,6 +1119,9 @@ function showNext(){
   rateBtns.forEach(b => b.setAttribute("aria-pressed", "false"));
   document.getElementById("rubric").textContent = "";
   document.getElementById("after").hidden = true;
+  scoreSeq++;
+  const sp = document.getElementById("score"); sp.hidden = true; sp.innerHTML = "";
+  rateBtns.forEach(b => b.classList.remove("suggested"));
   nextBtn.disabled = true;
 }
 function revealArticle(){
@@ -1048,7 +1220,8 @@ async function doBackup(){
   const msg = document.getElementById("backup-msg");
   const now = new Date();
   const stamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
-  const data = { ...store, exported: now.toISOString() };
+  // the scoring passphrase stays on this device, out of backup files
+  const data = { ...store, settings: { ...store.settings, scorePass: "" }, exported: now.toISOString() };
   const json = JSON.stringify(data, null, 1);
   const name = `sprechtrainer-backup-${stamp}.json`;
   let ok = false;
@@ -1094,8 +1267,10 @@ function onRestoreFile(e){
       const n = Object.keys(data.cards).length;
       msg.innerHTML = `This backup has ${n} started cards${data.exported ? ` (from ${data.exported.slice(0, 10)})` : ""}. It replaces your current progress. <button type="button" class="danger" id="confirm-restore">Restore it</button>`;
       document.getElementById("confirm-restore").onclick = () => {
+        const keepPass = store.settings.scorePass, keepUrl = store.settings.scoreUrl;
         store = { ...DEFAULT_STORE(), ...pendingRestore,
-          settings: { ...DEFAULT_STORE().settings, ...(pendingRestore.settings || {}) },
+          settings: { ...DEFAULT_STORE().settings, ...(pendingRestore.settings || {}),
+                      scorePass: keepPass, scoreUrl: (pendingRestore.settings && pendingRestore.settings.scoreUrl) || keepUrl },
           daily: { ...DEFAULT_STORE().daily, ...(pendingRestore.daily || {}) } };
         delete store.exported;
         pendingRestore = null;
@@ -1146,6 +1321,9 @@ function applySettings(){
   document.getElementById("new-per-day").value = String(store.settings.newPerDay);
   document.getElementById("autoplay").checked = !!store.settings.autoplay;
   document.getElementById("trim").checked = !!store.settings.trim;
+  document.getElementById("score-on").checked = !!store.settings.score;
+  document.getElementById("score-url").value = store.settings.scoreUrl || "";
+  document.getElementById("score-pass").value = store.settings.scorePass || "";
   document.getElementById("spd-normal").setAttribute("aria-pressed", String(!store.settings.slow));
   document.getElementById("spd-slow").setAttribute("aria-pressed", String(!!store.settings.slow));
 }
@@ -1180,6 +1358,27 @@ document.getElementById("new-per-day").onchange = e => {
 };
 document.getElementById("autoplay").onchange = e => { store.settings.autoplay = e.target.checked; save(); };
 document.getElementById("trim").onchange = e => { store.settings.trim = e.target.checked; save(); };
+document.getElementById("score-on").onchange = e => { store.settings.score = e.target.checked; save(); };
+document.getElementById("score-url").onchange = e => { store.settings.scoreUrl = e.target.value.trim(); save(); };
+document.getElementById("score-pass").onchange = e => { store.settings.scorePass = e.target.value; save(); };
+document.getElementById("score-test").onclick = async () => {
+  const msg = document.getElementById("score-msg");
+  store.settings.scoreUrl = document.getElementById("score-url").value.trim();
+  store.settings.scorePass = document.getElementById("score-pass").value;
+  save();
+  if (!store.settings.scoreUrl || !store.settings.scorePass){ msg.textContent = "Enter the server address and the passphrase first."; return; }
+  msg.textContent = "Testing…";
+  try{
+    // half a second of near-silence: Azure answers without scoring anything
+    const quiet = new Float32Array(8000).map(() => (Math.random() - 0.5) * 0.0005);
+    const { status, body } = await callScorer("Hallo", encodeWav(quiet, 16000));
+    if (status === 200 && body && body.RecognitionStatus) msg.innerHTML = `<span style="color:var(--good);font-weight:700">Connected.</span> Scoring is ready.`;
+    else if (status === 401) msg.textContent = "The server answered, but the passphrase is wrong.";
+    else msg.textContent = `The server answered with error ${status}${body && body.error ? `: ${body.error}` : ""}.`;
+  }catch(e){
+    msg.textContent = e.name === "AbortError" ? "The server took too long to answer." : "Couldn't reach the server. Check the address.";
+  }
+};
 document.getElementById("spd-normal").onclick = () => { store.settings.slow = false; save(); applySettings(); };
 document.getElementById("spd-slow").onclick = () => { store.settings.slow = true; save(); applySettings(); };
 document.getElementById("voice-test").onclick = () => speakModel("Wie geht's?");
