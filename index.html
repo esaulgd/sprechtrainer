@@ -383,7 +383,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
    Compiled to roughly follow Duolingo German Section 1 (units 1–4) and the
    free Memrise German lessons up to "Saying How Long You're Staying".
    The German text is the card's id: fixing a typo resets that card. */
-const APP_VERSION = "0.8";
+const APP_VERSION = "0.9";
 
 const VOCAB_RAW = `Café|hallo|hello
 Café|tschüss|bye
@@ -808,11 +808,11 @@ async function loadModelAudio(){
     modelFiles = m.files || {};
     modelVoice = (m.voice || "").replace(/^de-DE-|Neural$/g, "");
   }catch(e){}
-  loadScoreBaseline();
   try{
     const r2 = await fetch("audio/native/manifest.json", { cache: "no-cache" });
     if (r2.ok) nativeCards = (await r2.json()).cards || {};
   }catch(e){}
+  await loadScoreBaseline();
   renderCredits();
   if (cur){
     const unlocked = document.getElementById("listen-first").hidden;   // plays were already unlocked for this card
@@ -824,7 +824,7 @@ async function loadModelAudio(){
 }
 /* How well Azure's scorer rated its own model voice, per card and word (qa/model-audio-report.json).
    Words where even the model scores low are ones the scorer handles badly. */
-let baseline = {};
+let baseline = {}, azureWeak = {};
 const UNRELIABLE_FLAG = 60, UNRELIABLE_NOTE = 80;
 const normWord = w => (w || "").toLowerCase().replace(/[^a-zäöüßáéíóú']/g, "");
 async function loadScoreBaseline(){
@@ -837,6 +837,13 @@ async function loadScoreBaseline(){
       const words = {};
       for (const w of r.words || []) if (typeof w.score === "number") words[normWord(w.word)] = Math.round(w.score);
       baseline[r.text] = words;
+      azureWeak[r.text] = Object.values(words).some(sc => sc < UNRELIABLE_FLAG);
+      // A native recording that scores well shows the scorer handles the word fine:
+      // the low score came from Azure's voice, so the word stops counting as unreliable.
+      const n = nativeCards[r.text];
+      const ns = n && Math.max(...["german", "swiss", "austrian"].filter(k => n[k]).map(k => n[k].score || 0));
+      if (ns) for (const w of n.word.split(/\s+/))
+        if (words[normWord(w)] !== undefined) words[normWord(w)] = Math.max(words[normWord(w)], ns);
     }
     if (cur) updateCardFlag();
   }catch(e){}
@@ -852,8 +859,8 @@ function updateCardFlag(){
   if (weak.length){
     const f = document.createElement("span");
     f.className = "flag";
-    f.textContent = "⚑ unreliable score";
-    f.title = "Azure's scorer rates even the model voice low on: " + weak.map(([w, s]) => `${w} (${s})`).join(", ");
+    f.textContent = "⚑ trust your ear";
+    f.title = "Azure rates its own model audio low on: " + weak.map(([w, s]) => `${w} (${s})`).join(", ") + ". Either the voice or the score is off here.";
     badge.appendChild(f);
   }
 }
@@ -1095,7 +1102,7 @@ function renderScore(r){
       <span class="sstats">${stat("accuracy", r.accuracy)}${stat("fluency", r.fluency)}${stat("complete", r.completeness)}</span>
     </div>
     <div class="words">${words}</div>
-    ${doubtful.length ? `<p class="scorewarn">* Azure's scorer is unreliable here: even the model voice only gets ${doubtful.map(w => `${w.word} ${base[normWord(w.word)]}`).join(", ")}. Trust your ear, and treat the suggested rating as too low.</p>` : ""}
+    ${doubtful.length ? `<p class="scorewarn">* Azure's score is doubtful here: even its own model voice only gets ${doubtful.map(w => `${w.word} ${base[normWord(w.word)]}`).join(", ")}. Trust your ear, and treat the suggested rating as too low.</p>` : ""}
     <p class="snote">Bars = each sound in order. Suggested rating: <b>${sug || "–"}</b> (marked below). Your rating decides.</p>`;
 }
 function stopRecording(){
@@ -1181,6 +1188,10 @@ function renderSources(){
     b.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>${SOURCE_LABEL[id]}` +
                   (n && nativeCards[cur.card.de].word !== cur.card.de ? ` <small>${nativeCards[cur.card.de].word}</small>` : "");
     b.title = n ? `Native speaker (${n.artist}, ${n.license}), word only` : id === "azure" ? "Azure neural voice" : "Your phone's built-in voice";
+    if (id === "azure" && azureWeak[cur.card.de] && autoSource(cur.card) !== "azure"){
+      b.innerHTML += ` <small style="color:var(--warn)">doubtful</small>`;
+      b.title = "Azure's voice scored low on this card, while the native speaker scored high: trust the native recording";
+    }
     b.onclick = () => runSeq([id]);
     box.appendChild(b);
   }
