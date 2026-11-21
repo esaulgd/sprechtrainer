@@ -6,8 +6,8 @@
 |---|---|---|---|
 | der Dienstag | 59 | Der Dienstag. | Dienstag 7 Mispronunciation [7, 7, 7, 7, 7, 7, 7] |
 | der Donnerstag | 64 | Der Donnerstag. | Donnerstag 46 Mispronunciation [46, 46, 46, 46, 46, 46, 46, 46] |
-| das Mädchen | 64 | Das Mädchen. | Mädchen 46 Mispronunciation [100, 100, 100, 100, 100, 38] |
 | der Wein | 65 | Der Wein. | Wein 58 Mispronunciation [100, 100, 48] |
+| das Mädchen | 65 | Das Mädchen. | Mädchen 58 Mispronunciation [100, 100, 100, 100, 100, 48] |
 | der Bahnhof | 65 | Der Bahnhof. | Bahnhof 59 Mispronunciation [59, 59, 59, 59, 59, 59] |
 | die Frau | 66 | Die Frau. | Frau 57 Mispronunciation [57, 57, 57] |
 | Woher kommst du? | 75 | Woher kommst du? | Woher 37 Mispronunciation [37, 37, 37, 37, 37] |

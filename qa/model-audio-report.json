@@ -73,40 +73,6 @@
    ]
   },
   {
-   "text": "das Mädchen",
-   "status": "Success",
-   "heard": "Das Mädchen.",
-   "overall": 64.0,
-   "accuracy": 70.0,
-   "fluency": 100.0,
-   "completeness": 50.0,
-   "words": [
-    {
-     "word": "das",
-     "score": 94.0,
-     "error": "None",
-     "phones": [
-      75,
-      81,
-      100
-     ]
-    },
-    {
-     "word": "Mädchen",
-     "score": 46.0,
-     "error": "Mispronunciation",
-     "phones": [
-      100,
-      100,
-      100,
-      100,
-      100,
-      38
-     ]
-    }
-   ]
-  },
-  {
    "text": "der Wein",
    "status": "Success",
    "heard": "Der Wein.",
@@ -130,6 +96,40 @@
      "score": 58.0,
      "error": "Mispronunciation",
      "phones": [
+      100,
+      100,
+      48
+     ]
+    }
+   ]
+  },
+  {
+   "text": "das Mädchen",
+   "status": "Success",
+   "heard": "Das Mädchen.",
+   "overall": 65.2,
+   "accuracy": 76.0,
+   "fluency": 100.0,
+   "completeness": 50.0,
+   "words": [
+    {
+     "word": "das",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      83,
+      95,
+      100
+     ]
+    },
+    {
+     "word": "Mädchen",
+     "score": 58.0,
+     "error": "Mispronunciation",
+     "phones": [
+      100,
+      100,
+      100,
       100,
       100,
       48
