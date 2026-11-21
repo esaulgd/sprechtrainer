@@ -1,0 +1,1038 @@
+{
+ "cards": {
+  "hallo": {
+   "word": "hallo",
+   "german": {
+    "file": "native/2d1f7c921ba1.mp3",
+    "source": "De-hallo.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-hallo.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 99
+   }
+  },
+  "danke": {
+   "word": "danke",
+   "german": {
+    "file": "native/c4e06d132ed5.mp3",
+    "source": "De-Danke.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Danke.ogg",
+    "artist": "unknown",
+    "license": "CC BY-SA 3.0",
+    "score": 99
+   }
+  },
+  "bitte": {
+   "word": "bitte",
+   "german": {
+    "file": "native/ddaf13dc93da.mp3",
+    "source": "De-bitte.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-bitte.ogg",
+    "artist": "Bleibein",
+    "license": "CC BY-SA 3.0",
+    "score": 95
+   }
+  },
+  "ja": {
+   "word": "ja",
+   "german": {
+    "file": "native/c8291e6017fb.mp3",
+    "source": "De-ja.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-ja.ogg",
+    "artist": "MiER",
+    "license": "CC BY-SA 3.0",
+    "score": 99
+   }
+  },
+  "nein": {
+   "word": "nein",
+   "german": {
+    "file": "native/fdb5e0784a46.mp3",
+    "source": "De-nein.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-nein.ogg",
+    "artist": "Lars Engelmann",
+    "license": "CC BY-SA 3.0",
+    "score": 99
+   }
+  },
+  "und": {
+   "word": "und",
+   "german": {
+    "file": "native/04c159a962cb.mp3",
+    "source": "De-und.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-und.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 98
+   }
+  },
+  "oder": {
+   "word": "oder",
+   "german": {
+    "file": "native/3df56a229622.mp3",
+    "source": "De-oder.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-oder.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "der Kaffee": {
+   "word": "Kaffee",
+   "german": {
+    "file": "native/2df1af3a6cf3.mp3",
+    "source": "De-Kaffee2.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Kaffee2.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "der Tee": {
+   "word": "Tee",
+   "german": {
+    "file": "native/70ea0df41e5d.mp3",
+    "source": "De-Tee.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Tee.ogg",
+    "artist": "Kampy",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "die Milch": {
+   "word": "Milch",
+   "german": {
+    "file": "native/149c34591521.mp3",
+    "source": "De-Milch2.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Milch2.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "das Wasser": {
+   "word": "Wasser",
+   "german": {
+    "file": "native/8f4b4e6539d3.mp3",
+    "source": "De-Wasser.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Wasser.ogg",
+    "artist": "Tosca",
+    "license": "CC BY-SA 3.0",
+    "score": 99
+   }
+  },
+  "das Brot": {
+   "word": "Brot",
+   "german": {
+    "file": "native/7198f2a1ee20.mp3",
+    "source": "De-Brot2.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Brot2.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 99
+   }
+  },
+  "der Wein": {
+   "word": "Wein",
+   "german": {
+    "file": "native/5bed3d302aab.mp3",
+    "source": "De-Wein.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Wein.ogg",
+    "artist": "Pill",
+    "license": "CC BY-SA 3.0",
+    "score": 99
+   }
+  },
+  "das Bier": {
+   "word": "Bier",
+   "german": {
+    "file": "native/98fd26fd2d94.mp3",
+    "source": "De-Bier.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Bier.ogg",
+    "artist": "unknown",
+    "license": "Public domain",
+    "score": 100
+   }
+  },
+  "der Saft": {
+   "word": "Saft",
+   "german": {
+    "file": "native/c3875c93ea67.mp3",
+    "source": "De-Saft.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Saft.ogg",
+    "artist": "Kampy",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "der Zucker": {
+   "word": "Zucker",
+   "german": {
+    "file": "native/ec469d82f1fb.mp3",
+    "source": "De-Zucker.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Zucker.ogg",
+    "artist": "Kampy",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "der Apfel": {
+   "word": "Apfel",
+   "german": {
+    "file": "native/7d50411a4230.mp3",
+    "source": "De-Apfel.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Apfel.ogg",
+    "artist": "Kampy",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "das Ei": {
+   "word": "Ei",
+   "german": {
+    "file": "native/aacff1b23383.mp3",
+    "source": "De-Ei.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Ei.ogg",
+    "artist": "User:Tosca",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "die Wurst": {
+   "word": "Wurst",
+   "german": {
+    "file": "native/37c993fc2f48.mp3",
+    "source": "De-Wurst.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Wurst.ogg",
+    "artist": "Kampy",
+    "license": "CC BY-SA 3.0",
+    "score": 99
+   }
+  },
+  "der Salat": {
+   "word": "Salat",
+   "german": {
+    "file": "native/1fcd60d63c67.mp3",
+    "source": "De-Salat.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Salat.ogg",
+    "artist": "Kampy",
+    "license": "CC BY-SA 3.0",
+    "score": 99
+   }
+  },
+  "das Schnitzel": {
+   "word": "Schnitzel",
+   "german": {
+    "file": "native/350b6e60eba9.mp3",
+    "source": "De-Schnitzel.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Schnitzel.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "der Keks": {
+   "word": "Keks",
+   "german": {
+    "file": "native/0ab7696ecce1.mp3",
+    "source": "De-Keks.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Keks.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "gut": {
+   "word": "gut",
+   "german": {
+    "file": "native/eb9bb748994e.mp3",
+    "source": "De-gut.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-gut.ogg",
+    "artist": "Kampy",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "sehr gut": {
+   "word": "sehr gut",
+   "german": {
+    "file": "native/d13918edc8f9.mp3",
+    "source": "De-sehr gut.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-sehr_gut.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 96
+   }
+  },
+  "auch": {
+   "word": "auch",
+   "german": {
+    "file": "native/bc6db30a6a03.mp3",
+    "source": "De-auch.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-auch.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "der Mann": {
+   "word": "Mann",
+   "german": {
+    "file": "native/e50a9c7fb8bb.mp3",
+    "source": "De-Mann.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Mann.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 99
+   }
+  },
+  "die Frau": {
+   "word": "Frau",
+   "german": {
+    "file": "native/4585938227c8.mp3",
+    "source": "De-Frau.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Frau.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "der Junge": {
+   "word": "Junge",
+   "german": {
+    "file": "native/f6069de639ed.mp3",
+    "source": "De-Junge.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Junge.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "das Mädchen": {
+   "word": "Mädchen",
+   "german": {
+    "file": "native/78eea8f7119c.mp3",
+    "source": "De-Mädchen.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-M%C3%A4dchen.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 98
+   }
+  },
+  "das Kind": {
+   "word": "Kind",
+   "german": {
+    "file": "native/afba360bb026.mp3",
+    "source": "De-Kind.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Kind.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 99
+   }
+  },
+  "der Freund": {
+   "word": "Freund",
+   "german": {
+    "file": "native/0f190f0f9044.mp3",
+    "source": "De-Freund.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Freund.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 98
+   }
+  },
+  "die Freundin": {
+   "word": "Freundin",
+   "german": {
+    "file": "native/2cfa4de07c1a.mp3",
+    "source": "De-Freundin.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Freundin.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 95
+   }
+  },
+  "Entschuldigung!": {
+   "word": "Entschuldigung",
+   "german": {
+    "file": "native/ddfc42b752a2.mp3",
+    "source": "De-Entschuldigung.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Entschuldigung.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 99
+   }
+  },
+  "gern": {
+   "word": "gern",
+   "german": {
+    "file": "native/76a77eaed0ad.mp3",
+    "source": "De-gern.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-gern.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "vielleicht": {
+   "word": "vielleicht",
+   "german": {
+    "file": "native/00afa657fcad.mp3",
+    "source": "De-vielleicht.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-vielleicht.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "natürlich": {
+   "word": "natürlich",
+   "german": {
+    "file": "native/bb98bde7ffef.mp3",
+    "source": "De-natürlich.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-nat%C3%BCrlich.ogg",
+    "artist": "User:Tosca",
+    "license": "CC BY-SA 3.0",
+    "score": 99
+   }
+  },
+  "genau": {
+   "word": "genau",
+   "german": {
+    "file": "native/54f8093aa45b.mp3",
+    "source": "De-genau2.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-genau2.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "stimmt": {
+   "word": "stimmt",
+   "german": {
+    "file": "native/cf090d8a5762.mp3",
+    "source": "De-stimmt.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-stimmt.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 98
+   }
+  },
+  "die Familie": {
+   "word": "Familie",
+   "german": {
+    "file": "native/e45939966b21.mp3",
+    "source": "De-Familie.OGG",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Familie.ogg",
+    "artist": "T.Voekler",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "der Vater": {
+   "word": "Vater",
+   "german": {
+    "file": "native/20549e66105d.mp3",
+    "source": "De-Vater.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Vater.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 99
+   }
+  },
+  "die Mutter": {
+   "word": "Mutter",
+   "german": {
+    "file": "native/04c4436a05e4.mp3",
+    "source": "De-Mutter.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Mutter.ogg",
+    "artist": "Kampy",
+    "license": "CC BY-SA 3.0",
+    "score": 99
+   }
+  },
+  "die Eltern": {
+   "word": "Eltern",
+   "german": {
+    "file": "native/0049c2d54058.mp3",
+    "source": "De-Eltern.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Eltern.ogg",
+    "artist": "Kampy",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "der Bruder": {
+   "word": "Bruder",
+   "german": {
+    "file": "native/6b97e24f3e57.mp3",
+    "source": "De-Bruder.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Bruder.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "die Schwester": {
+   "word": "Schwester",
+   "german": {
+    "file": "native/431662037b16.mp3",
+    "source": "De-Schwester.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Schwester.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "der Sohn": {
+   "word": "Sohn",
+   "german": {
+    "file": "native/9da3523d008d.mp3",
+    "source": "De-Sohn.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Sohn.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "die Tochter": {
+   "word": "Tochter",
+   "german": {
+    "file": "native/17152d35c419.mp3",
+    "source": "De-Tochter.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Tochter.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 99
+   }
+  },
+  "der Opa": {
+   "word": "Opa",
+   "german": {
+    "file": "native/3950485d0525.mp3",
+    "source": "De-Opa.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Opa.ogg",
+    "artist": "Dinock90",
+    "license": "CC BY-SA 4.0",
+    "score": 99
+   }
+  },
+  "die Oma": {
+   "word": "Oma",
+   "german": {
+    "file": "native/756b0ee3277e.mp3",
+    "source": "De-Oma.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Oma.ogg",
+    "artist": "Dinock90",
+    "license": "CC BY-SA 4.0",
+    "score": 99
+   }
+  },
+  "wer": {
+   "word": "wer",
+   "german": {
+    "file": "native/053aff17d787.mp3",
+    "source": "De-wer.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-wer.ogg",
+    "artist": "Dinock90",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "was": {
+   "word": "was",
+   "german": {
+    "file": "native/afe1856d54c0.mp3",
+    "source": "De-Was.OGG",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Was.ogg",
+    "artist": "T.Voekler",
+    "license": "CC BY-SA 3.0",
+    "score": 99
+   }
+  },
+  "wo": {
+   "word": "wo",
+   "german": {
+    "file": "native/326d67efa23c.mp3",
+    "source": "De-Wo.OGG",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Wo.ogg",
+    "artist": "T.Voekler",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "wann": {
+   "word": "wann",
+   "german": {
+    "file": "native/234848c3f163.mp3",
+    "source": "De-wann.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-wann.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 96
+   }
+  },
+  "wie": {
+   "word": "wie",
+   "german": {
+    "file": "native/8b923a653122.mp3",
+    "source": "De-wie2.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-wie2.ogg",
+    "artist": "Dinock90",
+    "license": "CC BY-SA 4.0",
+    "score": 99
+   }
+  },
+  "warum": {
+   "word": "warum",
+   "german": {
+    "file": "native/e6d2478e63e4.mp3",
+    "source": "De-Warum.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Warum.ogg",
+    "artist": "T.Voekler",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "wie viel": {
+   "word": "wie viel",
+   "german": {
+    "file": "native/0bbac8c28eb6.mp3",
+    "source": "De-wie viel.oga",
+    "page": "https://commons.wikimedia.org/wiki/File:De-wie_viel.oga",
+    "artist": "Timwi at English Wikipedia",
+    "license": "Public domain",
+    "score": 99
+   }
+  },
+  "Was ist das?": {
+   "word": "Was ist das",
+   "german": {
+    "file": "native/d2f100ca79cd.mp3",
+    "source": "De-Was ist das.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Was_ist_das.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 97
+   }
+  },
+  "eins": {
+   "word": "eins",
+   "german": {
+    "file": "native/b35ae94dff48.mp3",
+    "source": "De-eins.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-eins.ogg",
+    "artist": "unknown",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "zwei": {
+   "word": "zwei",
+   "german": {
+    "file": "native/72940e34cc0f.mp3",
+    "source": "De-zwei.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-zwei.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "drei": {
+   "word": "drei",
+   "german": {
+    "file": "native/c2a4a4188211.mp3",
+    "source": "De-drei.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-drei.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "vier": {
+   "word": "vier",
+   "german": {
+    "file": "native/71f0a76b4e51.mp3",
+    "source": "De-vier.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-vier.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "fünf": {
+   "word": "fünf",
+   "german": {
+    "file": "native/6f5909793e57.mp3",
+    "source": "De-fünf.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-f%C3%BCnf.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "sechs": {
+   "word": "sechs",
+   "german": {
+    "file": "native/e92a1ce828d5.mp3",
+    "source": "De-sechs.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-sechs.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "sieben": {
+   "word": "sieben",
+   "german": {
+    "file": "native/2ea223cf2854.mp3",
+    "source": "De-sieben.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-sieben.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "acht": {
+   "word": "acht",
+   "german": {
+    "file": "native/6ab27a621790.mp3",
+    "source": "De-acht.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-acht.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "neun": {
+   "word": "neun",
+   "german": {
+    "file": "native/e4152317dfbf.mp3",
+    "source": "De-neun.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-neun.ogg",
+    "artist": "joni",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "zehn": {
+   "word": "zehn",
+   "german": {
+    "file": "native/03d36b60c775.mp3",
+    "source": "De-zehn.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-zehn.ogg",
+    "artist": "unknown",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "die Stadt": {
+   "word": "Stadt",
+   "german": {
+    "file": "native/d833b1659f0b.mp3",
+    "source": "De-Stadt2.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Stadt2.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 99
+   }
+  },
+  "die Straße": {
+   "word": "Straße",
+   "german": {
+    "file": "native/d265c6b05fed.mp3",
+    "source": "De-Straße.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Stra%C3%9Fe.ogg",
+    "artist": "Kampy",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "der Bahnhof": {
+   "word": "Bahnhof",
+   "german": {
+    "file": "native/e38de26ecf5a.mp3",
+    "source": "De-Bahnhof.OGG",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Bahnhof.ogg",
+    "artist": "T.Voekler",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "der Flughafen": {
+   "word": "Flughafen",
+   "german": {
+    "file": "native/a60418e8428a.mp3",
+    "source": "De-Flughafen2.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Flughafen2.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 97
+   }
+  },
+  "das Hotel": {
+   "word": "Hotel",
+   "german": {
+    "file": "native/05c4826e9ffa.mp3",
+    "source": "De-Hotel.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Hotel.ogg",
+    "artist": "Kampy",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "der Zug": {
+   "word": "Zug",
+   "german": {
+    "file": "native/71c01ebd0531.mp3",
+    "source": "De-Zug2.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Zug2.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "der Bus": {
+   "word": "Bus",
+   "german": {
+    "file": "native/dbf1427aacd1.mp3",
+    "source": "De-Bus.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Bus.ogg",
+    "artist": "Kampy",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "das Taxi": {
+   "word": "Taxi",
+   "german": {
+    "file": "native/cd977a7b81d7.mp3",
+    "source": "De-Taxi.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Taxi.ogg",
+    "artist": "Pill",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "das Auto": {
+   "word": "Auto",
+   "german": {
+    "file": "native/f4c5d7dec1ca.mp3",
+    "source": "De-Auto.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Auto.ogg",
+    "artist": "Kampy",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "hier": {
+   "word": "hier",
+   "german": {
+    "file": "native/0574bc558106.mp3",
+    "source": "De-hier.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-hier.ogg",
+    "artist": "Dinock90",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "dort": {
+   "word": "dort",
+   "german": {
+    "file": "native/ef911c5cd630.mp3",
+    "source": "De-dort.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-dort.ogg",
+    "artist": "Bleibein",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "links": {
+   "word": "links",
+   "german": {
+    "file": "native/4a42089b098f.mp3",
+    "source": "De-links.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-links.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "rechts": {
+   "word": "rechts",
+   "german": {
+    "file": "native/b04216f07f8d.mp3",
+    "source": "De-rechts.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-rechts.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "geradeaus": {
+   "word": "geradeaus",
+   "german": {
+    "file": "native/4adfdd4e797c.mp3",
+    "source": "De-geradeaus.oga",
+    "page": "https://commons.wikimedia.org/wiki/File:De-geradeaus.oga",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 97
+   }
+  },
+  "der Montag": {
+   "word": "Montag",
+   "german": {
+    "file": "native/a9a1ebbbc0a6.mp3",
+    "source": "De-Montag.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Montag.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "der Dienstag": {
+   "word": "Dienstag",
+   "german": {
+    "file": "native/d74f5ca7afb8.mp3",
+    "source": "De-Dienstag.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Dienstag.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 99
+   }
+  },
+  "der Mittwoch": {
+   "word": "Mittwoch",
+   "german": {
+    "file": "native/21a3d89671dc.mp3",
+    "source": "De-Mittwoch.oga",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Mittwoch.oga",
+    "artist": "Erkan Yilmaz",
+    "license": "GFDL",
+    "score": 100
+   }
+  },
+  "der Donnerstag": {
+   "word": "Donnerstag",
+   "german": {
+    "file": "native/f576465a904f.mp3",
+    "source": "De-Donnerstag.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Donnerstag.ogg",
+    "artist": "Erkan Yilmaz",
+    "license": "GFDL",
+    "score": 100
+   }
+  },
+  "der Freitag": {
+   "word": "Freitag",
+   "german": {
+    "file": "native/35b19c3dcd85.mp3",
+    "source": "De-Freitag.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Freitag.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "der Samstag": {
+   "word": "Samstag",
+   "german": {
+    "file": "native/988a8e1945ad.mp3",
+    "source": "De-Samstag.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Samstag.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "der Sonntag": {
+   "word": "Sonntag",
+   "german": {
+    "file": "native/fdc2a0a7d2ab.mp3",
+    "source": "De-Sonntag2.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Sonntag2.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "heute": {
+   "word": "heute",
+   "german": {
+    "file": "native/724fa302600e.mp3",
+    "source": "De-heute.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-heute.ogg",
+    "artist": "Kampy",
+    "license": "CC BY-SA 3.0",
+    "score": 98
+   }
+  },
+  "morgen": {
+   "word": "morgen",
+   "german": {
+    "file": "native/655a7bb4e3b5.mp3",
+    "source": "De-morgen.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-morgen.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 95
+   }
+  },
+  "gestern": {
+   "word": "gestern",
+   "german": {
+    "file": "native/3729e6faee9b.mp3",
+    "source": "De-gestern.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-gestern.ogg",
+    "artist": "Kampy",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  },
+  "bleiben": {
+   "word": "bleiben",
+   "german": {
+    "file": "native/953154a6b4db.mp3",
+    "source": "De-bleiben2.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-bleiben2.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "fast": {
+   "word": "fast",
+   "german": {
+    "file": "native/8919fe78b623.mp3",
+    "source": "De-fast2.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-fast2.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 99
+   }
+  },
+  "dauern": {
+   "word": "dauern",
+   "german": {
+    "file": "native/10b9848076eb.mp3",
+    "source": "De-dauern.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-dauern.ogg",
+    "artist": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "score": 100
+   }
+  },
+  "die Woche": {
+   "word": "Woche",
+   "german": {
+    "file": "native/1f0df8e7e6d4.mp3",
+    "source": "De-Woche.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:De-Woche.ogg",
+    "artist": "Kampy",
+    "license": "CC BY-SA 3.0",
+    "score": 100
+   }
+  }
+ }
+}
