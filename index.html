@@ -61,6 +61,7 @@ header.top{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1p
 .titlebar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px}
 h1{font-family:var(--display);font-weight:800;font-size:21px;letter-spacing:-.01em;margin:0}
 h1 span{color:var(--accent)}
+h1 .ver{font-family:var(--body);font-weight:600;font-size:12px;color:var(--muted);letter-spacing:0;vertical-align:.35em}
 .counts{display:flex;gap:12px;font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
 .counts .c-due{color:var(--good)} .counts .c-new{color:var(--ink)} .counts .c-again{color:var(--accent)}
 .counts small{font-weight:600;color:var(--muted);margin-left:2px}
@@ -175,7 +176,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
 <header class="top">
   <div class="wrap">
     <div class="titlebar">
-      <h1>Sprech<span>trainer</span></h1>
+      <h1>Sprech<span>trainer</span> <small class="ver" id="ver"></small></h1>
       <div class="counts" aria-label="Cards left today">
         <span class="c-due" title="Reviews due"><span id="n-due">0</span><small>due</small></span>
         <span class="c-new" title="New cards"><span id="n-new">0</span><small>new</small></span>
@@ -193,6 +194,10 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
 <main class="wrap">
   <!-- STUDY -->
   <section class="view" id="view-study">
+    <div class="banner" id="update-banner" hidden>
+      <span id="update-text">A new version is available.</span>
+      <button type="button" id="update-btn">Update</button>
+    </div>
     <div class="banner" id="backup-banner" hidden>
       <span id="backup-banner-text">You haven't backed up your progress yet.</span>
       <button type="button" id="banner-backup">Back up</button>
@@ -302,7 +307,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
     </div>
 
     <p class="foot">
-      Sprechtrainer v0.3 · Recordings are never saved, only your ratings and schedule.<br>
+      Sprechtrainer v<span id="ver-foot"></span> · Recordings are never saved, only your ratings and schedule.<br>
       <a href="https://claude.ai/artifact/RCJDHi47bSRpPk9ifpbs2o">Pronunciation guide</a> ·
       <button type="button" class="danger" id="reset">Reset all progress</button>
     </p>
@@ -315,6 +320,8 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
    Compiled to roughly follow Duolingo German Section 1 (units 1–4) and the
    free Memrise German lessons up to "Saying How Long You're Staying".
    The German text is the card's id: fixing a typo resets that card. */
+const APP_VERSION = "0.4";
+
 const VOCAB_RAW = `Café|hallo|hello
 Café|tschüss|bye
 Café|danke|thanks
@@ -1184,8 +1191,39 @@ document.addEventListener("visibilitychange", () => {
   else if (dayNum(Date.now()) !== today && (!cur || (!cur.rating && !cur.recorded))) startSession();
 });
 
+/* ==================== UPDATES ====================
+   Phones may keep an old copy of the page for a while. Fetch the live page with
+   cache:"reload" (which also refreshes the browser's copy); if its version differs, offer a reload. */
+function newerThan(a, b){
+  const pa = a.split(".").map(Number), pb = b.split(".").map(Number);
+  for (let i = 0; i < Math.max(pa.length, pb.length); i++){
+    const x = pa[i] || 0, y = pb[i] || 0;
+    if (x !== y) return x > y;
+  }
+  return false;
+}
+let lastUpdateCheck = 0;
+async function checkForUpdate(){
+  if (location.protocol !== "https:" || Date.now() - lastUpdateCheck < 60000) return;
+  lastUpdateCheck = Date.now();
+  try{
+    const res = await fetch(location.pathname, { cache: "reload" });
+    if (!res.ok) return;
+    const m = (await res.text()).match(/const APP_VERSION = "([\d.]+)"/);
+    if (m && newerThan(m[1], APP_VERSION)){
+      document.getElementById("update-text").textContent = `Version ${m[1]} is available.`;
+      document.getElementById("update-banner").hidden = false;
+    }
+  }catch(e){}
+}
+document.getElementById("update-btn").onclick = () => location.reload();
+document.addEventListener("visibilitychange", () => { if (!document.hidden) checkForUpdate(); });
+
+document.getElementById("ver").textContent = "v" + APP_VERSION;
+document.getElementById("ver-foot").textContent = APP_VERSION;
 load();
 applySettings();
+checkForUpdate();
 updateBanner();
 startSession();
 show(location.hash.slice(1));
