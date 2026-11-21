@@ -58,21 +58,28 @@ def flagged(r):
                for w in r["words"])
 
 def main():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--dir", default="audio", help="folder with manifest.json and the audio files")
+    ap.add_argument("--out", default="qa/model-audio-report", help="report path without extension")
+    a = ap.parse_args()
     key, region = os.environ.get("AZURE_SPEECH_KEY"), os.environ.get("AZURE_SPEECH_REGION", "japaneast")
     if not key: sys.exit("Set AZURE_SPEECH_KEY.")
-    manifest = json.load(open(os.path.join(ROOT, "audio", "manifest.json"), encoding="utf-8"))
+    adir = os.path.join(ROOT, a.dir)
+    manifest = json.load(open(os.path.join(adir, "manifest.json"), encoding="utf-8"))
     results = []
     for text, f in manifest["files"].items():
         try:
-            res = assess(text, to_wav16k(os.path.join(ROOT, "audio", f)), key, region)
+            res = assess(text, to_wav16k(os.path.join(adir, f)), key, region)
             results.append(summarize(text, res))
         except Exception as e:
             results.append({"text": text, "status": f"error: {e}", "overall": None, "words": []})
         time.sleep(0.4)
     results.sort(key=lambda r: (r["overall"] is not None, r["overall"] or 0))
-    os.makedirs(os.path.join(ROOT, "qa"), exist_ok=True)
+    out = os.path.join(ROOT, a.out)
+    os.makedirs(os.path.dirname(out), exist_ok=True)
     json.dump({"voice": manifest.get("voice"), "results": results},
-              open(os.path.join(ROOT, "qa", "model-audio-report.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+              open(out + ".json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     bad = [r for r in results if flagged(r)]
     scores = [r["overall"] for r in results if r["overall"] is not None]
     lines = [f"# Model audio check ({manifest.get('voice')})", "",
@@ -84,7 +91,7 @@ def main():
                          for w in r["words"] if w["error"] != "None" or (w["score"] or 0) < FLAG_WORD or any(p < FLAG_PHONE for p in w["phones"]))
         ov = r["overall"] if r["overall"] is None else round(r["overall"])
         lines.append(f"| {r['text']} | {ov if ov is not None else r['status']} | {r.get('heard', '')} | {weak} |")
-    open(os.path.join(ROOT, "qa", "model-audio-report.md"), "w", encoding="utf-8").write("\n".join(lines) + "\n")
+    open(out + ".md", "w", encoding="utf-8").write("\n".join(lines) + "\n")
     print("\n".join(lines))
 
 if __name__ == "__main__":

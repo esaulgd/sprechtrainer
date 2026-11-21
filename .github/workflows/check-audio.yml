@@ -4,7 +4,7 @@ name: Check model audio
 on:
   push:
     branches: [main]
-    paths: ["tools/check_audio.py", ".github/workflows/check-audio.yml"]
+    paths: ["tools/check_audio.py", ".github/workflows/check-audio.yml", "qa/candidates/manifest.json"]
   workflow_dispatch:
 
 permissions:
@@ -23,7 +23,12 @@ jobs:
         env:
           AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
           AZURE_SPEECH_REGION: japaneast
-        run: python3 tools/check_audio.py
+        run: |
+          if [ -f qa/candidates/manifest.json ]; then
+            python3 tools/check_audio.py --dir qa/candidates --out qa/candidates-report
+          else
+            python3 tools/check_audio.py
+          fi
 
       - name: Commit report
         run: |
