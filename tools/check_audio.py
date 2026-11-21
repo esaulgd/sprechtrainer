@@ -14,7 +14,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FLAG_OVERALL, FLAG_WORD, FLAG_PHONE = 85, 80, 60
 
 def to_wav16k(path):
-    return subprocess.run(["ffmpeg", "-v", "error", "-i", path, "-ac", "1", "-ar", "16000",
+    return subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-i", path, "-ac", "1", "-ar", "16000",
                            "-sample_fmt", "s16", "-f", "wav", "-"], check=True, capture_output=True).stdout
 
 def to_wav16k_bytes(data):

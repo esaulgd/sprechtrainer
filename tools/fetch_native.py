@@ -24,6 +24,10 @@ OUT = os.path.join(ROOT, "audio", "native")
 COMMONS = "https://commons.wikimedia.org/w/api.php"
 UA = {"User-Agent": "Sprechtrainer/0.8 (personal language-learning app; github.com/esaulgd/sprechtrainer)"}
 PASS_ABS, PASS_REL = 70, 15
+DEBUG = os.environ.get("DEBUG") == "1"
+T0 = time.time()
+def log(msg):
+    if DEBUG: print(f"  [{time.time() - T0:7.1f}s] {msg}", flush=True)
 
 def origin(name):
     """german / swiss / austrian / other (Lingua Libre, CPIDL, unprefixed: region not stated)."""
@@ -40,8 +44,10 @@ def http_json(url, params):
             with urllib.request.urlopen(urllib.request.Request(f"{url}?{q}", headers=UA), timeout=30) as r:
                 return json.load(r)
         except urllib.error.HTTPError as e:
+            wait = int(e.headers.get("Retry-After") or 0) or 5 * (attempt + 1)
+            log(f"HTTP {e.code} on API; Retry-After={e.headers.get('Retry-After')}; waiting {wait}s")
             if e.code == 429 and attempt < 5:
-                time.sleep(int(e.headers.get("Retry-After") or 0) or 5 * (attempt + 1)); continue
+                time.sleep(wait); continue
             raise
 
 def file_info(names):
@@ -64,11 +70,16 @@ def file_info(names):
 def download(url):
     for attempt in range(6):
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
-                return r.read()
+            log(f"download try {attempt + 1}: {url}")
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r:
+                data = r.read()
+            log(f"downloaded {len(data)} bytes")
+            return data
         except urllib.error.HTTPError as e:
+            wait = int(e.headers.get("Retry-After") or 0) or 5 * (attempt + 1)
+            log(f"HTTP {e.code} on download; Retry-After={e.headers.get('Retry-After')}; waiting {wait}s")
             if e.code == 429 and attempt < 5:
-                time.sleep(int(e.headers.get("Retry-After") or 0) or 5 * (attempt + 1)); continue
+                time.sleep(wait); continue
             raise
 
 TRIM = ("silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.12,areverse,"
@@ -79,7 +90,7 @@ def to_mp3(raw, src_name):
     ext = os.path.splitext(src_name)[1] or ".ogg"
     tmp = os.path.join("/tmp", "native_in" + ext)
     open(tmp, "wb").write(raw)
-    return subprocess.run(["ffmpeg", "-v", "error", "-i", tmp, "-af", TRIM, "-ac", "1", "-ar", "24000",
+    return subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-i", tmp, "-af", TRIM, "-ac", "1", "-ar", "24000",
                            "-b:a", "64k", "-f", "mp3", "-"], check=True, capture_output=True).stdout
 
 def duration(mp3):
@@ -109,12 +120,14 @@ def process_card(c, info, base, key, region):
         if not meta:
             row["result"] = "not on Commons"; scored.append(row); continue
         try:
-            mp3 = to_mp3(download(meta["url"]), name)
-            dur = duration(mp3)
+            raw = download(meta["url"])
+            mp3 = to_mp3(raw, name); log(f"converted {name}: {len(mp3)} bytes")
+            dur = duration(mp3); log(f"duration {dur:.2f}s")
             if not 0.2 <= dur <= 6:
                 row["result"] = f"rejected: {dur:.1f} s long"; scored.append(row); continue
-            s_ = check_audio.summarize(word, check_audio.assess(word, check_audio.to_wav16k_bytes(mp3), key, region))
-            score = s_["overall"]
+            wav = check_audio.to_wav16k_bytes(mp3); log(f"wav {len(wav)} bytes, scoring with Azure")
+            s_ = check_audio.summarize(word, check_audio.assess(word, wav, key, region))
+            score = s_["overall"]; log(f"score {score}")
             ok = score is not None and (score >= PASS_ABS or (baseline is not None and score >= baseline - PASS_REL))
             row.update({"score": round(score) if score is not None else None, "heard": s_.get("heard", ""),
                         "duration": round(dur, 2), "result": "ok" if ok else "rejected: low score",
@@ -180,9 +193,14 @@ def main():
     names = sorted({f["file"] for c in todo for f in c["files"]})
     info = {}
     for i in range(0, len(names), 50):
+        log(f"Commons file info {i}..{i + 50}")
         info.update(file_info(names[i:i + 50])); time.sleep(1)
+    log(f"file info for {len(info)} of {len(names)} files")
+    limit = int(os.environ.get("LIMIT", "0") or 0)
+    if limit: todo = todo[:limit]
 
     for i, c in enumerate(todo, 1):
+        log(f"card {c['card']}: {len(c['files'])} candidates")
         if time.time() - t0 > budget:
             print("Time budget reached; saving progress.", flush=True); break
         ct = time.time()

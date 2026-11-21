@@ -1,0 +1,26 @@
+# Diagnostic: runs the native pipeline on 2 cards with step-by-step timing. Commits nothing.
+name: Debug native pipeline
+
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/native-debug.yml"]
+  workflow_dispatch:
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Two cards, verbose
+        env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: japaneast
+          DEBUG: "1"
+          LIMIT: "2"
+        run: |
+          rm -f qa/native-state.json
+          timeout 480 python3 -u tools/fetch_native.py || echo "exit code $?"
