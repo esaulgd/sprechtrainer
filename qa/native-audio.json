@@ -6,12 +6,13 @@
   "looked_up": [
    "hallo"
   ],
+  "lookup_failed": false,
   "has_native": true,
   "germany": true,
   "files": [
    {
     "file": "CPIDL German - Hallo.ogg",
-    "region": "other",
+    "region": "CPIDL",
     "page": "hallo"
    },
    {
@@ -28,15 +29,10 @@
   "looked_up": [
    "tschüss"
   ],
-  "has_native": true,
-  "germany": true,
-  "files": [
-   {
-    "file": "De-tschüs2.ogg",
-    "region": "DE",
-    "page": "tschüss"
-   }
-  ]
+  "lookup_failed": false,
+  "has_native": false,
+  "germany": false,
+  "files": []
  },
  {
   "card": "danke",
@@ -45,12 +41,13 @@
   "looked_up": [
    "danke"
   ],
+  "lookup_failed": false,
   "has_native": true,
   "germany": true,
   "files": [
    {
     "file": "CPIDL German - Danke.ogg",
-    "region": "other",
+    "region": "CPIDL",
     "page": "danke"
    },
    {
@@ -67,14 +64,10 @@
   "looked_up": [
    "bitte"
   ],
+  "lookup_failed": false,
   "has_native": true,
   "germany": true,
   "files": [
-   {
-    "file": "De-bitte-2.ogg",
-    "region": "DE",
-    "page": "bitte"
-   },
    {
     "file": "De-bitte.ogg",
     "region": "DE",
@@ -94,37 +87,18 @@
   "looked_up": [
    "ja"
   ],
+  "lookup_failed": false,
   "has_native": true,
   "germany": true,
   "files": [
    {
     "file": "CPIDL German - Ja.ogg",
-    "region": "other",
+    "region": "CPIDL",
     "page": "ja"
    },
    {
     "file": "De-ja.ogg",
     "region": "DE",
-    "page": "ja"
-   },
-   {
-    "file": "Fi-ja.ogg",
-    "region": "other",
-    "page": "ja"
-   },
-   {
-    "file": "LL-Q143 (epo)-Lepticed7-ja.wav",
-    "region": "other",
-    "page": "ja"
-   },
-   {
-    "file": "Pl-ja.ogg",
-    "region": "other",
-    "page": "ja"
-   },
-   {
-    "file": "Sv-ja.ogg",
-    "region": "other",
     "page": "ja"
    }
   ]
@@ -136,12 +110,13 @@
   "looked_up": [
    "nein"
   ],
+  "lookup_failed": false,
   "has_native": true,
   "germany": true,
   "files": [
    {
     "file": "CPIDL German - Nein.ogg",
-    "region": "other",
+    "region": "CPIDL",
     "page": "nein"
    },
    {
@@ -163,6 +138,7 @@
   "looked_up": [
    "und"
   ],
+  "lookup_failed": false,
   "has_native": true,
   "germany": true,
   "files": [
@@ -185,6 +161,7 @@
   "looked_up": [
    "oder"
   ],
+  "lookup_failed": false,
   "has_native": true,
   "germany": true,
   "files": [
@@ -207,6 +184,7 @@
   "looked_up": [
    "Kaffee"
   ],
+  "lookup_failed": false,
   "has_native": true,
   "germany": true,
   "files": [
@@ -226,23 +204,8 @@
     "page": "Kaffee"
    },
    {
-    "file": "De-Kaffee trinken.ogg",
-    "region": "DE",
-    "page": "Kaffee"
-   },
-   {
     "file": "De-at-Kaffee.ogg",
     "region": "AT",
-    "page": "Kaffee"
-   },
-   {
-    "file": "De-koffeinfreier Kaffee.ogg",
-    "region": "DE",
-    "page": "Kaffee"
-   },
-   {
-    "file": "GT Kaffee und Kuchen.ogg",
-    "region": "other",
     "page": "Kaffee"
    }
   ]
@@ -254,6 +217,7 @@
   "looked_up": [
    "Tee"
   ],
+  "lookup_failed": false,
   "has_native": true,
   "germany": true,
   "files": [
@@ -271,11 +235,6 @@
     "file": "De-Tee3.ogg",
     "region": "DE",
     "page": "Tee"
-   },
-   {
-    "file": "De-Tee aufgießen.ogg",
-    "region": "DE",
-    "page": "Tee"
    }
   ]
  },
@@ -286,11 +245,23 @@
   "looked_up": [
    "Milch"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Milch.ogg",
+    "region": "DE",
+    "page": "Milch"
+   },
+   {
+    "file": "De-Milch2.ogg",
+    "region": "DE",
+    "page": "Milch"
+   },
+   {
+    "file": "De-at-Milch.ogg",
+    "region": "AT",
     "page": "Milch"
    }
   ]
@@ -302,11 +273,23 @@
   "looked_up": [
    "Wasser"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Wasser.ogg",
+    "region": "DE",
+    "page": "Wasser"
+   },
+   {
+    "file": "De-Wasser2.ogg",
+    "region": "DE",
+    "page": "Wasser"
+   },
+   {
+    "file": "De-Wasser3.ogg",
+    "region": "DE",
     "page": "Wasser"
    }
   ]
@@ -318,11 +301,23 @@
   "looked_up": [
    "Brot"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Brot.ogg",
+    "region": "DE",
+    "page": "Brot"
+   },
+   {
+    "file": "De-Brot2.ogg",
+    "region": "DE",
+    "page": "Brot"
+   },
+   {
+    "file": "De-at-Brot.ogg",
+    "region": "AT",
     "page": "Brot"
    }
   ]
@@ -334,11 +329,18 @@
   "looked_up": [
    "Wein"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Wein.ogg",
+    "region": "DE",
+    "page": "Wein"
+   },
+   {
+    "file": "De-Wein2.ogg",
+    "region": "DE",
     "page": "Wein"
    }
   ]
@@ -350,11 +352,18 @@
   "looked_up": [
    "Bier"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Bier.ogg",
+    "region": "DE",
+    "page": "Bier"
+   },
+   {
+    "file": "De-Bier2.ogg",
+    "region": "DE",
     "page": "Bier"
    }
   ]
@@ -366,11 +375,18 @@
   "looked_up": [
    "Saft"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Saft.ogg",
+    "region": "DE",
+    "page": "Saft"
+   },
+   {
+    "file": "De-Saft2.ogg",
+    "region": "DE",
     "page": "Saft"
    }
   ]
@@ -382,11 +398,23 @@
   "looked_up": [
    "Zucker"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Zucker.ogg",
+    "region": "DE",
+    "page": "Zucker"
+   },
+   {
+    "file": "De-Zucker2.ogg",
+    "region": "DE",
+    "page": "Zucker"
+   },
+   {
+    "file": "De-at-Zucker.ogg",
+    "region": "AT",
     "page": "Zucker"
    }
   ]
@@ -398,11 +426,18 @@
   "looked_up": [
    "Apfel"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Apfel.ogg",
+    "region": "DE",
+    "page": "Apfel"
+   },
+   {
+    "file": "De-Apfel2.ogg",
+    "region": "DE",
     "page": "Apfel"
    }
   ]
@@ -414,11 +449,18 @@
   "looked_up": [
    "Ei"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Ei.ogg",
+    "region": "DE",
+    "page": "Ei"
+   },
+   {
+    "file": "De-Ei2.ogg",
+    "region": "DE",
     "page": "Ei"
    }
   ]
@@ -430,11 +472,18 @@
   "looked_up": [
    "Wurst"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Wurst.ogg",
+    "region": "DE",
+    "page": "Wurst"
+   },
+   {
+    "file": "De-Wurst2.ogg",
+    "region": "DE",
     "page": "Wurst"
    }
   ]
@@ -446,11 +495,18 @@
   "looked_up": [
    "Salat"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Salat.ogg",
+    "region": "DE",
+    "page": "Salat"
+   },
+   {
+    "file": "De-Salat2.ogg",
+    "region": "DE",
     "page": "Salat"
    }
   ]
@@ -462,11 +518,13 @@
   "looked_up": [
    "Schnitzel"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Schnitzel.ogg",
+    "region": "DE",
     "page": "Schnitzel"
    }
   ]
@@ -478,11 +536,13 @@
   "looked_up": [
    "Keks"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Keks.ogg",
+    "region": "DE",
     "page": "Keks"
    }
   ]
@@ -494,14 +554,10 @@
   "looked_up": [
    "Kaffee mit Milch"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Kaffee mit Milch"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Ein Kaffee, bitte.",
@@ -510,14 +566,10 @@
   "looked_up": [
    "Ein Kaffee bitte"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Ein Kaffee bitte"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Ich möchte Tee.",
@@ -526,14 +578,10 @@
   "looked_up": [
    "Ich möchte Tee"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Ich möchte Tee"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Wasser oder Saft?",
@@ -542,14 +590,10 @@
   "looked_up": [
    "Wasser oder Saft"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Wasser oder Saft"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Das ist lecker.",
@@ -558,14 +602,10 @@
   "looked_up": [
    "Das ist lecker"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Das ist lecker"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Die Rechnung, bitte.",
@@ -574,14 +614,10 @@
   "looked_up": [
    "Die Rechnung bitte"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Die Rechnung bitte"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Guten Morgen",
@@ -590,14 +626,10 @@
   "looked_up": [
    "Guten Morgen"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Guten Morgen"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Guten Tag",
@@ -606,14 +638,10 @@
   "looked_up": [
    "Guten Tag"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Guten Tag"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Guten Abend",
@@ -622,14 +650,10 @@
   "looked_up": [
    "Guten Abend"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Guten Abend"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Gute Nacht",
@@ -638,14 +662,10 @@
   "looked_up": [
    "Gute Nacht"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Gute Nacht"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Auf Wiedersehen",
@@ -654,14 +674,10 @@
   "looked_up": [
    "Auf Wiedersehen"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Auf Wiedersehen"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Wie geht's?",
@@ -670,14 +686,10 @@
   "looked_up": [
    "Wie geht's"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Wie geht's"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Mir geht's gut.",
@@ -686,14 +698,10 @@
   "looked_up": [
    "Mir geht's gut"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Mir geht's gut"
-   }
-  ]
+  "files": []
  },
  {
   "card": "gut",
@@ -702,11 +710,23 @@
   "looked_up": [
    "gut"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-at-gut.ogg",
+    "region": "AT",
+    "page": "gut"
+   },
+   {
+    "file": "De-gut.ogg",
+    "region": "DE",
+    "page": "gut"
+   },
+   {
+    "file": "De-gut2.ogg",
+    "region": "DE",
     "page": "gut"
    }
   ]
@@ -718,11 +738,13 @@
   "looked_up": [
    "sehr gut"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-sehr gut.ogg",
+    "region": "DE",
     "page": "sehr gut"
    }
   ]
@@ -734,11 +756,18 @@
   "looked_up": [
    "auch"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-auch.ogg",
+    "region": "DE",
+    "page": "auch"
+   },
+   {
+    "file": "De-auch2.ogg",
+    "region": "DE",
     "page": "auch"
    }
   ]
@@ -750,14 +779,10 @@
   "looked_up": [
    "Ich heiße Saúl"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Ich heiße Saúl"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Wie heißt du?",
@@ -766,14 +791,10 @@
   "looked_up": [
    "Wie heißt du"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Wie heißt du"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Woher kommst du?",
@@ -782,14 +803,10 @@
   "looked_up": [
    "Woher kommst du"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Woher kommst du"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Ich komme aus Venezuela.",
@@ -798,14 +815,10 @@
   "looked_up": [
    "Ich komme aus Venezuela"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Ich komme aus Venezuela"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Ich wohne in Tokio.",
@@ -814,14 +827,10 @@
   "looked_up": [
    "Ich wohne in Tokio"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Ich wohne in Tokio"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Freut mich!",
@@ -830,6 +839,7 @@
   "looked_up": [
    "Freut mich"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
   "files": []
@@ -841,6 +851,7 @@
   "looked_up": [
    "Mann"
   ],
+  "lookup_failed": false,
   "has_native": true,
   "germany": true,
   "files": [
@@ -853,26 +864,6 @@
     "file": "De-Mann2.ogg",
     "region": "DE",
     "page": "Mann"
-   },
-   {
-    "file": "De-Mann über Bord.ogg",
-    "region": "DE",
-    "page": "Mann"
-   },
-   {
-    "file": "De-ein gebrochener Mann.ogg",
-    "region": "DE",
-    "page": "Mann"
-   },
-   {
-    "file": "De-ein gestandener Mann.ogg",
-    "region": "DE",
-    "page": "Mann"
-   },
-   {
-    "file": "De-ein idealistischer junger Mann.ogg",
-    "region": "DE",
-    "page": "Mann"
    }
   ]
  },
@@ -883,6 +874,7 @@
   "looked_up": [
    "Frau"
   ],
+  "lookup_failed": false,
   "has_native": true,
   "germany": true,
   "files": [
@@ -895,16 +887,6 @@
     "file": "De-Frau2.ogg",
     "region": "DE",
     "page": "Frau"
-   },
-   {
-    "file": "De-eine bezaubernde Frau.ogg",
-    "region": "DE",
-    "page": "Frau"
-   },
-   {
-    "file": "De-emanzipierte Frau.ogg",
-    "region": "DE",
-    "page": "Frau"
    }
   ]
  },
@@ -915,6 +897,7 @@
   "looked_up": [
    "Junge"
   ],
+  "lookup_failed": false,
   "has_native": true,
   "germany": true,
   "files": [
@@ -937,6 +920,7 @@
   "looked_up": [
    "Mädchen"
   ],
+  "lookup_failed": false,
   "has_native": true,
   "germany": true,
   "files": [
@@ -949,11 +933,6 @@
     "file": "De-Mädchen2.ogg",
     "region": "DE",
     "page": "Mädchen"
-   },
-   {
-    "file": "De-ein reizendes Mädchen.ogg",
-    "region": "DE",
-    "page": "Mädchen"
    }
   ]
  },
@@ -964,6 +943,7 @@
   "looked_up": [
    "Kind"
   ],
+  "lookup_failed": false,
   "has_native": true,
   "germany": true,
   "files": [
@@ -976,21 +956,6 @@
     "file": "De-Kind2.ogg",
     "region": "DE",
     "page": "Kind"
-   },
-   {
-    "file": "De-ein erwünschtes Kind.ogg",
-    "region": "DE",
-    "page": "Kind"
-   },
-   {
-    "file": "De-ein gewolltes Kind.ogg",
-    "region": "DE",
-    "page": "Kind"
-   },
-   {
-    "file": "De-voreheliches Kind.ogg",
-    "region": "DE",
-    "page": "Kind"
    }
   ]
  },
@@ -1001,6 +966,7 @@
   "looked_up": [
    "Freund"
   ],
+  "lookup_failed": false,
   "has_native": true,
   "germany": true,
   "files": [
@@ -1013,11 +979,6 @@
     "file": "De-at-Freund.ogg",
     "region": "AT",
     "page": "Freund"
-   },
-   {
-    "file": "De-unsere gefiederten Freunde.ogg",
-    "region": "DE",
-    "page": "Freund"
    }
   ]
  },
@@ -1028,6 +989,7 @@
   "looked_up": [
    "Freundin"
   ],
+  "lookup_failed": false,
   "has_native": true,
   "germany": true,
   "files": [
@@ -1050,6 +1012,7 @@
   "looked_up": [
    "Danke schön"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
   "files": []
@@ -1061,6 +1024,7 @@
   "looked_up": [
    "Bitte schön"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
   "files": []
@@ -1072,11 +1036,13 @@
   "looked_up": [
    "Entschuldigung"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Entschuldigung.ogg",
+    "region": "DE",
     "page": "Entschuldigung"
    }
   ]
@@ -1088,14 +1054,10 @@
   "looked_up": [
    "Es tut mir leid"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Es tut mir leid"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Kein Problem.",
@@ -1104,14 +1066,10 @@
   "looked_up": [
    "Kein Problem"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Kein Problem"
-   }
-  ]
+  "files": []
  },
  {
   "card": "gern",
@@ -1120,11 +1078,18 @@
   "looked_up": [
    "gern"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-at-gern.ogg",
+    "region": "AT",
+    "page": "gern"
+   },
+   {
+    "file": "De-gern.ogg",
+    "region": "DE",
     "page": "gern"
    }
   ]
@@ -1136,11 +1101,18 @@
   "looked_up": [
    "vielleicht"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-at-vielleicht.ogg",
+    "region": "AT",
+    "page": "vielleicht"
+   },
+   {
+    "file": "De-vielleicht.ogg",
+    "region": "DE",
     "page": "vielleicht"
    }
   ]
@@ -1152,11 +1124,18 @@
   "looked_up": [
    "natürlich"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-natürlich.ogg",
+    "region": "DE",
+    "page": "natürlich"
+   },
+   {
+    "file": "De-natürlich2.ogg",
+    "region": "DE",
     "page": "natürlich"
    }
   ]
@@ -1168,11 +1147,23 @@
   "looked_up": [
    "genau"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-genau.ogg",
+    "region": "DE",
+    "page": "genau"
+   },
+   {
+    "file": "De-genau2.ogg",
+    "region": "DE",
+    "page": "genau"
+   },
+   {
+    "file": "de-genau.ogg",
+    "region": "DE",
     "page": "genau"
    }
   ]
@@ -1184,11 +1175,13 @@
   "looked_up": [
    "stimmt"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-stimmt.ogg",
+    "region": "DE",
     "page": "stimmt"
    }
   ]
@@ -1200,14 +1193,10 @@
   "looked_up": [
    "Ich weiß nicht"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Ich weiß nicht"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Ich verstehe nicht.",
@@ -1216,14 +1205,10 @@
   "looked_up": [
    "Ich verstehe nicht"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Ich verstehe nicht"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Noch einmal, bitte.",
@@ -1232,14 +1217,10 @@
   "looked_up": [
    "Noch einmal bitte"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Noch einmal bitte"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Sprechen Sie Englisch?",
@@ -1248,14 +1229,10 @@
   "looked_up": [
    "Sprechen Sie Englisch"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Sprechen Sie Englisch"
-   }
-  ]
+  "files": []
  },
  {
   "card": "die Familie",
@@ -1264,11 +1241,23 @@
   "looked_up": [
    "Familie"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Familie.OGG",
+    "region": "DE",
+    "page": "Familie"
+   },
+   {
+    "file": "De-Familie.ogg",
+    "region": "DE",
+    "page": "Familie"
+   },
+   {
+    "file": "De-Familie2.ogg",
+    "region": "DE",
     "page": "Familie"
    }
   ]
@@ -1280,11 +1269,23 @@
   "looked_up": [
    "Vater"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Vater.ogg",
+    "region": "DE",
+    "page": "Vater"
+   },
+   {
+    "file": "De-Vater2.ogg",
+    "region": "DE",
+    "page": "Vater"
+   },
+   {
+    "file": "De-at-Vater.ogg",
+    "region": "AT",
     "page": "Vater"
    }
   ]
@@ -1296,11 +1297,28 @@
   "looked_up": [
    "Mutter"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Mutter.ogg",
+    "region": "DE",
+    "page": "Mutter"
+   },
+   {
+    "file": "De-Mutter2.ogg",
+    "region": "DE",
+    "page": "Mutter"
+   },
+   {
+    "file": "De-Mutter3.ogg",
+    "region": "DE",
+    "page": "Mutter"
+   },
+   {
+    "file": "De-at-Mutter.ogg",
+    "region": "AT",
     "page": "Mutter"
    }
   ]
@@ -1312,11 +1330,23 @@
   "looked_up": [
    "Eltern"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Eltern.ogg",
+    "region": "DE",
+    "page": "Eltern"
+   },
+   {
+    "file": "De-Eltern2.ogg",
+    "region": "DE",
+    "page": "Eltern"
+   },
+   {
+    "file": "De-at-Eltern.ogg",
+    "region": "AT",
     "page": "Eltern"
    }
   ]
@@ -1328,11 +1358,18 @@
   "looked_up": [
    "Bruder"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Bruder.ogg",
+    "region": "DE",
+    "page": "Bruder"
+   },
+   {
+    "file": "De-Bruder2.ogg",
+    "region": "DE",
     "page": "Bruder"
    }
   ]
@@ -1344,11 +1381,18 @@
   "looked_up": [
    "Schwester"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Schwester.ogg",
+    "region": "DE",
+    "page": "Schwester"
+   },
+   {
+    "file": "De-Schwester2.ogg",
+    "region": "DE",
     "page": "Schwester"
    }
   ]
@@ -1360,11 +1404,13 @@
   "looked_up": [
    "Sohn"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Sohn.ogg",
+    "region": "DE",
     "page": "Sohn"
    }
   ]
@@ -1376,11 +1422,18 @@
   "looked_up": [
    "Tochter"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Tochter.ogg",
+    "region": "DE",
+    "page": "Tochter"
+   },
+   {
+    "file": "De-at-Tochter.ogg",
+    "region": "AT",
     "page": "Tochter"
    }
   ]
@@ -1392,11 +1445,18 @@
   "looked_up": [
    "Opa"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Opa.ogg",
+    "region": "DE",
+    "page": "Opa"
+   },
+   {
+    "file": "De-Opa2.ogg",
+    "region": "DE",
     "page": "Opa"
    }
   ]
@@ -1408,11 +1468,18 @@
   "looked_up": [
    "Oma"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Oma.ogg",
+    "region": "DE",
+    "page": "Oma"
+   },
+   {
+    "file": "De-Oma2.ogg",
+    "region": "DE",
     "page": "Oma"
    }
   ]
@@ -1424,14 +1491,10 @@
   "looked_up": [
    "mein Bruder"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "mein Bruder"
-   }
-  ]
+  "files": []
  },
  {
   "card": "meine Schwester",
@@ -1440,14 +1503,10 @@
   "looked_up": [
    "meine Schwester"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "meine Schwester"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Das ist meine Mutter.",
@@ -1456,14 +1515,10 @@
   "looked_up": [
    "Das ist meine Mutter"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Das ist meine Mutter"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Ich habe einen Bruder.",
@@ -1472,14 +1527,10 @@
   "looked_up": [
    "Ich habe einen Bruder"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Ich habe einen Bruder"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Hast du Kinder?",
@@ -1488,14 +1539,10 @@
   "looked_up": [
    "Hast du Kinder"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Hast du Kinder"
-   }
-  ]
+  "files": []
  },
  {
   "card": "wer",
@@ -1504,11 +1551,18 @@
   "looked_up": [
    "wer"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-wer.ogg",
+    "region": "DE",
+    "page": "wer"
+   },
+   {
+    "file": "De-wer2.ogg",
+    "region": "DE",
     "page": "wer"
    }
   ]
@@ -1520,11 +1574,28 @@
   "looked_up": [
    "was"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Was.OGG",
+    "region": "DE",
+    "page": "was"
+   },
+   {
+    "file": "De-Was.ogg",
+    "region": "DE",
+    "page": "was"
+   },
+   {
+    "file": "De-was.ogg",
+    "region": "DE",
+    "page": "was"
+   },
+   {
+    "file": "De-was2.ogg",
+    "region": "DE",
     "page": "was"
    }
   ]
@@ -1536,11 +1607,28 @@
   "looked_up": [
    "wo"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Wo.OGG",
+    "region": "DE",
+    "page": "wo"
+   },
+   {
+    "file": "De-Wo.ogg",
+    "region": "DE",
+    "page": "wo"
+   },
+   {
+    "file": "De-wo.ogg",
+    "region": "DE",
+    "page": "wo"
+   },
+   {
+    "file": "De-wo2.ogg",
+    "region": "DE",
     "page": "wo"
    }
   ]
@@ -1552,11 +1640,18 @@
   "looked_up": [
    "wann"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-wann.ogg",
+    "region": "DE",
+    "page": "wann"
+   },
+   {
+    "file": "LL-Q188 (deu)-Lucas Werkmeister-wann.wav",
+    "region": "Lingua Libre",
     "page": "wann"
    }
   ]
@@ -1568,11 +1663,53 @@
   "looked_up": [
    "wie"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-wie.ogg",
+    "region": "DE",
+    "page": "wie"
+   },
+   {
+    "file": "De-wie2.ogg",
+    "region": "DE",
+    "page": "wie"
+   },
+   {
+    "file": "De-wie3.ogg",
+    "region": "DE",
+    "page": "wie"
+   },
+   {
+    "file": "LL-Q188 (deu)-CamelCaseNick-wie.wav",
+    "region": "Lingua Libre",
+    "page": "wie"
+   },
+   {
+    "file": "LL-Q188 (deu)-Lucas Werkmeister-wie.wav",
+    "region": "Lingua Libre",
+    "page": "wie"
+   },
+   {
+    "file": "LL-Q188 (deu)-Natschoba-wie.wav",
+    "region": "Lingua Libre",
+    "page": "wie"
+   },
+   {
+    "file": "LL-Q188 (deu)-Nattes à chat-wie.wav",
+    "region": "Lingua Libre",
+    "page": "wie"
+   },
+   {
+    "file": "LL-Q188 (deu)-Sebastian Wallroth-wie.wav",
+    "region": "Lingua Libre",
+    "page": "wie"
+   },
+   {
+    "file": "LL-Q188 (deu)-Student16 de-wie.wav",
+    "region": "Lingua Libre",
     "page": "wie"
    }
   ]
@@ -1584,11 +1721,18 @@
   "looked_up": [
    "warum"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Warum.ogg",
+    "region": "DE",
+    "page": "warum"
+   },
+   {
+    "file": "De-warum.ogg",
+    "region": "DE",
     "page": "warum"
    }
   ]
@@ -1600,11 +1744,18 @@
   "looked_up": [
    "wie viel"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-wie viel.oga",
+    "region": "DE",
+    "page": "wie viel"
+   },
+   {
+    "file": "De-wie viel2.ogg",
+    "region": "DE",
     "page": "wie viel"
    }
   ]
@@ -1616,11 +1767,13 @@
   "looked_up": [
    "Was ist das"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Was ist das.ogg",
+    "region": "DE",
     "page": "Was ist das"
    }
   ]
@@ -1632,14 +1785,10 @@
   "looked_up": [
    "Wie viel kostet das"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Wie viel kostet das"
-   }
-  ]
+  "files": []
  },
  {
   "card": "eins",
@@ -1648,11 +1797,18 @@
   "looked_up": [
    "eins"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-eins.ogg",
+    "region": "DE",
+    "page": "eins"
+   },
+   {
+    "file": "De-eins2.ogg",
+    "region": "DE",
     "page": "eins"
    }
   ]
@@ -1664,11 +1820,18 @@
   "looked_up": [
    "zwei"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-zwei.ogg",
+    "region": "DE",
+    "page": "zwei"
+   },
+   {
+    "file": "De-zwei2.ogg",
+    "region": "DE",
     "page": "zwei"
    }
   ]
@@ -1680,11 +1843,18 @@
   "looked_up": [
    "drei"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-drei.ogg",
+    "region": "DE",
+    "page": "drei"
+   },
+   {
+    "file": "De-drei2.ogg",
+    "region": "DE",
     "page": "drei"
    }
   ]
@@ -1696,11 +1866,18 @@
   "looked_up": [
    "vier"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-vier.ogg",
+    "region": "DE",
+    "page": "vier"
+   },
+   {
+    "file": "De-vier2.ogg",
+    "region": "DE",
     "page": "vier"
    }
   ]
@@ -1712,11 +1889,18 @@
   "looked_up": [
    "fünf"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-fünf.ogg",
+    "region": "DE",
+    "page": "fünf"
+   },
+   {
+    "file": "De-fünf2.ogg",
+    "region": "DE",
     "page": "fünf"
    }
   ]
@@ -1728,11 +1912,18 @@
   "looked_up": [
    "sechs"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-sechs.ogg",
+    "region": "DE",
+    "page": "sechs"
+   },
+   {
+    "file": "De-sechs2.ogg",
+    "region": "DE",
     "page": "sechs"
    }
   ]
@@ -1744,11 +1935,23 @@
   "looked_up": [
    "sieben"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-sieben.ogg",
+    "region": "DE",
+    "page": "sieben"
+   },
+   {
+    "file": "De-sieben2.ogg",
+    "region": "DE",
+    "page": "sieben"
+   },
+   {
+    "file": "De-sieben3.ogg",
+    "region": "DE",
     "page": "sieben"
    }
   ]
@@ -1760,11 +1963,18 @@
   "looked_up": [
    "acht"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-acht.ogg",
+    "region": "DE",
+    "page": "acht"
+   },
+   {
+    "file": "De-acht2.ogg",
+    "region": "DE",
     "page": "acht"
    }
   ]
@@ -1776,11 +1986,18 @@
   "looked_up": [
    "neun"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-neun.ogg",
+    "region": "DE",
+    "page": "neun"
+   },
+   {
+    "file": "De-neun2.ogg",
+    "region": "DE",
     "page": "neun"
    }
   ]
@@ -1792,11 +2009,18 @@
   "looked_up": [
    "zehn"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-zehn.ogg",
+    "region": "DE",
+    "page": "zehn"
+   },
+   {
+    "file": "De-zehn2.ogg",
+    "region": "DE",
     "page": "zehn"
    }
   ]
@@ -1808,11 +2032,23 @@
   "looked_up": [
    "Stadt"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Stadt.OGG",
+    "region": "DE",
+    "page": "Stadt"
+   },
+   {
+    "file": "De-Stadt.ogg",
+    "region": "DE",
+    "page": "Stadt"
+   },
+   {
+    "file": "De-Stadt2.ogg",
+    "region": "DE",
     "page": "Stadt"
    }
   ]
@@ -1824,11 +2060,23 @@
   "looked_up": [
    "Straße"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "file": "De-Straße.ogg",
+    "region": "DE",
+    "page": "Straße"
+   },
+   {
+    "file": "De-Straße2.ogg",
+    "region": "DE",
+    "page": "Straße"
+   },
+   {
+    "file": "De-at-Straße.ogg",
+    "region": "AT",
     "page": "Straße"
    }
   ]
@@ -1840,11 +2088,28 @@
   "looked_up": [
    "Bahnhof"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Bahnhof.OGG",
+    "region": "DE",
+    "page": "Bahnhof"
+   },
+   {
+    "file": "De-Bahnhof.ogg",
+    "region": "DE",
+    "page": "Bahnhof"
+   },
+   {
+    "file": "De-Bahnhof2.ogg",
+    "region": "DE",
+    "page": "Bahnhof"
+   },
+   {
+    "file": "De-at-Bahnhof.ogg",
+    "region": "AT",
     "page": "Bahnhof"
    }
   ]
@@ -1856,11 +2121,23 @@
   "looked_up": [
    "Flughafen"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "file": "De-Flughafen.ogg",
+    "region": "DE",
+    "page": "Flughafen"
+   },
+   {
+    "file": "De-Flughafen2.ogg",
+    "region": "DE",
+    "page": "Flughafen"
+   },
+   {
+    "file": "De-at-Flughafen.ogg",
+    "region": "AT",
     "page": "Flughafen"
    }
   ]
@@ -1872,11 +2149,18 @@
   "looked_up": [
    "Hotel"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Hotel.ogg",
+    "region": "DE",
+    "page": "Hotel"
+   },
+   {
+    "file": "De-Hotel2.ogg",
+    "region": "DE",
     "page": "Hotel"
    }
   ]
@@ -1888,11 +2172,18 @@
   "looked_up": [
    "Zug"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "file": "DE-Zug.ogg",
+    "region": "DE",
+    "page": "Zug"
+   },
+   {
+    "file": "De-Zug2.ogg",
+    "region": "DE",
     "page": "Zug"
    }
   ]
@@ -1904,11 +2195,18 @@
   "looked_up": [
    "Bus"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Bus.ogg",
+    "region": "DE",
+    "page": "Bus"
+   },
+   {
+    "file": "De-Bus2.ogg",
+    "region": "DE",
     "page": "Bus"
    }
   ]
@@ -1920,11 +2218,18 @@
   "looked_up": [
    "Taxi"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "file": "De-Taxi.ogg",
+    "region": "DE",
+    "page": "Taxi"
+   },
+   {
+    "file": "De-Taxi2.ogg",
+    "region": "DE",
     "page": "Taxi"
    }
   ]
@@ -1936,11 +2241,28 @@
   "looked_up": [
    "Auto"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Auto.ogg",
+    "region": "DE",
+    "page": "Auto"
+   },
+   {
+    "file": "De-Auto1.ogg",
+    "region": "DE",
+    "page": "Auto"
+   },
+   {
+    "file": "De-Auto2.ogg",
+    "region": "DE",
+    "page": "Auto"
+   },
+   {
+    "file": "De-at-Auto.ogg",
+    "region": "AT",
     "page": "Auto"
    }
   ]
@@ -1952,14 +2274,10 @@
   "looked_up": [
    "Wo ist der Bahnhof"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
-    "page": "Wo ist der Bahnhof"
-   }
-  ]
+  "files": []
  },
  {
   "card": "hier",
@@ -1968,11 +2286,23 @@
   "looked_up": [
    "hier"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-at-hier.ogg",
+    "region": "AT",
+    "page": "hier"
+   },
+   {
+    "file": "De-hier.ogg",
+    "region": "DE",
+    "page": "hier"
+   },
+   {
+    "file": "De-hier2.ogg",
+    "region": "DE",
     "page": "hier"
    }
   ]
@@ -1984,11 +2314,28 @@
   "looked_up": [
    "dort"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "file": "De-dort.ogg",
+    "region": "DE",
+    "page": "dort"
+   },
+   {
+    "file": "De-dort2.ogg",
+    "region": "DE",
+    "page": "dort"
+   },
+   {
+    "file": "De-dort3.ogg",
+    "region": "DE",
+    "page": "dort"
+   },
+   {
+    "file": "LL-Q188 (deu)-Sebastian Wallroth-dort.wav",
+    "region": "Lingua Libre",
     "page": "dort"
    }
   ]
@@ -2000,11 +2347,18 @@
   "looked_up": [
    "links"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-at-links.ogg",
+    "region": "AT",
+    "page": "links"
+   },
+   {
+    "file": "De-links.ogg",
+    "region": "DE",
     "page": "links"
    }
   ]
@@ -2016,11 +2370,18 @@
   "looked_up": [
    "rechts"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "file": "De-at-rechts.ogg",
+    "region": "AT",
+    "page": "rechts"
+   },
+   {
+    "file": "De-rechts.ogg",
+    "region": "DE",
     "page": "rechts"
    }
   ]
@@ -2032,11 +2393,18 @@
   "looked_up": [
    "geradeaus"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-at-geradeaus.ogg",
+    "region": "AT",
+    "page": "geradeaus"
+   },
+   {
+    "file": "De-geradeaus.oga",
+    "region": "DE",
     "page": "geradeaus"
    }
   ]
@@ -2048,14 +2416,10 @@
   "looked_up": [
    "Ich suche das Hotel"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
-    "page": "Ich suche das Hotel"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Ist das weit?",
@@ -2064,14 +2428,10 @@
   "looked_up": [
    "Ist das weit"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Ist das weit"
-   }
-  ]
+  "files": []
  },
  {
   "card": "nicht weit",
@@ -2080,14 +2440,10 @@
   "looked_up": [
    "nicht weit"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
-    "page": "nicht weit"
-   }
-  ]
+  "files": []
  },
  {
   "card": "der Montag",
@@ -2096,11 +2452,23 @@
   "looked_up": [
    "Montag"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Montag.ogg",
+    "region": "DE",
+    "page": "Montag"
+   },
+   {
+    "file": "LL-Q188 (deu)-Sebastian Wallroth-Montag.wav",
+    "region": "Lingua Libre",
+    "page": "Montag"
+   },
+   {
+    "file": "Montag.ogg",
+    "region": "other",
     "page": "Montag"
    }
   ]
@@ -2112,11 +2480,18 @@
   "looked_up": [
    "Dienstag"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "file": "De-Dienstag.ogg",
+    "region": "DE",
+    "page": "Dienstag"
+   },
+   {
+    "file": "Dienstag.ogg",
+    "region": "other",
     "page": "Dienstag"
    }
   ]
@@ -2128,11 +2503,18 @@
   "looked_up": [
    "Mittwoch"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Mittwoch.oga",
+    "region": "DE",
+    "page": "Mittwoch"
+   },
+   {
+    "file": "De-Mittwoch2.ogg",
+    "region": "DE",
     "page": "Mittwoch"
    }
   ]
@@ -2144,11 +2526,18 @@
   "looked_up": [
    "Donnerstag"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "file": "De-Donnerstag.ogg",
+    "region": "DE",
+    "page": "Donnerstag"
+   },
+   {
+    "file": "De-Donnerstag2.ogg",
+    "region": "DE",
     "page": "Donnerstag"
    }
   ]
@@ -2160,11 +2549,18 @@
   "looked_up": [
    "Freitag"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Freitag.ogg",
+    "region": "DE",
+    "page": "Freitag"
+   },
+   {
+    "file": "Freitag.ogg",
+    "region": "other",
     "page": "Freitag"
    }
   ]
@@ -2176,11 +2572,13 @@
   "looked_up": [
    "Samstag"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "file": "De-Samstag.ogg",
+    "region": "DE",
     "page": "Samstag"
    }
   ]
@@ -2192,11 +2590,18 @@
   "looked_up": [
    "Sonntag"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Sonntag.ogg",
+    "region": "DE",
+    "page": "Sonntag"
+   },
+   {
+    "file": "De-Sonntag2.ogg",
+    "region": "DE",
     "page": "Sonntag"
    }
   ]
@@ -2208,11 +2613,23 @@
   "looked_up": [
    "heute"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "file": "De-at-heute.ogg",
+    "region": "AT",
+    "page": "heute"
+   },
+   {
+    "file": "De-heute.ogg",
+    "region": "DE",
+    "page": "heute"
+   },
+   {
+    "file": "De-heute2.ogg",
+    "region": "DE",
     "page": "heute"
    }
   ]
@@ -2224,11 +2641,18 @@
   "looked_up": [
    "morgen"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-at-morgen.ogg",
+    "region": "AT",
+    "page": "morgen"
+   },
+   {
+    "file": "De-morgen.ogg",
+    "region": "DE",
     "page": "morgen"
    }
   ]
@@ -2240,11 +2664,23 @@
   "looked_up": [
    "gestern"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "file": "De-at-gestern.ogg",
+    "region": "AT",
+    "page": "gestern"
+   },
+   {
+    "file": "De-gestern.ogg",
+    "region": "DE",
+    "page": "gestern"
+   },
+   {
+    "file": "De-gestern2.ogg",
+    "region": "DE",
     "page": "gestern"
    }
   ]
@@ -2256,14 +2692,10 @@
   "looked_up": [
    "wie lange"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "wie lange"
-   }
-  ]
+  "files": []
  },
  {
   "card": "bleiben",
@@ -2272,11 +2704,28 @@
   "looked_up": [
    "bleiben"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "file": "De-at-bleiben.ogg",
+    "region": "AT",
+    "page": "bleiben"
+   },
+   {
+    "file": "De-bleiben.ogg",
+    "region": "DE",
+    "page": "bleiben"
+   },
+   {
+    "file": "De-bleiben2.ogg",
+    "region": "DE",
+    "page": "bleiben"
+   },
+   {
+    "file": "De-bleiben3.ogg",
+    "region": "DE",
     "page": "bleiben"
    }
   ]
@@ -2288,11 +2737,28 @@
   "looked_up": [
    "fast"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-at-fast.ogg",
+    "region": "AT",
+    "page": "fast"
+   },
+   {
+    "file": "De-fast.ogg",
+    "region": "DE",
+    "page": "fast"
+   },
+   {
+    "file": "De-fast2.ogg",
+    "region": "DE",
+    "page": "fast"
+   },
+   {
+    "file": "De-fast3.ogg",
+    "region": "DE",
     "page": "fast"
    }
   ]
@@ -2304,11 +2770,13 @@
   "looked_up": [
    "dauern"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "file": "De-dauern.ogg",
+    "region": "DE",
     "page": "dauern"
    }
   ]
@@ -2320,11 +2788,28 @@
   "looked_up": [
    "Woche"
   ],
-  "has_native": false,
-  "germany": false,
+  "lookup_failed": false,
+  "has_native": true,
+  "germany": true,
   "files": [
    {
-    "error": "HTTP Error 429: Too Many Requests",
+    "file": "De-Woche.ogg",
+    "region": "DE",
+    "page": "Woche"
+   },
+   {
+    "file": "De-Woche2.ogg",
+    "region": "DE",
+    "page": "Woche"
+   },
+   {
+    "file": "De-at-Woche.ogg",
+    "region": "AT",
+    "page": "Woche"
+   },
+   {
+    "file": "LL-Q188 (deu)-Sebastian Wallroth-Woche.wav",
+    "region": "Lingua Libre",
     "page": "Woche"
    }
   ]
@@ -2336,14 +2821,10 @@
   "looked_up": [
    "ein paar Tage"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
-    "page": "ein paar Tage"
-   }
-  ]
+  "files": []
  },
  {
   "card": "einen Monat",
@@ -2352,14 +2833,10 @@
   "looked_up": [
    "einen Monat"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "einen Monat"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Wie lange bleibst du hier?",
@@ -2368,14 +2845,10 @@
   "looked_up": [
    "Wie lange bleibst du hier"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too many requests (f061ab2)",
-    "page": "Wie lange bleibst du hier"
-   }
-  ]
+  "files": []
  },
  {
   "card": "Ich bleibe fast zwei Wochen.",
@@ -2384,13 +2857,9 @@
   "looked_up": [
    "Ich bleibe fast zwei Wochen"
   ],
+  "lookup_failed": false,
   "has_native": false,
   "germany": false,
-  "files": [
-   {
-    "error": "HTTP Error 429: Too Many Requests",
-    "page": "Ich bleibe fast zwei Wochen"
-   }
-  ]
+  "files": []
  }
 ]
