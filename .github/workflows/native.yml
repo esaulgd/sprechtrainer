@@ -2,11 +2,15 @@
 # Saves progress after every card; if it runs out of time it commits what's done and starts itself again.
 name: Select native recordings
 
+# Paused: Wikimedia rate-limits downloads from GitHub's servers (HTTP 429, Retry-After 120).
+# Runs only when started by hand with "run" ticked; automatic restarts are skipped.
 on:
-  push:
-    branches: [main]
-    paths: ["tools/fetch_native.py", ".github/workflows/native.yml", "qa/native-audio.json"]
   workflow_dispatch:
+    inputs:
+      run:
+        description: "Really run the native-recording pipeline"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -18,6 +22,7 @@ concurrency:
 
 jobs:
   select:
+    if: ${{ inputs.run }}
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
