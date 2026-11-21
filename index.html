@@ -94,8 +94,16 @@ section.view{padding:6px 0 40px}
 .recstatus{font-size:14px;color:var(--muted);margin-top:8px;min-height:21px;text-align:center;font-variant-numeric:tabular-nums}
 .recstatus.err{color:var(--warn);font-weight:600}
 
-.plays{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
-.plays .compare{grid-column:1/-1}
+.plays{display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-top:14px}
+.sources{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;justify-content:center}
+.src{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font-size:14px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:5px;color:var(--ink)}
+.src svg{width:12px;height:12px}
+.src small{font-weight:600;color:var(--muted);font-size:11px}
+.src:disabled{opacity:.4;cursor:default}
+.src.last{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.src.playing{outline:3px solid var(--accent);outline-offset:1px}
+.credits{font-size:13px;color:var(--muted);max-height:260px;overflow:auto;margin:0;padding-left:18px}
+.credits a{color:var(--muted)}
 .flag{display:inline-block;margin-left:8px;color:var(--warn)}
 .wchip .unrel{color:var(--warn);font-weight:800}
 .scorewarn{font-size:13px;color:var(--warn);margin:10px 0 0;font-weight:600}
@@ -247,13 +255,10 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
       <div class="plays">
         <button type="button" class="pbtn" id="play-me" disabled>
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Me</button>
-        <button type="button" class="pbtn" id="play-model" disabled>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Model</button>
-        <button type="button" class="pbtn" id="play-phone" disabled title="Your phone's built-in German voice">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Phone</button>
         <button type="button" class="pbtn compare" id="play-compare" disabled>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>Compare</button>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg><span id="cmp-label">Compare</span></button>
       </div>
+      <div class="sources" id="sources" aria-label="Model recordings"></div>
       <button type="button" class="listenfirst" id="listen-first">Can't speak right now? Listen to the model first</button>
 
       <div class="score" id="score" hidden aria-live="polite"></div>
@@ -354,8 +359,14 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
     </div>
 
     <div class="panel">
+      <h2>Native recordings</h2>
+      <p class="status" id="native-summary">Recordings by native speakers from Wiktionary / Wikimedia Commons, used under their licenses.</p>
+      <ul class="credits" id="credits"></ul>
+    </div>
+
+    <div class="panel">
       <h2>Keyboard shortcuts</h2>
-      <p class="status" style="margin:0">R record · M play me · O play model · C compare · 1–5 rate · Enter next</p>
+      <p class="status" style="margin:0">R record · M play me · O play the native or Azure model · C compare · 1–5 rate · Enter next</p>
     </div>
 
     <p class="foot">
@@ -372,7 +383,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
    Compiled to roughly follow Duolingo German Section 1 (units 1–4) and the
    free Memrise German lessons up to "Saying How Long You're Staying".
    The German text is the card's id: fixing a typo resets that card. */
-const APP_VERSION = "0.7";
+const APP_VERSION = "0.8";
 
 const VOCAB_RAW = `Café|hallo|hello
 Café|tschüss|bye
@@ -771,7 +782,8 @@ const hasProgress = () => Object.keys(store.cards).length > 0;
 /* ==================== SPEECH (model voice) ==================== */
 const synth = window.speechSynthesis;
 let voice = null;
-let modelFiles = {}, modelVoice = "";
+let modelFiles = {}, modelVoice = "", nativeCards = {};
+const nativeEl = new Audio(); nativeEl.preload = "auto";
 function pickVoice(){
   if (!synth) return;
   const de = synth.getVoices().filter(v => /^de([-_]|$)/i.test(v.lang));
@@ -797,6 +809,16 @@ async function loadModelAudio(){
     modelVoice = (m.voice || "").replace(/^de-DE-|Neural$/g, "");
   }catch(e){}
   loadScoreBaseline();
+  try{
+    const r2 = await fetch("audio/native/manifest.json", { cache: "no-cache" });
+    if (r2.ok) nativeCards = (await r2.json()).cards || {};
+  }catch(e){}
+  renderCredits();
+  if (cur){
+    const unlocked = document.getElementById("listen-first").hidden;   // plays were already unlocked for this card
+    renderSources();
+    if (unlocked) document.querySelectorAll("#sources .src").forEach(b => b.disabled = false);
+  }
   pickVoice();
   if (cur) preloadModel(cur.card.de);
 }
@@ -834,6 +856,19 @@ function updateCardFlag(){
     f.title = "Azure's scorer rates even the model voice low on: " + weak.map(([w, s]) => `${w} (${s})`).join(", ");
     badge.appendChild(f);
   }
+}
+function renderCredits(){
+  const list = document.getElementById("credits");
+  if (!list) return;
+  const rows = [];
+  for (const [card, n] of Object.entries(nativeCards))
+    for (const id of ["german", "swiss", "austrian"]) if (n[id])
+      rows.push(`<li>${n.word} (${SOURCE_LABEL[id]}): ${n[id].artist}, <a href="${n[id].page}">${n[id].license}</a></li>`);
+  list.innerHTML = rows.join("");
+  const c = Object.keys(nativeCards).length;
+  document.getElementById("native-summary").textContent = c
+    ? `${c} cards have a recording by a native speaker from Wiktionary / Wikimedia Commons, used under these licenses:`
+    : "No native recordings loaded yet.";
 }
 function preloadModel(text){
   const f = modelFiles[text];
@@ -923,7 +958,7 @@ async function startRecording(){
       if (silent) setRecStatus(`${take}That sounded silent. Check your mic, or tap to try again.`, true);
       else setRecStatus(`${take}${trimmed ? "Silence trimmed. " : ""}Tap the mic to try again.`);
       unlockPlays();
-      if (store.settings.autoplay) runCompare(["me", "model"]);
+      if (store.settings.autoplay) runSeq(["me", autoSource(cur.card)]);
       if (scoringOn() && pcm && !silent) scoreTake(pcm, sr, forCard);
     });
   };
@@ -1084,7 +1119,8 @@ function stopPlayback(){
   try{ synth && synth.cancel(); }catch(e){}
   if (myAudio){ try{ myAudio.pause(); myAudio.currentTime = 0; }catch(e){} }
   try{ modelEl.pause(); }catch(e){}
-  document.querySelectorAll(".pbtn.playing").forEach(b => b.classList.remove("playing"));
+  try{ nativeEl.pause(); }catch(e){}
+  document.querySelectorAll(".pbtn.playing, .src.playing").forEach(b => b.classList.remove("playing"));
 }
 function playMe(){
   return new Promise(resolve => {
@@ -1100,21 +1136,80 @@ function playMe(){
   });
 }
 const wait = ms => new Promise(r => setTimeout(r, ms));
-async function runCompare(steps){
+/* ---- Model sources: native German / Swiss / Austrian (Wiktionary), Azure, Phone ---- */
+const SOURCE_LABEL = { german: "German", swiss: "Swiss", austrian: "Austrian", azure: "Azure", phone: "Phone" };
+function sourcesFor(card){
+  const n = nativeCards[card.de] || {}, list = [];
+  for (const id of ["german", "swiss", "austrian"]) if (n[id]) list.push(id);
+  if (modelFiles[card.de]) list.push("azure");
+  if (synth) list.push("phone");
+  return list;
+}
+/* What plays by itself after a recording: the native speaker (German first); Azure only if there is no native one. */
+function autoSource(card){
+  const n = nativeCards[card.de] || {};
+  return ["german", "swiss", "austrian"].find(id => n[id]) || (modelFiles[card.de] ? "azure" : "phone");
+}
+function playSource(id, card){
+  const n = nativeCards[card.de] || {};
+  if (n[id]) return playFileOn(nativeEl, "audio/" + n[id].file);
+  if (id === "azure") return speakModel(card.de);
+  return speakDevice(card.de);
+}
+function playFileOn(el, url){
+  return new Promise(resolve => {
+    try{
+      if (!el.src.endsWith(url)) el.src = url;
+      el.currentTime = 0;
+      el.playbackRate = store.settings.slow ? 0.7 : 1;
+      el.preservesPitch = true; el.webkitPreservesPitch = true;
+      let done = false;
+      const finish = () => { if (!done){ done = true; resolve(); } };
+      el.onended = finish; el.onerror = finish;
+      const p = el.play();
+      if (p && p.catch) p.catch(finish);
+    }catch(e){ resolve(); }
+  });
+}
+function renderSources(){
+  const box = document.getElementById("sources");
+  box.innerHTML = "";
+  for (const id of sourcesFor(cur.card)){
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "src"; b.dataset.src = id; b.disabled = true;
+    const n = (nativeCards[cur.card.de] || {})[id];
+    b.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>${SOURCE_LABEL[id]}` +
+                  (n && nativeCards[cur.card.de].word !== cur.card.de ? ` <small>${nativeCards[cur.card.de].word}</small>` : "");
+    b.title = n ? `Native speaker (${n.artist}, ${n.license}), word only` : id === "azure" ? "Azure neural voice" : "Your phone's built-in voice";
+    b.onclick = () => runSeq([id]);
+    box.appendChild(b);
+  }
+  markLast();
+}
+function markLast(){
+  const last = cur && (cur.last || autoSource(cur.card));
+  document.querySelectorAll("#sources .src").forEach(b => b.classList.toggle("last", b.dataset.src === last));
+  document.getElementById("cmp-label").textContent = cur ? `Compare with ${SOURCE_LABEL[last]}` : "Compare";
+}
+async function runSeq(steps){
   stopPlayback();
   const id = ++playId;
   for (let i = 0; i < steps.length; i++){
     if (id !== playId) return;
     const step = steps[i];
-    const btn = step === "me" ? playMeBtn : step === "phone" ? playPhoneBtn : playModelBtn;
-    btn.classList.add("playing");
-    if (step === "me") await playMe();
-    else if (step === "phone") await speakDevice(cur.card.de);
-    else await speakModel(cur.card.de);
-    btn.classList.remove("playing");
+    const btn = step === "me" ? playMeBtn : document.querySelector(`#sources .src[data-src="${step}"]`);
+    if (step !== "me"){ cur.last = step; markLast(); }
+    if (btn) btn.classList.add("playing");
+    if (step === "me") await playMe(); else await playSource(step, cur.card);
+    if (btn) btn.classList.remove("playing");
     if (id !== playId) return;
     if (i < steps.length - 1) await wait(500);
   }
+}
+/* Compare: the sample heard last (or the one that plays by default), then me, then that sample again. */
+function compareSteps(){
+  const src = cur.last || autoSource(cur.card);
+  return [src, "me", src];
 }
 
 /* ==================== SESSION ==================== */
@@ -1168,7 +1263,8 @@ function showNext(){
   document.getElementById("meaning").textContent = "";
   recBtn.setAttribute("aria-label", "Record your pronunciation");
   setRecStatus("Read it aloud, then tap to record");
-  [playMeBtn, playModelBtn, playPhoneBtn, playCompareBtn].forEach(b => b.disabled = true);
+  [playMeBtn, playCompareBtn].forEach(b => b.disabled = true);
+  renderSources();
   document.getElementById("listen-first").hidden = false;
   rateBtns.forEach(b => b.setAttribute("aria-pressed", "false"));
   document.getElementById("rubric").textContent = "";
@@ -1189,8 +1285,7 @@ function revealArticle(){
 }
 function unlockPlays(){
   revealArticle();
-  playModelBtn.disabled = false;
-  playPhoneBtn.disabled = false;
+  document.querySelectorAll("#sources .src").forEach(b => b.disabled = false);
   playMeBtn.disabled = !myAudio;
   playCompareBtn.disabled = !myAudio;
   document.getElementById("listen-first").hidden = true;
@@ -1220,7 +1315,7 @@ function rate(r){
   const preview = schedule(store.cards[cur.card.id], r, today, cur.item.failed);
   document.getElementById("sched").textContent = `Next time: ${fmtInterval(preview.again ? 0 : preview.state.iv)}`;
   document.getElementById("after").hidden = false;
-  if (playModelBtn.disabled) unlockPlays();
+  if (playMeBtn.disabled && !document.querySelector("#sources .src:not(:disabled)")) unlockPlays();
   nextBtn.disabled = false;
 }
 function commit(){
@@ -1364,7 +1459,7 @@ function renderWords(){
       r.type = "button"; r.className = "row";
       r.innerHTML = `<span><span class="de" lang="de">${c.de}</span><span class="en">${c.en}</span></span>${pill}`;
       r.setAttribute("aria-label", `${c.de}, ${c.en}. Tap to hear it.`);
-      r.onclick = () => speakModel(c.de);
+      r.onclick = () => { const n = nativeCards[c.de] || {}; const src = ["german", "swiss", "austrian"].find(k => n[k]); src ? playFileOn(nativeEl, "audio/" + n[src].file) : speakModel(c.de); };
       box.appendChild(r);
     });
     list.append(h, box);
@@ -1386,9 +1481,7 @@ function applySettings(){
 /* ==================== WIRING ==================== */
 const recBtn = document.getElementById("rec");
 const playMeBtn = document.getElementById("play-me");
-const playModelBtn = document.getElementById("play-model");
 const playCompareBtn = document.getElementById("play-compare");
-const playPhoneBtn = document.getElementById("play-phone");
 const nextBtn = document.getElementById("next");
 const rateBtns = [...document.querySelectorAll(".rate")];
 function setRecStatus(t, err){
@@ -1397,11 +1490,9 @@ function setRecStatus(t, err){
 }
 
 recBtn.onclick = () => { if (mediaRec && mediaRec.state === "recording") stopRecording(); else startRecording(); };
-playMeBtn.onclick = () => runCompare(["me"]);
-playModelBtn.onclick = () => runCompare(["model"]);
-playPhoneBtn.onclick = () => runCompare(["phone"]);
-playCompareBtn.onclick = () => runCompare(["model", "me", "model"]);
-document.getElementById("listen-first").onclick = () => { unlockPlays(); runCompare(["model"]); };
+playMeBtn.onclick = () => runSeq(["me"]);
+playCompareBtn.onclick = () => runSeq(compareSteps());
+document.getElementById("listen-first").onclick = () => { unlockPlays(); runSeq([autoSource(cur.card)]); };
 rateBtns.forEach(b => b.onclick = () => rate(+b.dataset.r));
 nextBtn.onclick = commit;
 document.getElementById("more-new").onclick = () => { store.daily.extra += 10; save(); startSession(); };
@@ -1459,7 +1550,7 @@ document.addEventListener("keydown", e => {
   const k = e.key.toLowerCase();
   if (k === "r"){ e.preventDefault(); recBtn.click(); }
   else if (k === "m" && !playMeBtn.disabled) playMeBtn.click();
-  else if (k === "o" && !playModelBtn.disabled) playModelBtn.click();
+  else if (k === "o" && document.querySelector("#sources .src:not(:disabled)")) runSeq([cur.last || autoSource(cur.card)]);
   else if (k === "c" && !playCompareBtn.disabled) playCompareBtn.click();
   else if (/^[1-5]$/.test(k)) rate(+k);
   else if (k === "enter" && !nextBtn.disabled && e.target === document.body){ e.preventDefault(); commit(); }
