@@ -94,7 +94,11 @@ section.view{padding:6px 0 40px}
 .recstatus{font-size:14px;color:var(--muted);margin-top:8px;min-height:21px;text-align:center;font-variant-numeric:tabular-nums}
 .recstatus.err{color:var(--warn);font-weight:600}
 
-.plays{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:8px;margin-top:14px}
+.plays{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.plays .compare{grid-column:1/-1}
+.flag{display:inline-block;margin-left:8px;color:var(--warn)}
+.wchip .unrel{color:var(--warn);font-weight:800}
+.scorewarn{font-size:13px;color:var(--warn);margin:10px 0 0;font-weight:600}
 .pbtn{border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:10px 6px;font-weight:700;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
 .pbtn svg{width:16px;height:16px;flex-shrink:0}
 .pbtn:disabled{opacity:.4;cursor:default}
@@ -245,6 +249,8 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Me</button>
         <button type="button" class="pbtn" id="play-model" disabled>
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Model</button>
+        <button type="button" class="pbtn" id="play-phone" disabled title="Your phone's built-in German voice">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Phone</button>
         <button type="button" class="pbtn compare" id="play-compare" disabled>
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>Compare</button>
       </div>
@@ -366,7 +372,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
    Compiled to roughly follow Duolingo German Section 1 (units 1–4) and the
    free Memrise German lessons up to "Saying How Long You're Staying".
    The German text is the card's id: fixing a typo resets that card. */
-const APP_VERSION = "0.6";
+const APP_VERSION = "0.7";
 
 const VOCAB_RAW = `Café|hallo|hello
 Café|tschüss|bye
@@ -790,8 +796,44 @@ async function loadModelAudio(){
     modelFiles = m.files || {};
     modelVoice = (m.voice || "").replace(/^de-DE-|Neural$/g, "");
   }catch(e){}
+  loadScoreBaseline();
   pickVoice();
   if (cur) preloadModel(cur.card.de);
+}
+/* How well Azure's scorer rated its own model voice, per card and word (qa/model-audio-report.json).
+   Words where even the model scores low are ones the scorer handles badly. */
+let baseline = {};
+const UNRELIABLE_FLAG = 60, UNRELIABLE_NOTE = 80;
+const normWord = w => (w || "").toLowerCase().replace(/[^a-zäöüßáéíóú']/g, "");
+async function loadScoreBaseline(){
+  try{
+    const res = await fetch("qa/model-audio-report.json", { cache: "no-cache" });
+    if (!res.ok) return;
+    const rep = await res.json();
+    baseline = {};
+    for (const r of rep.results || []){
+      const words = {};
+      for (const w of r.words || []) if (typeof w.score === "number") words[normWord(w.word)] = Math.round(w.score);
+      baseline[r.text] = words;
+    }
+    if (cur) updateCardFlag();
+  }catch(e){}
+}
+function weakModelWords(text, limit){
+  const words = baseline[text] || {};
+  return Object.entries(words).filter(([, sc]) => sc < limit);
+}
+function updateCardFlag(){
+  const weak = weakModelWords(cur.card.de, UNRELIABLE_FLAG);
+  const badge = document.getElementById("c-badge");
+  const old = badge.querySelector(".flag"); if (old) old.remove();
+  if (weak.length){
+    const f = document.createElement("span");
+    f.className = "flag";
+    f.textContent = "⚑ unreliable score";
+    f.title = "Azure's scorer rates even the model voice low on: " + weak.map(([w, s]) => `${w} (${s})`).join(", ");
+    badge.appendChild(f);
+  }
 }
 function preloadModel(text){
   const f = modelFiles[text];
@@ -815,6 +857,10 @@ function playModelFile(file){
 }
 function speakModel(text){
   if (modelFiles[text]) return playModelFile(modelFiles[text]);
+  return speakDevice(text);
+}
+/* The phone's own German voice (Web Speech API), used for comparison and as a fallback. */
+function speakDevice(text){
   return new Promise(resolve => {
     if (!synth){ resolve(); return; }
     try{
@@ -996,12 +1042,16 @@ function renderScore(r){
     panel.innerHTML = `<p class="scoremsg err">${why}</p>`;
     return;
   }
+  const base = baseline[cur.card.de] || {};
+  const doubtful = r.words.filter(w => w.score !== null && w.score < UNRELIABLE_NOTE && base[normWord(w.word)] !== undefined && base[normWord(w.word)] < UNRELIABLE_NOTE);
+  const doubtSet = new Set(doubtful.map(w => normWord(w.word)));
   const sug = suggestRating(r.overall);
   if (sug) rateBtns.forEach(b => b.classList.toggle("suggested", +b.dataset.r === sug));
   const words = r.words.map(w => {
     const tag = w.error === "Omission" ? `<span class="wtag">missing</span>` : w.error === "Insertion" ? `<span class="wtag">extra</span>` : "";
     const bars = w.phones.length ? `<span class="phones" aria-label="Sound scores ${w.phones.join(", ")}">${w.phones.map(p => `<i class="${scoreClass(p)}" style="height:${Math.max(12, p)}%"></i>`).join("")}</span>` : "";
-    return `<span class="wchip ${w.error === "Omission" ? "omit" : scoreClass(w.score)}"><b>${w.word}</b>${w.score !== null && w.error !== "Omission" ? `<span class="wsc">${w.score}</span>` : ""}${tag}${bars}</span>`;
+    const mark = doubtSet.has(normWord(w.word)) ? `<span class="unrel" title="The scorer is unreliable on this word">*</span>` : "";
+    return `<span class="wchip ${w.error === "Omission" ? "omit" : scoreClass(w.score)}"><b>${w.word}</b>${mark}${w.score !== null && w.error !== "Omission" ? `<span class="wsc">${w.score}</span>` : ""}${tag}${bars}</span>`;
   }).join("");
   const stat = (l, v) => v === null ? "" : `<span><b>${v}</b>${l}</span>`;
   panel.innerHTML = `
@@ -1010,6 +1060,7 @@ function renderScore(r){
       <span class="sstats">${stat("accuracy", r.accuracy)}${stat("fluency", r.fluency)}${stat("complete", r.completeness)}</span>
     </div>
     <div class="words">${words}</div>
+    ${doubtful.length ? `<p class="scorewarn">* Azure's scorer is unreliable here: even the model voice only gets ${doubtful.map(w => `${w.word} ${base[normWord(w.word)]}`).join(", ")}. Trust your ear, and treat the suggested rating as too low.</p>` : ""}
     <p class="snote">Bars = each sound in order. Suggested rating: <b>${sug || "–"}</b> (marked below). Your rating decides.</p>`;
 }
 function stopRecording(){
@@ -1055,9 +1106,11 @@ async function runCompare(steps){
   for (let i = 0; i < steps.length; i++){
     if (id !== playId) return;
     const step = steps[i];
-    const btn = step === "me" ? playMeBtn : playModelBtn;
+    const btn = step === "me" ? playMeBtn : step === "phone" ? playPhoneBtn : playModelBtn;
     btn.classList.add("playing");
-    if (step === "me") await playMe(); else await speakModel(cur.card.de);
+    if (step === "me") await playMe();
+    else if (step === "phone") await speakDevice(cur.card.de);
+    else await speakModel(cur.card.de);
     btn.classList.remove("playing");
     if (id !== playId) return;
     if (i < steps.length - 1) await wait(500);
@@ -1104,6 +1157,7 @@ function showNext(){
   preloadModel(card.de);
   document.getElementById("c-group").textContent = card.group;
   document.getElementById("c-badge").textContent = item.isNew ? "New" : (item.failed ? "Again" : "Review");
+  updateCardFlag();
   const p = document.getElementById("prompt");
   const m = card.de.match(/^(der|die|das) (.+)$/);
   cur.article = m ? m[1] : null;
@@ -1114,7 +1168,7 @@ function showNext(){
   document.getElementById("meaning").textContent = "";
   recBtn.setAttribute("aria-label", "Record your pronunciation");
   setRecStatus("Read it aloud, then tap to record");
-  [playMeBtn, playModelBtn, playCompareBtn].forEach(b => b.disabled = true);
+  [playMeBtn, playModelBtn, playPhoneBtn, playCompareBtn].forEach(b => b.disabled = true);
   document.getElementById("listen-first").hidden = false;
   rateBtns.forEach(b => b.setAttribute("aria-pressed", "false"));
   document.getElementById("rubric").textContent = "";
@@ -1136,6 +1190,7 @@ function revealArticle(){
 function unlockPlays(){
   revealArticle();
   playModelBtn.disabled = false;
+  playPhoneBtn.disabled = false;
   playMeBtn.disabled = !myAudio;
   playCompareBtn.disabled = !myAudio;
   document.getElementById("listen-first").hidden = true;
@@ -1333,6 +1388,7 @@ const recBtn = document.getElementById("rec");
 const playMeBtn = document.getElementById("play-me");
 const playModelBtn = document.getElementById("play-model");
 const playCompareBtn = document.getElementById("play-compare");
+const playPhoneBtn = document.getElementById("play-phone");
 const nextBtn = document.getElementById("next");
 const rateBtns = [...document.querySelectorAll(".rate")];
 function setRecStatus(t, err){
@@ -1343,6 +1399,7 @@ function setRecStatus(t, err){
 recBtn.onclick = () => { if (mediaRec && mediaRec.state === "recording") stopRecording(); else startRecording(); };
 playMeBtn.onclick = () => runCompare(["me"]);
 playModelBtn.onclick = () => runCompare(["model"]);
+playPhoneBtn.onclick = () => runCompare(["phone"]);
 playCompareBtn.onclick = () => runCompare(["model", "me", "model"]);
 document.getElementById("listen-first").onclick = () => { unlockPlays(); runCompare(["model"]); };
 rateBtns.forEach(b => b.onclick = () => rate(+b.dataset.r));

@@ -82,7 +82,9 @@ def main():
               open(out + ".json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     bad = [r for r in results if flagged(r)]
     scores = [r["overall"] for r in results if r["overall"] is not None]
-    lines = [f"# Model audio check ({manifest.get('voice')})", "",
+    ov = manifest.get("overrides") or {}
+    title = manifest.get("voice") + (f", overrides: {', '.join(f'{k} = {v}' for k, v in ov.items())}" if ov else "")
+    lines = [f"# Model audio check ({title})", "",
              f"{len(results)} cards scored. Median overall: {sorted(scores)[len(scores)//2] if scores else '–'}. "
              f"Flagged: {len(bad)} (overall < {FLAG_OVERALL}, a word < {FLAG_WORD}, a sound < {FLAG_PHONE}, or a word error).", "",
              "| Card | Overall | Heard | Weak words (score, sound scores) |", "|---|---|---|---|"]
