@@ -51,6 +51,14 @@ def main():
     a = ap.parse_args()
     key, region = os.environ.get("AZURE_SPEECH_KEY"), os.environ.get("AZURE_SPEECH_REGION", "japaneast")
     if not key: sys.exit("Set AZURE_SPEECH_KEY (and AZURE_SPEECH_REGION).")
+    # check the key up front, so a bad key fails clearly even when no audio is missing
+    try:
+        urllib.request.urlopen(urllib.request.Request(
+            f"https://{region}.tts.speech.microsoft.com/cognitiveservices/voices/list",
+            headers={"Ocp-Apim-Subscription-Key": key, "User-Agent": "sprechtrainer"}), timeout=30).read()
+        print(f"Azure key OK ({region})")
+    except urllib.error.HTTPError as e:
+        sys.exit(f"Azure rejected the key ({e.code}). Check the AZURE_SPEECH_KEY secret and the region.")
     os.makedirs(AUDIO_DIR, exist_ok=True)
     texts = card_texts()
     files, made = {}, 0
