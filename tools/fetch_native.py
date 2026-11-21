@@ -88,86 +88,114 @@ def duration(mp3):
                          capture_output=True, text=True).stdout.strip()
     return float(out or 0)
 
-def main():
-    key, region = os.environ.get("AZURE_SPEECH_KEY"), os.environ.get("AZURE_SPEECH_REGION", "japaneast")
-    if not key: sys.exit("Set AZURE_SPEECH_KEY.")
-    cards = json.load(open(os.path.join(ROOT, "qa", "native-audio.json"), encoding="utf-8"))
-    base = {r["text"]: r for r in json.load(open(os.path.join(ROOT, "qa", "model-audio-report.json"), encoding="utf-8"))["results"]}
-    os.makedirs(OUT, exist_ok=True)
+STATE = os.path.join(ROOT, "qa", "native-state.json")
 
-    names = sorted({f["file"] for c in cards for f in c["files"]})
-    info = {}
-    for i in range(0, len(names), 50):
-        info.update(file_info(names[i:i + 50])); time.sleep(1)
+def process_card(c, info, base, key, region):
+    """Score this card's candidates; return (manifest entry or None, report rows)."""
+    word = c["looked_up"][0]
+    b = base.get(c["card"], {})
+    wset = {re.sub(r"\W", "", x).casefold() for x in word.split()}
+    bwords = [w["score"] for w in b.get("words", []) if w.get("score") is not None and re.sub(r"\W", "", w["word"]).casefold() in wset]
+    baseline = min(bwords) if bwords else None
+    # German first, then region-unknown, Swiss; Austrian last and only if nothing else passes
+    order = {"german": 0, "other": 1, "swiss": 2, "austrian": 3}
+    cands = sorted(c["files"], key=lambda f: order[origin(f["file"])])
+    scored = []
+    for f in cands:
+        name, org, meta = f["file"], origin(f["file"]), info.get(f["file"])
+        row = {"file": name, "origin": org}
+        if org == "austrian" and any(r["result"] == "ok" and r["origin"] in ("german", "other", "swiss") for r in scored):
+            row["result"] = "skipped: German/Swiss available"; scored.append(row); continue
+        if not meta:
+            row["result"] = "not on Commons"; scored.append(row); continue
+        try:
+            mp3 = to_mp3(download(meta["url"]), name)
+            dur = duration(mp3)
+            if not 0.2 <= dur <= 6:
+                row["result"] = f"rejected: {dur:.1f} s long"; scored.append(row); continue
+            s_ = check_audio.summarize(word, check_audio.assess(word, check_audio.to_wav16k_bytes(mp3), key, region))
+            score = s_["overall"]
+            ok = score is not None and (score >= PASS_ABS or (baseline is not None and score >= baseline - PASS_REL))
+            row.update({"score": round(score) if score is not None else None, "heard": s_.get("heard", ""),
+                        "duration": round(dur, 2), "result": "ok" if ok else "rejected: low score",
+                        "_mp3": mp3 if ok else None, **{k: meta[k] for k in ("page", "artist", "license")}})
+        except Exception as e:
+            row["result"] = f"error: {e}"
+        scored.append(row)
+        time.sleep(0.4)
+    good = [r for r in scored if r["result"] == "ok"]
+    pick = {}
+    for org in ("german", "swiss", "austrian"):
+        cand = [r for r in good if r["origin"] == org]
+        if org == "german" and not cand:
+            cand = [r for r in good if r["origin"] == "other"]
+        if cand: pick[org] = max(cand, key=lambda r: r["score"])
+    if ("german" in pick or "swiss" in pick) and "austrian" in pick:
+        del pick["austrian"]
+    entry = {"word": word}
+    for org, r in pick.items():
+        fn = "native/" + hashlib.sha1(r["file"].encode()).hexdigest()[:12] + ".mp3"
+        open(os.path.join(ROOT, "audio", fn), "wb").write(r["_mp3"])
+        entry[org] = {"file": fn, "source": r["file"], "page": r["page"], "artist": r["artist"],
+                      "license": r["license"], "score": r["score"]}
+        r["picked"] = org
+    rows = [{k: v for k, v in r.items() if k != "_mp3"} for r in scored]
+    return (entry if len(entry) > 1 else None), {"card": c["card"], "word": word, "baseline": baseline, "candidates": rows}
 
-    manifest, report = {}, []
-    for c in cards:
-        if not c["has_native"]: continue
-        word = c["looked_up"][0]
-        # Azure's own model voice score on this word (lowest over its words), to judge the scorer
-        b = base.get(c["card"], {})
-        bwords = [w["score"] for w in b.get("words", []) if w.get("score") is not None and
-                  re.sub(r"\W", "", w["word"]).casefold() in {re.sub(r"\W", "", x).casefold() for x in word.split()}]
-        baseline = min(bwords) if bwords else None
-        scored = []
-        for f in c["files"]:
-            name, meta = f["file"], info.get(f["file"])
-            row = {"file": name, "origin": origin(name)}
-            if not meta:
-                row["result"] = "not on Commons"; scored.append(row); continue
-            try:
-                mp3 = to_mp3(download(meta["url"]), name)
-                dur = duration(mp3)
-                if not 0.2 <= dur <= 6:
-                    row["result"] = f"rejected: {dur:.1f} s long"; scored.append(row); continue
-                s = check_audio.summarize(word, check_audio.assess(word, check_audio.to_wav16k_bytes(mp3), key, region))
-                score = s["overall"]
-                ok = score is not None and (score >= PASS_ABS or (baseline is not None and score >= baseline - PASS_REL))
-                row.update({"score": round(score) if score is not None else None, "heard": s.get("heard", ""),
-                            "duration": round(dur, 2), "result": "ok" if ok else "rejected: low score",
-                            "_mp3": mp3 if ok else None, **{k: meta[k] for k in ("page", "artist", "license")}})
-            except Exception as e:
-                row["result"] = f"error: {e}"
-            scored.append(row)
-            time.sleep(0.4)
-        good = [r for r in scored if r["result"] == "ok"]
-        pick = {}
-        # German: prefer "De-" files; region-unknown files (Lingua Libre etc.) only as a fallback
-        for org in ("german", "swiss", "austrian"):
-            cand = [r for r in good if r["origin"] == org]
-            if org == "german" and not cand:
-                cand = [r for r in good if r["origin"] == "other"]
-            if cand: pick[org] = max(cand, key=lambda r: r["score"])
-        if ("german" in pick or "swiss" in pick) and "austrian" in pick:
-            del pick["austrian"]                       # Austrian only when it's the only option
-        entry = {"word": word}
-        for org, r in pick.items():
-            fn = "native/" + hashlib.sha1(r["file"].encode()).hexdigest()[:12] + ".mp3"
-            open(os.path.join(ROOT, "audio", fn), "wb").write(r["_mp3"])
-            entry[org] = {"file": fn, "source": r["file"], "page": r["page"], "artist": r["artist"],
-                          "license": r["license"], "score": r["score"]}
-            r["picked"] = org
-        if len(entry) > 1: manifest[c["card"]] = entry
-        report.append({"card": c["card"], "word": word, "baseline": baseline,
-                       "candidates": [{k: v for k, v in r.items() if k != "_mp3"} for r in scored]})
-
+def write_outputs(state, total):
+    manifest = {k: v["entry"] for k, v in state.items() if v.get("entry")}
     used = {e[o]["file"] for e in manifest.values() for o in ("german", "swiss", "austrian") if o in e}
     for f in os.listdir(OUT):
         if f.endswith(".mp3") and "native/" + f not in used: os.remove(os.path.join(OUT, f))
     json.dump({"cards": manifest}, open(os.path.join(OUT, "manifest.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-
+    json.dump(state, open(STATE, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     n = lambda o: sum(o in e for e in manifest.values())
+    done = len(state)
     lines = ["# Native recordings selected", "",
+             f"Processed {done} of {total} cards" + (" (still running: the workflow continues by itself)" if done < total else "") + ".",
              f"{len(manifest)} cards have a native recording: {n('german')} German, {n('swiss')} Swiss, "
              f"{n('austrian')} Austrian (only where nothing else passed).",
              f"A file passes with score >= {PASS_ABS}, or within {PASS_REL} of Azure's own model-voice score on the word.", "",
              "| Card | Picked | Rejected / unused |", "|---|---|---|"]
-    for r in report:
+    for v in state.values():
+        r = v["report"]
         picked = ", ".join(f"{c['picked']}: {c['file']} ({c['score']})" for c in r["candidates"] if c.get("picked")) or "–"
         other = ", ".join(f"{c['file']} ({c.get('score', '–')}, {c['result']})" for c in r["candidates"] if not c.get("picked"))
         lines.append(f"| {r['card']} | {picked} | {other} |")
     open(os.path.join(ROOT, "qa", "native-selection.md"), "w", encoding="utf-8").write("\n".join(lines) + "\n")
-    print("\n".join(lines[:4]))
+
+def main():
+    key, region = os.environ.get("AZURE_SPEECH_KEY"), os.environ.get("AZURE_SPEECH_REGION", "japaneast")
+    if not key: sys.exit("Set AZURE_SPEECH_KEY.")
+    budget = float(os.environ.get("TIME_BUDGET", "1500"))      # seconds; stop cleanly before the job's limit
+    t0 = time.time()
+    cards = [c for c in json.load(open(os.path.join(ROOT, "qa", "native-audio.json"), encoding="utf-8")) if c["has_native"]]
+    base = {r["text"]: r for r in json.load(open(os.path.join(ROOT, "qa", "model-audio-report.json"), encoding="utf-8"))["results"]}
+    os.makedirs(OUT, exist_ok=True)
+    state = json.load(open(STATE, encoding="utf-8")) if os.path.exists(STATE) else {}
+    state = {k: v for k, v in state.items() if any(c["card"] == k for c in cards)}
+    todo = [c for c in cards if c["card"] not in state]
+    print(f"{len(state)} of {len(cards)} cards already done, {len(todo)} to go", flush=True)
+
+    names = sorted({f["file"] for c in todo for f in c["files"]})
+    info = {}
+    for i in range(0, len(names), 50):
+        info.update(file_info(names[i:i + 50])); time.sleep(1)
+
+    for i, c in enumerate(todo, 1):
+        if time.time() - t0 > budget:
+            print("Time budget reached; saving progress.", flush=True); break
+        ct = time.time()
+        entry, report = process_card(c, info, base, key, region)
+        state[c["card"]] = {"entry": entry, "report": report}
+        write_outputs(state, len(cards))
+        picked = ", ".join(f"{o} {entry[o]['score']}" for o in ("german", "swiss", "austrian") if entry and o in entry) or "none passed"
+        print(f"[{len(state)}/{len(cards)}] {c['card']}: {picked} ({time.time() - ct:.0f} s)", flush=True)
+    write_outputs(state, len(cards))
+    finished = len(state) == len(cards)
+    print("FINISHED" if finished else "UNFINISHED", flush=True)
+    with open(os.environ.get("GITHUB_OUTPUT", os.devnull), "a") as gh:
+        gh.write(f"finished={'true' if finished else 'false'}\n")
 
 if __name__ == "__main__":
     main()
