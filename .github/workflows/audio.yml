@@ -1,0 +1,40 @@
+# Generates model audio for new or changed cards whenever the word list changes.
+# Uses the AZURE_SPEECH_KEY repository secret; the key never appears in the repo or the logs.
+name: Generate audio
+
+on:
+  push:
+    branches: [main]
+    paths: ["index.html", "tools/generate_audio.py"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: audio
+  cancel-in-progress: false
+
+jobs:
+  audio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate missing audio
+        env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: japaneast
+        run: python3 tools/generate_audio.py
+
+      - name: Commit new audio
+        run: |
+          git add audio
+          if git diff --cached --quiet; then
+            echo "Audio already up to date."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Generate audio for new cards"
+            git push
+          fi
