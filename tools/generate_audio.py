@@ -14,6 +14,8 @@ from xml.sax.saxutils import escape
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AUDIO_DIR = os.path.join(ROOT, "audio")
 MANIFEST = os.path.join(AUDIO_DIR, "manifest.json")
+# Cards that use a different voice than the default, e.g. because it scored better in qa/
+OVERRIDES = os.path.join(ROOT, "tools", "voice_overrides.json")
 
 def card_texts():
     html = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
@@ -61,20 +63,23 @@ def main():
         sys.exit(f"Azure rejected the key ({e.code}). Check the AZURE_SPEECH_KEY secret and the region.")
     os.makedirs(AUDIO_DIR, exist_ok=True)
     texts = card_texts()
-    files, made = {}, 0
+    overrides = json.load(open(OVERRIDES, encoding="utf-8")) if os.path.exists(OVERRIDES) else {}
+    files, voices, made = {}, {}, 0
     for t in texts:
-        name = file_for(t, a.voice)
+        voice = overrides.get(t, a.voice)
+        name = file_for(t, voice)
         path = os.path.join(AUDIO_DIR, name)
         if a.force or not os.path.exists(path):
-            data = synth(t, a.voice, key, region)
+            data = synth(t, voice, key, region)
             open(path, "wb").write(data); made += 1
             time.sleep(0.25)
         files[t] = name
+        if voice != a.voice: voices[t] = voice
     # drop files no card uses any more
     for f in os.listdir(AUDIO_DIR):
         if f.endswith(".mp3") and f not in files.values():
             os.remove(os.path.join(AUDIO_DIR, f))
-    json.dump({"voice": a.voice, "files": files}, open(MANIFEST, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump({"voice": a.voice, "overrides": voices, "files": files}, open(MANIFEST, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"{len(texts)} cards, {made} generated, voice {a.voice}")
 
 if __name__ == "__main__":

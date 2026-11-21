@@ -1,5 +1,8 @@
 {
  "voice": "de-DE-ConradNeural",
+ "overrides": {
+  "das Mädchen": "de-DE-KatjaNeural"
+ },
  "files": {
   "hallo": "3dd4066791b1.mp3",
   "tschüss": "3cbad695df81.mp3",
@@ -49,7 +52,7 @@
   "der Mann": "6267b6b50255.mp3",
   "die Frau": "141ad52e463f.mp3",
   "der Junge": "0be9a92f8a97.mp3",
-  "das Mädchen": "69a0c2a52023.mp3",
+  "das Mädchen": "40fbf91c27c1.mp3",
   "das Kind": "1a918f65fea3.mp3",
   "der Freund": "ab8ad90d9fcd.mp3",
   "die Freundin": "23d8476e30d5.mp3",
