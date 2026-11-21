@@ -1,4 +1,4 @@
-# Model audio check (de-DE-ConradNeural)
+# Model audio check (de-DE-ConradNeural, overrides: das Mädchen = de-DE-KatjaNeural)
 
 137 cards scored. Median overall: 96.4. Flagged: 39 (overall < 85, a word < 80, a sound < 60, or a word error).
 
