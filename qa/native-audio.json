@@ -1,0 +1,2396 @@
+[
+ {
+  "card": "hallo",
+  "group": "Café",
+  "kind": "word",
+  "looked_up": [
+   "hallo"
+  ],
+  "has_native": true,
+  "germany": true,
+  "files": [
+   {
+    "file": "CPIDL German - Hallo.ogg",
+    "region": "other",
+    "page": "hallo"
+   },
+   {
+    "file": "De-hallo.ogg",
+    "region": "DE",
+    "page": "hallo"
+   }
+  ]
+ },
+ {
+  "card": "tschüss",
+  "group": "Café",
+  "kind": "word",
+  "looked_up": [
+   "tschüss"
+  ],
+  "has_native": true,
+  "germany": true,
+  "files": [
+   {
+    "file": "De-tschüs2.ogg",
+    "region": "DE",
+    "page": "tschüss"
+   }
+  ]
+ },
+ {
+  "card": "danke",
+  "group": "Café",
+  "kind": "word",
+  "looked_up": [
+   "danke"
+  ],
+  "has_native": true,
+  "germany": true,
+  "files": [
+   {
+    "file": "CPIDL German - Danke.ogg",
+    "region": "other",
+    "page": "danke"
+   },
+   {
+    "file": "De-Danke.ogg",
+    "region": "DE",
+    "page": "danke"
+   }
+  ]
+ },
+ {
+  "card": "bitte",
+  "group": "Café",
+  "kind": "word",
+  "looked_up": [
+   "bitte"
+  ],
+  "has_native": true,
+  "germany": true,
+  "files": [
+   {
+    "file": "De-bitte-2.ogg",
+    "region": "DE",
+    "page": "bitte"
+   },
+   {
+    "file": "De-bitte.ogg",
+    "region": "DE",
+    "page": "bitte"
+   },
+   {
+    "file": "De-bitte2.ogg",
+    "region": "DE",
+    "page": "bitte"
+   }
+  ]
+ },
+ {
+  "card": "ja",
+  "group": "Café",
+  "kind": "word",
+  "looked_up": [
+   "ja"
+  ],
+  "has_native": true,
+  "germany": true,
+  "files": [
+   {
+    "file": "CPIDL German - Ja.ogg",
+    "region": "other",
+    "page": "ja"
+   },
+   {
+    "file": "De-ja.ogg",
+    "region": "DE",
+    "page": "ja"
+   },
+   {
+    "file": "Fi-ja.ogg",
+    "region": "other",
+    "page": "ja"
+   },
+   {
+    "file": "LL-Q143 (epo)-Lepticed7-ja.wav",
+    "region": "other",
+    "page": "ja"
+   },
+   {
+    "file": "Pl-ja.ogg",
+    "region": "other",
+    "page": "ja"
+   },
+   {
+    "file": "Sv-ja.ogg",
+    "region": "other",
+    "page": "ja"
+   }
+  ]
+ },
+ {
+  "card": "nein",
+  "group": "Café",
+  "kind": "word",
+  "looked_up": [
+   "nein"
+  ],
+  "has_native": true,
+  "germany": true,
+  "files": [
+   {
+    "file": "CPIDL German - Nein.ogg",
+    "region": "other",
+    "page": "nein"
+   },
+   {
+    "file": "De-at-nein.ogg",
+    "region": "AT",
+    "page": "nein"
+   },
+   {
+    "file": "De-nein.ogg",
+    "region": "DE",
+    "page": "nein"
+   }
+  ]
+ },
+ {
+  "card": "und",
+  "group": "Café",
+  "kind": "word",
+  "looked_up": [
+   "und"
+  ],
+  "has_native": true,
+  "germany": true,
+  "files": [
+   {
+    "file": "De-und.ogg",
+    "region": "DE",
+    "page": "und"
+   },
+   {
+    "file": "De-und2.ogg",
+    "region": "DE",
+    "page": "und"
+   }
+  ]
+ },
+ {
+  "card": "oder",
+  "group": "Café",
+  "kind": "word",
+  "looked_up": [
+   "oder"
+  ],
+  "has_native": true,
+  "germany": true,
+  "files": [
+   {
+    "file": "De-oder.ogg",
+    "region": "DE",
+    "page": "oder"
+   },
+   {
+    "file": "De-oder2.ogg",
+    "region": "DE",
+    "page": "oder"
+   }
+  ]
+ },
+ {
+  "card": "der Kaffee",
+  "group": "Café",
+  "kind": "noun",
+  "looked_up": [
+   "Kaffee"
+  ],
+  "has_native": true,
+  "germany": true,
+  "files": [
+   {
+    "file": "De-Kaffee.ogg",
+    "region": "DE",
+    "page": "Kaffee"
+   },
+   {
+    "file": "De-Kaffee2.ogg",
+    "region": "DE",
+    "page": "Kaffee"
+   },
+   {
+    "file": "De-Kaffee3.ogg",
+    "region": "DE",
+    "page": "Kaffee"
+   },
+   {
+    "file": "De-Kaffee trinken.ogg",
+    "region": "DE",
+    "page": "Kaffee"
+   },
+   {
+    "file": "De-at-Kaffee.ogg",
+    "region": "AT",
+    "page": "Kaffee"
+   },
+   {
+    "file": "De-koffeinfreier Kaffee.ogg",
+    "region": "DE",
+    "page": "Kaffee"
+   },
+   {
+    "file": "GT Kaffee und Kuchen.ogg",
+    "region": "other",
+    "page": "Kaffee"
+   }
+  ]
+ },
+ {
+  "card": "der Tee",
+  "group": "Café",
+  "kind": "noun",
+  "looked_up": [
+   "Tee"
+  ],
+  "has_native": true,
+  "germany": true,
+  "files": [
+   {
+    "file": "De-Tee.ogg",
+    "region": "DE",
+    "page": "Tee"
+   },
+   {
+    "file": "De-Tee2.ogg",
+    "region": "DE",
+    "page": "Tee"
+   },
+   {
+    "file": "De-Tee3.ogg",
+    "region": "DE",
+    "page": "Tee"
+   },
+   {
+    "file": "De-Tee aufgießen.ogg",
+    "region": "DE",
+    "page": "Tee"
+   }
+  ]
+ },
+ {
+  "card": "die Milch",
+  "group": "Café",
+  "kind": "noun",
+  "looked_up": [
+   "Milch"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Milch"
+   }
+  ]
+ },
+ {
+  "card": "das Wasser",
+  "group": "Café",
+  "kind": "noun",
+  "looked_up": [
+   "Wasser"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Wasser"
+   }
+  ]
+ },
+ {
+  "card": "das Brot",
+  "group": "Café",
+  "kind": "noun",
+  "looked_up": [
+   "Brot"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Brot"
+   }
+  ]
+ },
+ {
+  "card": "der Wein",
+  "group": "Café",
+  "kind": "noun",
+  "looked_up": [
+   "Wein"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Wein"
+   }
+  ]
+ },
+ {
+  "card": "das Bier",
+  "group": "Café",
+  "kind": "noun",
+  "looked_up": [
+   "Bier"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Bier"
+   }
+  ]
+ },
+ {
+  "card": "der Saft",
+  "group": "Café",
+  "kind": "noun",
+  "looked_up": [
+   "Saft"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Saft"
+   }
+  ]
+ },
+ {
+  "card": "der Zucker",
+  "group": "Café",
+  "kind": "noun",
+  "looked_up": [
+   "Zucker"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Zucker"
+   }
+  ]
+ },
+ {
+  "card": "der Apfel",
+  "group": "Café",
+  "kind": "noun",
+  "looked_up": [
+   "Apfel"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Apfel"
+   }
+  ]
+ },
+ {
+  "card": "das Ei",
+  "group": "Café",
+  "kind": "noun",
+  "looked_up": [
+   "Ei"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Ei"
+   }
+  ]
+ },
+ {
+  "card": "die Wurst",
+  "group": "Café",
+  "kind": "noun",
+  "looked_up": [
+   "Wurst"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Wurst"
+   }
+  ]
+ },
+ {
+  "card": "der Salat",
+  "group": "Café",
+  "kind": "noun",
+  "looked_up": [
+   "Salat"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Salat"
+   }
+  ]
+ },
+ {
+  "card": "das Schnitzel",
+  "group": "Café",
+  "kind": "noun",
+  "looked_up": [
+   "Schnitzel"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Schnitzel"
+   }
+  ]
+ },
+ {
+  "card": "der Keks",
+  "group": "Café",
+  "kind": "noun",
+  "looked_up": [
+   "Keks"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Keks"
+   }
+  ]
+ },
+ {
+  "card": "Kaffee mit Milch",
+  "group": "Café",
+  "kind": "phrase",
+  "looked_up": [
+   "Kaffee mit Milch"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Kaffee mit Milch"
+   }
+  ]
+ },
+ {
+  "card": "Ein Kaffee, bitte.",
+  "group": "Café",
+  "kind": "phrase",
+  "looked_up": [
+   "Ein Kaffee bitte"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Ein Kaffee bitte"
+   }
+  ]
+ },
+ {
+  "card": "Ich möchte Tee.",
+  "group": "Café",
+  "kind": "phrase",
+  "looked_up": [
+   "Ich möchte Tee"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Ich möchte Tee"
+   }
+  ]
+ },
+ {
+  "card": "Wasser oder Saft?",
+  "group": "Café",
+  "kind": "phrase",
+  "looked_up": [
+   "Wasser oder Saft"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Wasser oder Saft"
+   }
+  ]
+ },
+ {
+  "card": "Das ist lecker.",
+  "group": "Café",
+  "kind": "phrase",
+  "looked_up": [
+   "Das ist lecker"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Das ist lecker"
+   }
+  ]
+ },
+ {
+  "card": "Die Rechnung, bitte.",
+  "group": "Café",
+  "kind": "phrase",
+  "looked_up": [
+   "Die Rechnung bitte"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Die Rechnung bitte"
+   }
+  ]
+ },
+ {
+  "card": "Guten Morgen",
+  "group": "Introductions",
+  "kind": "phrase",
+  "looked_up": [
+   "Guten Morgen"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Guten Morgen"
+   }
+  ]
+ },
+ {
+  "card": "Guten Tag",
+  "group": "Introductions",
+  "kind": "phrase",
+  "looked_up": [
+   "Guten Tag"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Guten Tag"
+   }
+  ]
+ },
+ {
+  "card": "Guten Abend",
+  "group": "Introductions",
+  "kind": "phrase",
+  "looked_up": [
+   "Guten Abend"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Guten Abend"
+   }
+  ]
+ },
+ {
+  "card": "Gute Nacht",
+  "group": "Introductions",
+  "kind": "phrase",
+  "looked_up": [
+   "Gute Nacht"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Gute Nacht"
+   }
+  ]
+ },
+ {
+  "card": "Auf Wiedersehen",
+  "group": "Introductions",
+  "kind": "phrase",
+  "looked_up": [
+   "Auf Wiedersehen"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Auf Wiedersehen"
+   }
+  ]
+ },
+ {
+  "card": "Wie geht's?",
+  "group": "Introductions",
+  "kind": "phrase",
+  "looked_up": [
+   "Wie geht's"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Wie geht's"
+   }
+  ]
+ },
+ {
+  "card": "Mir geht's gut.",
+  "group": "Introductions",
+  "kind": "phrase",
+  "looked_up": [
+   "Mir geht's gut"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Mir geht's gut"
+   }
+  ]
+ },
+ {
+  "card": "gut",
+  "group": "Introductions",
+  "kind": "word",
+  "looked_up": [
+   "gut"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "gut"
+   }
+  ]
+ },
+ {
+  "card": "sehr gut",
+  "group": "Introductions",
+  "kind": "phrase",
+  "looked_up": [
+   "sehr gut"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "sehr gut"
+   }
+  ]
+ },
+ {
+  "card": "auch",
+  "group": "Introductions",
+  "kind": "word",
+  "looked_up": [
+   "auch"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "auch"
+   }
+  ]
+ },
+ {
+  "card": "Ich heiße Saúl.",
+  "group": "Introductions",
+  "kind": "phrase",
+  "looked_up": [
+   "Ich heiße Saúl"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Ich heiße Saúl"
+   }
+  ]
+ },
+ {
+  "card": "Wie heißt du?",
+  "group": "Introductions",
+  "kind": "phrase",
+  "looked_up": [
+   "Wie heißt du"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Wie heißt du"
+   }
+  ]
+ },
+ {
+  "card": "Woher kommst du?",
+  "group": "Introductions",
+  "kind": "phrase",
+  "looked_up": [
+   "Woher kommst du"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Woher kommst du"
+   }
+  ]
+ },
+ {
+  "card": "Ich komme aus Venezuela.",
+  "group": "Introductions",
+  "kind": "phrase",
+  "looked_up": [
+   "Ich komme aus Venezuela"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Ich komme aus Venezuela"
+   }
+  ]
+ },
+ {
+  "card": "Ich wohne in Tokio.",
+  "group": "Introductions",
+  "kind": "phrase",
+  "looked_up": [
+   "Ich wohne in Tokio"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Ich wohne in Tokio"
+   }
+  ]
+ },
+ {
+  "card": "Freut mich!",
+  "group": "Introductions",
+  "kind": "phrase",
+  "looked_up": [
+   "Freut mich"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": []
+ },
+ {
+  "card": "der Mann",
+  "group": "Introductions",
+  "kind": "noun",
+  "looked_up": [
+   "Mann"
+  ],
+  "has_native": true,
+  "germany": true,
+  "files": [
+   {
+    "file": "De-Mann.ogg",
+    "region": "DE",
+    "page": "Mann"
+   },
+   {
+    "file": "De-Mann2.ogg",
+    "region": "DE",
+    "page": "Mann"
+   },
+   {
+    "file": "De-Mann über Bord.ogg",
+    "region": "DE",
+    "page": "Mann"
+   },
+   {
+    "file": "De-ein gebrochener Mann.ogg",
+    "region": "DE",
+    "page": "Mann"
+   },
+   {
+    "file": "De-ein gestandener Mann.ogg",
+    "region": "DE",
+    "page": "Mann"
+   },
+   {
+    "file": "De-ein idealistischer junger Mann.ogg",
+    "region": "DE",
+    "page": "Mann"
+   }
+  ]
+ },
+ {
+  "card": "die Frau",
+  "group": "Introductions",
+  "kind": "noun",
+  "looked_up": [
+   "Frau"
+  ],
+  "has_native": true,
+  "germany": true,
+  "files": [
+   {
+    "file": "De-Frau.ogg",
+    "region": "DE",
+    "page": "Frau"
+   },
+   {
+    "file": "De-Frau2.ogg",
+    "region": "DE",
+    "page": "Frau"
+   },
+   {
+    "file": "De-eine bezaubernde Frau.ogg",
+    "region": "DE",
+    "page": "Frau"
+   },
+   {
+    "file": "De-emanzipierte Frau.ogg",
+    "region": "DE",
+    "page": "Frau"
+   }
+  ]
+ },
+ {
+  "card": "der Junge",
+  "group": "Introductions",
+  "kind": "noun",
+  "looked_up": [
+   "Junge"
+  ],
+  "has_native": true,
+  "germany": true,
+  "files": [
+   {
+    "file": "De-Junge.ogg",
+    "region": "DE",
+    "page": "Junge"
+   },
+   {
+    "file": "De-Junge2.ogg",
+    "region": "DE",
+    "page": "Junge"
+   }
+  ]
+ },
+ {
+  "card": "das Mädchen",
+  "group": "Introductions",
+  "kind": "noun",
+  "looked_up": [
+   "Mädchen"
+  ],
+  "has_native": true,
+  "germany": true,
+  "files": [
+   {
+    "file": "De-Mädchen.ogg",
+    "region": "DE",
+    "page": "Mädchen"
+   },
+   {
+    "file": "De-Mädchen2.ogg",
+    "region": "DE",
+    "page": "Mädchen"
+   },
+   {
+    "file": "De-ein reizendes Mädchen.ogg",
+    "region": "DE",
+    "page": "Mädchen"
+   }
+  ]
+ },
+ {
+  "card": "das Kind",
+  "group": "Introductions",
+  "kind": "noun",
+  "looked_up": [
+   "Kind"
+  ],
+  "has_native": true,
+  "germany": true,
+  "files": [
+   {
+    "file": "De-Kind.ogg",
+    "region": "DE",
+    "page": "Kind"
+   },
+   {
+    "file": "De-Kind2.ogg",
+    "region": "DE",
+    "page": "Kind"
+   },
+   {
+    "file": "De-ein erwünschtes Kind.ogg",
+    "region": "DE",
+    "page": "Kind"
+   },
+   {
+    "file": "De-ein gewolltes Kind.ogg",
+    "region": "DE",
+    "page": "Kind"
+   },
+   {
+    "file": "De-voreheliches Kind.ogg",
+    "region": "DE",
+    "page": "Kind"
+   }
+  ]
+ },
+ {
+  "card": "der Freund",
+  "group": "Introductions",
+  "kind": "noun",
+  "looked_up": [
+   "Freund"
+  ],
+  "has_native": true,
+  "germany": true,
+  "files": [
+   {
+    "file": "De-Freund.ogg",
+    "region": "DE",
+    "page": "Freund"
+   },
+   {
+    "file": "De-at-Freund.ogg",
+    "region": "AT",
+    "page": "Freund"
+   },
+   {
+    "file": "De-unsere gefiederten Freunde.ogg",
+    "region": "DE",
+    "page": "Freund"
+   }
+  ]
+ },
+ {
+  "card": "die Freundin",
+  "group": "Introductions",
+  "kind": "noun",
+  "looked_up": [
+   "Freundin"
+  ],
+  "has_native": true,
+  "germany": true,
+  "files": [
+   {
+    "file": "De-Freundin.ogg",
+    "region": "DE",
+    "page": "Freundin"
+   },
+   {
+    "file": "De-at-Freundin.ogg",
+    "region": "AT",
+    "page": "Freundin"
+   }
+  ]
+ },
+ {
+  "card": "Danke schön.",
+  "group": "Polite",
+  "kind": "phrase",
+  "looked_up": [
+   "Danke schön"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": []
+ },
+ {
+  "card": "Bitte schön.",
+  "group": "Polite",
+  "kind": "phrase",
+  "looked_up": [
+   "Bitte schön"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": []
+ },
+ {
+  "card": "Entschuldigung!",
+  "group": "Polite",
+  "kind": "word",
+  "looked_up": [
+   "Entschuldigung"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Entschuldigung"
+   }
+  ]
+ },
+ {
+  "card": "Es tut mir leid.",
+  "group": "Polite",
+  "kind": "phrase",
+  "looked_up": [
+   "Es tut mir leid"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Es tut mir leid"
+   }
+  ]
+ },
+ {
+  "card": "Kein Problem.",
+  "group": "Polite",
+  "kind": "phrase",
+  "looked_up": [
+   "Kein Problem"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Kein Problem"
+   }
+  ]
+ },
+ {
+  "card": "gern",
+  "group": "Polite",
+  "kind": "word",
+  "looked_up": [
+   "gern"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "gern"
+   }
+  ]
+ },
+ {
+  "card": "vielleicht",
+  "group": "Responses",
+  "kind": "word",
+  "looked_up": [
+   "vielleicht"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "vielleicht"
+   }
+  ]
+ },
+ {
+  "card": "natürlich",
+  "group": "Responses",
+  "kind": "word",
+  "looked_up": [
+   "natürlich"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "natürlich"
+   }
+  ]
+ },
+ {
+  "card": "genau",
+  "group": "Responses",
+  "kind": "word",
+  "looked_up": [
+   "genau"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "genau"
+   }
+  ]
+ },
+ {
+  "card": "stimmt",
+  "group": "Responses",
+  "kind": "word",
+  "looked_up": [
+   "stimmt"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "stimmt"
+   }
+  ]
+ },
+ {
+  "card": "Ich weiß nicht.",
+  "group": "Responses",
+  "kind": "phrase",
+  "looked_up": [
+   "Ich weiß nicht"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Ich weiß nicht"
+   }
+  ]
+ },
+ {
+  "card": "Ich verstehe nicht.",
+  "group": "Responses",
+  "kind": "phrase",
+  "looked_up": [
+   "Ich verstehe nicht"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Ich verstehe nicht"
+   }
+  ]
+ },
+ {
+  "card": "Noch einmal, bitte.",
+  "group": "Responses",
+  "kind": "phrase",
+  "looked_up": [
+   "Noch einmal bitte"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Noch einmal bitte"
+   }
+  ]
+ },
+ {
+  "card": "Sprechen Sie Englisch?",
+  "group": "Responses",
+  "kind": "phrase",
+  "looked_up": [
+   "Sprechen Sie Englisch"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Sprechen Sie Englisch"
+   }
+  ]
+ },
+ {
+  "card": "die Familie",
+  "group": "Family",
+  "kind": "noun",
+  "looked_up": [
+   "Familie"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Familie"
+   }
+  ]
+ },
+ {
+  "card": "der Vater",
+  "group": "Family",
+  "kind": "noun",
+  "looked_up": [
+   "Vater"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Vater"
+   }
+  ]
+ },
+ {
+  "card": "die Mutter",
+  "group": "Family",
+  "kind": "noun",
+  "looked_up": [
+   "Mutter"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Mutter"
+   }
+  ]
+ },
+ {
+  "card": "die Eltern",
+  "group": "Family",
+  "kind": "noun",
+  "looked_up": [
+   "Eltern"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Eltern"
+   }
+  ]
+ },
+ {
+  "card": "der Bruder",
+  "group": "Family",
+  "kind": "noun",
+  "looked_up": [
+   "Bruder"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Bruder"
+   }
+  ]
+ },
+ {
+  "card": "die Schwester",
+  "group": "Family",
+  "kind": "noun",
+  "looked_up": [
+   "Schwester"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Schwester"
+   }
+  ]
+ },
+ {
+  "card": "der Sohn",
+  "group": "Family",
+  "kind": "noun",
+  "looked_up": [
+   "Sohn"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Sohn"
+   }
+  ]
+ },
+ {
+  "card": "die Tochter",
+  "group": "Family",
+  "kind": "noun",
+  "looked_up": [
+   "Tochter"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Tochter"
+   }
+  ]
+ },
+ {
+  "card": "der Opa",
+  "group": "Family",
+  "kind": "noun",
+  "looked_up": [
+   "Opa"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Opa"
+   }
+  ]
+ },
+ {
+  "card": "die Oma",
+  "group": "Family",
+  "kind": "noun",
+  "looked_up": [
+   "Oma"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Oma"
+   }
+  ]
+ },
+ {
+  "card": "mein Bruder",
+  "group": "Family",
+  "kind": "phrase",
+  "looked_up": [
+   "mein Bruder"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "mein Bruder"
+   }
+  ]
+ },
+ {
+  "card": "meine Schwester",
+  "group": "Family",
+  "kind": "phrase",
+  "looked_up": [
+   "meine Schwester"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "meine Schwester"
+   }
+  ]
+ },
+ {
+  "card": "Das ist meine Mutter.",
+  "group": "Family",
+  "kind": "phrase",
+  "looked_up": [
+   "Das ist meine Mutter"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Das ist meine Mutter"
+   }
+  ]
+ },
+ {
+  "card": "Ich habe einen Bruder.",
+  "group": "Family",
+  "kind": "phrase",
+  "looked_up": [
+   "Ich habe einen Bruder"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Ich habe einen Bruder"
+   }
+  ]
+ },
+ {
+  "card": "Hast du Kinder?",
+  "group": "Family",
+  "kind": "phrase",
+  "looked_up": [
+   "Hast du Kinder"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Hast du Kinder"
+   }
+  ]
+ },
+ {
+  "card": "wer",
+  "group": "Questions",
+  "kind": "word",
+  "looked_up": [
+   "wer"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "wer"
+   }
+  ]
+ },
+ {
+  "card": "was",
+  "group": "Questions",
+  "kind": "word",
+  "looked_up": [
+   "was"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "was"
+   }
+  ]
+ },
+ {
+  "card": "wo",
+  "group": "Questions",
+  "kind": "word",
+  "looked_up": [
+   "wo"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "wo"
+   }
+  ]
+ },
+ {
+  "card": "wann",
+  "group": "Questions",
+  "kind": "word",
+  "looked_up": [
+   "wann"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "wann"
+   }
+  ]
+ },
+ {
+  "card": "wie",
+  "group": "Questions",
+  "kind": "word",
+  "looked_up": [
+   "wie"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "wie"
+   }
+  ]
+ },
+ {
+  "card": "warum",
+  "group": "Questions",
+  "kind": "word",
+  "looked_up": [
+   "warum"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "warum"
+   }
+  ]
+ },
+ {
+  "card": "wie viel",
+  "group": "Questions",
+  "kind": "phrase",
+  "looked_up": [
+   "wie viel"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "wie viel"
+   }
+  ]
+ },
+ {
+  "card": "Was ist das?",
+  "group": "Questions",
+  "kind": "phrase",
+  "looked_up": [
+   "Was ist das"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Was ist das"
+   }
+  ]
+ },
+ {
+  "card": "Wie viel kostet das?",
+  "group": "Questions",
+  "kind": "phrase",
+  "looked_up": [
+   "Wie viel kostet das"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Wie viel kostet das"
+   }
+  ]
+ },
+ {
+  "card": "eins",
+  "group": "Numbers",
+  "kind": "word",
+  "looked_up": [
+   "eins"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "eins"
+   }
+  ]
+ },
+ {
+  "card": "zwei",
+  "group": "Numbers",
+  "kind": "word",
+  "looked_up": [
+   "zwei"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "zwei"
+   }
+  ]
+ },
+ {
+  "card": "drei",
+  "group": "Numbers",
+  "kind": "word",
+  "looked_up": [
+   "drei"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "drei"
+   }
+  ]
+ },
+ {
+  "card": "vier",
+  "group": "Numbers",
+  "kind": "word",
+  "looked_up": [
+   "vier"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "vier"
+   }
+  ]
+ },
+ {
+  "card": "fünf",
+  "group": "Numbers",
+  "kind": "word",
+  "looked_up": [
+   "fünf"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "fünf"
+   }
+  ]
+ },
+ {
+  "card": "sechs",
+  "group": "Numbers",
+  "kind": "word",
+  "looked_up": [
+   "sechs"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "sechs"
+   }
+  ]
+ },
+ {
+  "card": "sieben",
+  "group": "Numbers",
+  "kind": "word",
+  "looked_up": [
+   "sieben"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "sieben"
+   }
+  ]
+ },
+ {
+  "card": "acht",
+  "group": "Numbers",
+  "kind": "word",
+  "looked_up": [
+   "acht"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "acht"
+   }
+  ]
+ },
+ {
+  "card": "neun",
+  "group": "Numbers",
+  "kind": "word",
+  "looked_up": [
+   "neun"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "neun"
+   }
+  ]
+ },
+ {
+  "card": "zehn",
+  "group": "Numbers",
+  "kind": "word",
+  "looked_up": [
+   "zehn"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "zehn"
+   }
+  ]
+ },
+ {
+  "card": "die Stadt",
+  "group": "Getting around",
+  "kind": "noun",
+  "looked_up": [
+   "Stadt"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Stadt"
+   }
+  ]
+ },
+ {
+  "card": "die Straße",
+  "group": "Getting around",
+  "kind": "noun",
+  "looked_up": [
+   "Straße"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "Straße"
+   }
+  ]
+ },
+ {
+  "card": "der Bahnhof",
+  "group": "Getting around",
+  "kind": "noun",
+  "looked_up": [
+   "Bahnhof"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Bahnhof"
+   }
+  ]
+ },
+ {
+  "card": "der Flughafen",
+  "group": "Getting around",
+  "kind": "noun",
+  "looked_up": [
+   "Flughafen"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "Flughafen"
+   }
+  ]
+ },
+ {
+  "card": "das Hotel",
+  "group": "Getting around",
+  "kind": "noun",
+  "looked_up": [
+   "Hotel"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Hotel"
+   }
+  ]
+ },
+ {
+  "card": "der Zug",
+  "group": "Getting around",
+  "kind": "noun",
+  "looked_up": [
+   "Zug"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "Zug"
+   }
+  ]
+ },
+ {
+  "card": "der Bus",
+  "group": "Getting around",
+  "kind": "noun",
+  "looked_up": [
+   "Bus"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Bus"
+   }
+  ]
+ },
+ {
+  "card": "das Taxi",
+  "group": "Getting around",
+  "kind": "noun",
+  "looked_up": [
+   "Taxi"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "Taxi"
+   }
+  ]
+ },
+ {
+  "card": "das Auto",
+  "group": "Getting around",
+  "kind": "noun",
+  "looked_up": [
+   "Auto"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Auto"
+   }
+  ]
+ },
+ {
+  "card": "Wo ist der Bahnhof?",
+  "group": "Getting around",
+  "kind": "phrase",
+  "looked_up": [
+   "Wo ist der Bahnhof"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "Wo ist der Bahnhof"
+   }
+  ]
+ },
+ {
+  "card": "hier",
+  "group": "Getting around",
+  "kind": "word",
+  "looked_up": [
+   "hier"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "hier"
+   }
+  ]
+ },
+ {
+  "card": "dort",
+  "group": "Getting around",
+  "kind": "word",
+  "looked_up": [
+   "dort"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "dort"
+   }
+  ]
+ },
+ {
+  "card": "links",
+  "group": "Getting around",
+  "kind": "word",
+  "looked_up": [
+   "links"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "links"
+   }
+  ]
+ },
+ {
+  "card": "rechts",
+  "group": "Getting around",
+  "kind": "word",
+  "looked_up": [
+   "rechts"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "rechts"
+   }
+  ]
+ },
+ {
+  "card": "geradeaus",
+  "group": "Getting around",
+  "kind": "word",
+  "looked_up": [
+   "geradeaus"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "geradeaus"
+   }
+  ]
+ },
+ {
+  "card": "Ich suche das Hotel.",
+  "group": "Getting around",
+  "kind": "phrase",
+  "looked_up": [
+   "Ich suche das Hotel"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "Ich suche das Hotel"
+   }
+  ]
+ },
+ {
+  "card": "Ist das weit?",
+  "group": "Getting around",
+  "kind": "phrase",
+  "looked_up": [
+   "Ist das weit"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Ist das weit"
+   }
+  ]
+ },
+ {
+  "card": "nicht weit",
+  "group": "Getting around",
+  "kind": "phrase",
+  "looked_up": [
+   "nicht weit"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "nicht weit"
+   }
+  ]
+ },
+ {
+  "card": "der Montag",
+  "group": "Days",
+  "kind": "noun",
+  "looked_up": [
+   "Montag"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Montag"
+   }
+  ]
+ },
+ {
+  "card": "der Dienstag",
+  "group": "Days",
+  "kind": "noun",
+  "looked_up": [
+   "Dienstag"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "Dienstag"
+   }
+  ]
+ },
+ {
+  "card": "der Mittwoch",
+  "group": "Days",
+  "kind": "noun",
+  "looked_up": [
+   "Mittwoch"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Mittwoch"
+   }
+  ]
+ },
+ {
+  "card": "der Donnerstag",
+  "group": "Days",
+  "kind": "noun",
+  "looked_up": [
+   "Donnerstag"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "Donnerstag"
+   }
+  ]
+ },
+ {
+  "card": "der Freitag",
+  "group": "Days",
+  "kind": "noun",
+  "looked_up": [
+   "Freitag"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Freitag"
+   }
+  ]
+ },
+ {
+  "card": "der Samstag",
+  "group": "Days",
+  "kind": "noun",
+  "looked_up": [
+   "Samstag"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "Samstag"
+   }
+  ]
+ },
+ {
+  "card": "der Sonntag",
+  "group": "Days",
+  "kind": "noun",
+  "looked_up": [
+   "Sonntag"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Sonntag"
+   }
+  ]
+ },
+ {
+  "card": "heute",
+  "group": "Days",
+  "kind": "word",
+  "looked_up": [
+   "heute"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "heute"
+   }
+  ]
+ },
+ {
+  "card": "morgen",
+  "group": "Days",
+  "kind": "word",
+  "looked_up": [
+   "morgen"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "morgen"
+   }
+  ]
+ },
+ {
+  "card": "gestern",
+  "group": "Days",
+  "kind": "word",
+  "looked_up": [
+   "gestern"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "gestern"
+   }
+  ]
+ },
+ {
+  "card": "wie lange",
+  "group": "Staying",
+  "kind": "phrase",
+  "looked_up": [
+   "wie lange"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "wie lange"
+   }
+  ]
+ },
+ {
+  "card": "bleiben",
+  "group": "Staying",
+  "kind": "word",
+  "looked_up": [
+   "bleiben"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "bleiben"
+   }
+  ]
+ },
+ {
+  "card": "fast",
+  "group": "Staying",
+  "kind": "word",
+  "looked_up": [
+   "fast"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "fast"
+   }
+  ]
+ },
+ {
+  "card": "dauern",
+  "group": "Staying",
+  "kind": "word",
+  "looked_up": [
+   "dauern"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "dauern"
+   }
+  ]
+ },
+ {
+  "card": "die Woche",
+  "group": "Staying",
+  "kind": "noun",
+  "looked_up": [
+   "Woche"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Woche"
+   }
+  ]
+ },
+ {
+  "card": "ein paar Tage",
+  "group": "Staying",
+  "kind": "phrase",
+  "looked_up": [
+   "ein paar Tage"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "ein paar Tage"
+   }
+  ]
+ },
+ {
+  "card": "einen Monat",
+  "group": "Staying",
+  "kind": "phrase",
+  "looked_up": [
+   "einen Monat"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "einen Monat"
+   }
+  ]
+ },
+ {
+  "card": "Wie lange bleibst du hier?",
+  "group": "Staying",
+  "kind": "phrase",
+  "looked_up": [
+   "Wie lange bleibst du hier"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "page": "Wie lange bleibst du hier"
+   }
+  ]
+ },
+ {
+  "card": "Ich bleibe fast zwei Wochen.",
+  "group": "Staying",
+  "kind": "phrase",
+  "looked_up": [
+   "Ich bleibe fast zwei Wochen"
+  ],
+  "has_native": false,
+  "germany": false,
+  "files": [
+   {
+    "error": "HTTP Error 429: Too Many Requests",
+    "page": "Ich bleibe fast zwei Wochen"
+   }
+  ]
+ }
+]
