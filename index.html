@@ -280,6 +280,10 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
         <input type="checkbox" id="autoplay">
       </div>
       <div class="setrow">
+        <label for="trim">Trim silence<small>Cuts the quiet part before and after you speak</small></label>
+        <input type="checkbox" id="trim">
+      </div>
+      <div class="setrow">
         <label>Model speed</label>
         <div class="seg" role="group" aria-label="Model speed">
           <button type="button" id="spd-normal" aria-pressed="true">Normal</button>
@@ -298,7 +302,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
     </div>
 
     <p class="foot">
-      Sprechtrainer v0.2 · Recordings are never saved, only your ratings and schedule.<br>
+      Sprechtrainer v0.3 · Recordings are never saved, only your ratings and schedule.<br>
       <a href="https://claude.ai/artifact/RCJDHi47bSRpPk9ifpbs2o">Pronunciation guide</a> ·
       <button type="button" class="danger" id="reset">Reset all progress</button>
     </p>
@@ -574,6 +578,52 @@ function findHints(text){
   return HINT_ORDER.filter(k => found.has(k)).slice(0, 3)
     .map(k => HINT_TEXT[k](`<i>${found.get(k)}</i>`));
 }
+/* Silence trimming: find where speech starts and ends in mono samples.
+   Works on 10 ms frames; the threshold adapts to the room's noise floor. */
+function findSpeechBounds(samples, sampleRate, opts = {}){
+  const padBefore = opts.padBefore ?? 0.12, padAfter = opts.padAfter ?? 0.2;
+  const frame = Math.max(1, Math.round(sampleRate * 0.01));
+  const n = Math.floor(samples.length / frame);
+  if (n < 5) return null;
+  const rms = new Float32Array(n);
+  for (let f = 0; f < n; f++){
+    let sum = 0;
+    for (let i = f * frame, e = i + frame; i < e; i++) sum += samples[i] * samples[i];
+    rms[f] = Math.sqrt(sum / frame);
+  }
+  const sorted = Array.from(rms).sort((a, b) => a - b);
+  const noise = sorted[Math.floor(n * 0.15)];
+  const peak = sorted[n - 1];
+  if (peak < 0.003) return null;                       // nothing but silence
+  const thr = Math.max(noise * 2.5, peak * 0.06, 0.002);
+  // speech = at least 3 consecutive frames (30 ms) above the threshold, so clicks don't count
+  const loud = f => rms[f] > thr;
+  let first = -1, last = -1;
+  for (let f = 0; f + 2 < n; f++) if (loud(f) && loud(f + 1) && loud(f + 2)){ first = f; break; }
+  for (let f = n - 1; f - 2 >= 0; f--) if (loud(f) && loud(f - 1) && loud(f - 2)){ last = f; break; }
+  if (first < 0 || last < first) return null;
+  const start = Math.max(0, (first * frame) / sampleRate - padBefore);
+  const end = Math.min(samples.length / sampleRate, ((last + 1) * frame) / sampleRate + padAfter);
+  if (end - start < 0.15) return null;
+  return { start, end };
+}
+
+/* Mono 16-bit PCM WAV from Float32 samples (plays everywhere, also with the iPhone's silent switch on). */
+function encodeWav(samples, sampleRate){
+  const buf = new ArrayBuffer(44 + samples.length * 2);
+  const v = new DataView(buf);
+  const str = (o, s) => { for (let i = 0; i < s.length; i++) v.setUint8(o + i, s.charCodeAt(i)); };
+  str(0, "RIFF"); v.setUint32(4, 36 + samples.length * 2, true); str(8, "WAVE");
+  str(12, "fmt "); v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+  v.setUint32(24, sampleRate, true); v.setUint32(28, sampleRate * 2, true);
+  v.setUint16(32, 2, true); v.setUint16(34, 16, true);
+  str(36, "data"); v.setUint32(40, samples.length * 2, true);
+  for (let i = 0, o = 44; i < samples.length; i++, o += 2){
+    const s = Math.max(-1, Math.min(1, samples[i]));
+    v.setInt16(o, s < 0 ? s * 0x8000 : s * 0x7fff, true);
+  }
+  return buf;
+}
 /* ==================== END LOGIC ==================== */
 
 /* ==================== STORAGE ==================== */
@@ -582,7 +632,7 @@ const DEFAULT_STORE = () => ({
   app: "sprechtrainer", version: 1,
   cards: {},
   daily: { day: -1, newDone: 0, extra: 0 },
-  settings: { newPerDay: 10, autoplay: true, slow: false },
+  settings: { newPerDay: 10, autoplay: true, slow: false, trim: true },
   lastBackup: null
 });
 let store = DEFAULT_STORE();
@@ -681,13 +731,20 @@ async function startRecording(){
     const blob = new Blob(chunks, { type: (mediaRec && mediaRec.mimeType) || mime || "audio/webm" });
     mediaRec = null;
     if (!blob.size){ setRecStatus("Nothing was recorded. Try again.", true); return; }
-    if (myUrl) URL.revokeObjectURL(myUrl);
-    myUrl = URL.createObjectURL(blob);
-    myAudio = new Audio(myUrl);
-    cur.recorded = (cur.recorded || 0) + 1;
-    setRecStatus(cur.recorded > 1 ? `Take ${cur.recorded}. Tap the mic to try again.` : "Tap the mic to try again.");
-    unlockPlays();
-    if (store.settings.autoplay) runCompare(["me", "model"]);
+    const forCard = cur;
+    setRecStatus("Processing…");
+    prepareRecording(blob).then(({ playable, trimmed, silent }) => {
+      if (cur !== forCard) return;           // moved on to another card meanwhile
+      if (myUrl) URL.revokeObjectURL(myUrl);
+      myUrl = URL.createObjectURL(playable);
+      myAudio = new Audio(myUrl);
+      cur.recorded = (cur.recorded || 0) + 1;
+      const take = cur.recorded > 1 ? `Take ${cur.recorded}. ` : "";
+      if (silent) setRecStatus(`${take}That sounded silent. Check your mic, or tap to try again.`, true);
+      else setRecStatus(`${take}${trimmed ? "Silence trimmed. " : ""}Tap the mic to try again.`);
+      unlockPlays();
+      if (store.settings.autoplay) runCompare(["me", "model"]);
+    });
   };
   mediaRec.start();
   recStart = Date.now();
@@ -699,6 +756,46 @@ async function startRecording(){
     if (Date.now() - recStart >= MAX_REC_MS) stopRecording();
   };
   tick(); recTimer = setInterval(tick, 100);
+}
+/* Decode the recording, cut the silence before and after speech, and re-encode as WAV.
+   If anything fails, the original recording is used unchanged. */
+let audioCtx = null;
+function getAudioCtx(){
+  if (!audioCtx){
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (AC) try{ audioCtx = new AC(); }catch(e){}
+  }
+  return audioCtx;
+}
+async function prepareRecording(blob){
+  if (!store.settings.trim) return { playable: blob, trimmed: false, silent: false };
+  try{
+    const ctx = getAudioCtx();
+    if (!ctx) throw new Error("no audio context");
+    const data = await blob.arrayBuffer();
+    const audio = await new Promise((res, rej) => {
+      const p = ctx.decodeAudioData(data, res, rej);   // callback form for older Safari
+      if (p && p.then) p.then(res, rej);
+    });
+    const sr = audio.sampleRate, len = audio.length;
+    const mono = new Float32Array(len);
+    for (let c = 0; c < audio.numberOfChannels; c++){
+      const ch = audio.getChannelData(c);
+      for (let i = 0; i < len; i++) mono[i] += ch[i] / audio.numberOfChannels;
+    }
+    const b = findSpeechBounds(mono, sr);
+    if (!b) return { playable: blob, trimmed: false, silent: true };
+    const s = Math.floor(b.start * sr), e = Math.ceil(b.end * sr);
+    const cut = mono.subarray(s, e);
+    // short fades so the cut edges don't click
+    const fade = Math.min(Math.floor(sr * 0.015), Math.floor(cut.length / 4));
+    const out = new Float32Array(cut);
+    for (let i = 0; i < fade; i++){ const g = i / fade; out[i] *= g; out[out.length - 1 - i] *= g; }
+    const trimmed = (len - (e - s)) / sr > 0.1;
+    return { playable: new Blob([encodeWav(out, sr)], { type: "audio/wav" }), trimmed, silent: false };
+  }catch(err){
+    return { playable: blob, trimmed: false, silent: false };
+  }
 }
 function stopRecording(){
   if (mediaRec && mediaRec.state !== "inactive"){ try{ mediaRec.stop(); }catch(e){} }
@@ -1000,6 +1097,7 @@ function renderWords(){
 function applySettings(){
   document.getElementById("new-per-day").value = String(store.settings.newPerDay);
   document.getElementById("autoplay").checked = !!store.settings.autoplay;
+  document.getElementById("trim").checked = !!store.settings.trim;
   document.getElementById("spd-normal").setAttribute("aria-pressed", String(!store.settings.slow));
   document.getElementById("spd-slow").setAttribute("aria-pressed", String(!!store.settings.slow));
 }
@@ -1033,6 +1131,7 @@ document.getElementById("new-per-day").onchange = e => {
   if (cur && cur.rating === 0 && !cur.recorded) startSession();
 };
 document.getElementById("autoplay").onchange = e => { store.settings.autoplay = e.target.checked; save(); };
+document.getElementById("trim").onchange = e => { store.settings.trim = e.target.checked; save(); };
 document.getElementById("spd-normal").onclick = () => { store.settings.slow = false; save(); applySettings(); };
 document.getElementById("spd-slow").onclick = () => { store.settings.slow = true; save(); applySettings(); };
 document.getElementById("voice-test").onclick = () => speakModel("Guten Tag! Wie geht's?");
