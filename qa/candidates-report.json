@@ -1,0 +1,295 @@
+{
+ "voice": "de-DE-KatjaNeural",
+ "results": [
+  {
+   "text": "der Dienstag",
+   "status": "Success",
+   "heard": "Der Dienstag.",
+   "overall": 60.0,
+   "accuracy": 50.0,
+   "fluency": 100.0,
+   "completeness": 50.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91
+     ]
+    },
+    {
+     "word": "Dienstag",
+     "score": 8.0,
+     "error": "Mispronunciation",
+     "phones": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Donnerstag",
+   "status": "Success",
+   "heard": "Der Donnerstag.",
+   "overall": 63.6,
+   "accuracy": 68.0,
+   "fluency": 100.0,
+   "completeness": 50.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91
+     ]
+    },
+    {
+     "word": "Donnerstag",
+     "score": 46.0,
+     "error": "Mispronunciation",
+     "phones": [
+      46,
+      46,
+      46,
+      46,
+      46,
+      46,
+      46,
+      46
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Wein",
+   "status": "Success",
+   "heard": "Der Wein.",
+   "overall": 64.4,
+   "accuracy": 72.0,
+   "fluency": 100.0,
+   "completeness": 50.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 85.0,
+     "error": "None",
+     "phones": [
+      71,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Wein",
+     "score": 59.0,
+     "error": "Mispronunciation",
+     "phones": [
+      100,
+      100,
+      49
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Bahnhof",
+   "status": "Success",
+   "heard": "Der Bahnhof.",
+   "overall": 64.8,
+   "accuracy": 74.0,
+   "fluency": 100.0,
+   "completeness": 50.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91
+     ]
+    },
+    {
+     "word": "Bahnhof",
+     "score": 56.0,
+     "error": "Mispronunciation",
+     "phones": [
+      56,
+      56,
+      56,
+      56,
+      56,
+      56
+     ]
+    }
+   ]
+  },
+  {
+   "text": "die Frau",
+   "status": "Success",
+   "heard": "Die Frau.",
+   "overall": 65.6,
+   "accuracy": 78.0,
+   "fluency": 100.0,
+   "completeness": 50.0,
+   "words": [
+    {
+     "word": "die",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Frau",
+     "score": 56.0,
+     "error": "Mispronunciation",
+     "phones": [
+      56,
+      56,
+      56
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Woher kommst du?",
+   "status": "Success",
+   "heard": "Woher kommst du?",
+   "overall": 75.6,
+   "accuracy": 77.0,
+   "fluency": 100.0,
+   "completeness": 67.0,
+   "words": [
+    {
+     "word": "Woher",
+     "score": 41.0,
+     "error": "Mispronunciation",
+     "phones": [
+      34,
+      100,
+      100,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "kommst",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      78
+     ]
+    },
+    {
+     "word": "du",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Sprechen Sie Englisch?",
+   "status": "Success",
+   "heard": "Sprechen Sie Englisch.",
+   "overall": 77.2,
+   "accuracy": 85.0,
+   "fluency": 100.0,
+   "completeness": 67.0,
+   "words": [
+    {
+     "word": "Sprechen",
+     "score": 59.0,
+     "error": "Mispronunciation",
+     "phones": [
+      59,
+      59,
+      59,
+      59,
+      59,
+      59,
+      59
+     ]
+    },
+    {
+     "word": "Sie",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97
+     ]
+    },
+    {
+     "word": "Englisch",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "das Mädchen",
+   "status": "Success",
+   "heard": "Das Mädchen.",
+   "overall": 86.2,
+   "accuracy": 77.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "das",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      83,
+      95,
+      100
+     ]
+    },
+    {
+     "word": "Mädchen",
+     "score": 60.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      50
+     ]
+    }
+   ]
+  }
+ ]
+}
