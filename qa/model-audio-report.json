@@ -1,0 +1,4417 @@
+{
+ "voice": "de-DE-ConradNeural",
+ "results": [
+  {
+   "text": "der Dienstag",
+   "status": "Success",
+   "heard": "Der Dienstag.",
+   "overall": 59.4,
+   "accuracy": 49.0,
+   "fluency": 100.0,
+   "completeness": 50.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      76,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Dienstag",
+     "score": 7.0,
+     "error": "Mispronunciation",
+     "phones": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Donnerstag",
+   "status": "Success",
+   "heard": "Der Donnerstag.",
+   "overall": 63.6,
+   "accuracy": 68.0,
+   "fluency": 100.0,
+   "completeness": 50.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91
+     ]
+    },
+    {
+     "word": "Donnerstag",
+     "score": 46.0,
+     "error": "Mispronunciation",
+     "phones": [
+      46,
+      46,
+      46,
+      46,
+      46,
+      46,
+      46,
+      46
+     ]
+    }
+   ]
+  },
+  {
+   "text": "das Mädchen",
+   "status": "Success",
+   "heard": "Das Mädchen.",
+   "overall": 64.0,
+   "accuracy": 70.0,
+   "fluency": 100.0,
+   "completeness": 50.0,
+   "words": [
+    {
+     "word": "das",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      75,
+      81,
+      100
+     ]
+    },
+    {
+     "word": "Mädchen",
+     "score": 46.0,
+     "error": "Mispronunciation",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      38
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Wein",
+   "status": "Success",
+   "heard": "Der Wein.",
+   "overall": 65.2,
+   "accuracy": 76.0,
+   "fluency": 100.0,
+   "completeness": 50.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "Wein",
+     "score": 58.0,
+     "error": "Mispronunciation",
+     "phones": [
+      100,
+      100,
+      48
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Bahnhof",
+   "status": "Success",
+   "heard": "Der Bahnhof.",
+   "overall": 65.2,
+   "accuracy": 76.0,
+   "fluency": 100.0,
+   "completeness": 50.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "Bahnhof",
+     "score": 59.0,
+     "error": "Mispronunciation",
+     "phones": [
+      59,
+      59,
+      59,
+      59,
+      59,
+      59
+     ]
+    }
+   ]
+  },
+  {
+   "text": "die Frau",
+   "status": "Success",
+   "heard": "Die Frau.",
+   "overall": 65.6,
+   "accuracy": 78.0,
+   "fluency": 100.0,
+   "completeness": 50.0,
+   "words": [
+    {
+     "word": "die",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Frau",
+     "score": 57.0,
+     "error": "Mispronunciation",
+     "phones": [
+      57,
+      57,
+      57
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Woher kommst du?",
+   "status": "Success",
+   "heard": "Woher kommst du?",
+   "overall": 75.4,
+   "accuracy": 76.0,
+   "fluency": 100.0,
+   "completeness": 67.0,
+   "words": [
+    {
+     "word": "Woher",
+     "score": 37.0,
+     "error": "Mispronunciation",
+     "phones": [
+      37,
+      37,
+      37,
+      37,
+      37
+     ]
+    },
+    {
+     "word": "kommst",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      100,
+      78,
+      100,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "du",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      100,
+      81
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Ich heiße Saúl.",
+   "status": "Success",
+   "heard": "Ich heiße Saúl.",
+   "overall": 75.8,
+   "accuracy": 78.0,
+   "fluency": 100.0,
+   "completeness": 67.0,
+   "words": [
+    {
+     "word": "Ich",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "heiße",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      71
+     ]
+    },
+    {
+     "word": "Saúl",
+     "score": 40.0,
+     "error": "Mispronunciation",
+     "phones": [
+      38,
+      34,
+      93
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Sprechen Sie Englisch?",
+   "status": "Success",
+   "heard": "Sprechen Sie Englisch.",
+   "overall": 77.2,
+   "accuracy": 85.0,
+   "fluency": 100.0,
+   "completeness": 67.0,
+   "words": [
+    {
+     "word": "Sprechen",
+     "score": 59.0,
+     "error": "Mispronunciation",
+     "phones": [
+      59,
+      59,
+      59,
+      59,
+      59,
+      59,
+      59
+     ]
+    },
+    {
+     "word": "Sie",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97
+     ]
+    },
+    {
+     "word": "Englisch",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Wo ist der Bahnhof?",
+   "status": "Success",
+   "heard": "Wo ist der Bahnhof?",
+   "overall": 81.8,
+   "accuracy": 84.0,
+   "fluency": 100.0,
+   "completeness": 75.0,
+   "words": [
+    {
+     "word": "Wo",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91
+     ]
+    },
+    {
+     "word": "ist",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      100,
+      78,
+      100
+     ]
+    },
+    {
+     "word": "der",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "Bahnhof",
+     "score": 58.0,
+     "error": "Mispronunciation",
+     "phones": [
+      58,
+      58,
+      58,
+      58,
+      58,
+      58
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Guten Morgen",
+   "status": "Success",
+   "heard": "Guten Morgen.",
+   "overall": 85.6,
+   "accuracy": 76.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Guten",
+     "score": 85.0,
+     "error": "None",
+     "phones": [
+      85,
+      85,
+      85,
+      85,
+      85
+     ]
+    },
+    {
+     "word": "Morgen",
+     "score": 66.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      56,
+      60,
+      50
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Guten Abend",
+   "status": "Success",
+   "heard": "Guten Abend.",
+   "overall": 85.6,
+   "accuracy": 76.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Guten",
+     "score": 88.0,
+     "error": "None",
+     "phones": [
+      88,
+      88,
+      88,
+      88,
+      88
+     ]
+    },
+    {
+     "word": "Abend",
+     "score": 63.0,
+     "error": "None",
+     "phones": [
+      100,
+      55,
+      100,
+      100,
+      50
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Junge",
+   "status": "Success",
+   "heard": "Der Junge.",
+   "overall": 86.8,
+   "accuracy": 78.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "Junge",
+     "score": 62.0,
+     "error": "None",
+     "phones": [
+      62,
+      62,
+      62,
+      62
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Kein Problem.",
+   "status": "Success",
+   "heard": "Kein Problem.",
+   "overall": 88.0,
+   "accuracy": 80.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Kein",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Problem",
+     "score": 60.0,
+     "error": "None",
+     "phones": [
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Samstag",
+   "status": "Success",
+   "heard": "Der Samstag.",
+   "overall": 88.0,
+   "accuracy": 80.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "Samstag",
+     "score": 66.0,
+     "error": "None",
+     "phones": [
+      66,
+      66,
+      66,
+      66,
+      66,
+      66,
+      66
+     ]
+    }
+   ]
+  },
+  {
+   "text": "die Wurst",
+   "status": "Success",
+   "heard": "Die Wurst.",
+   "overall": 89.2,
+   "accuracy": 82.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "die",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Wurst",
+     "score": 64.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      53
+     ]
+    }
+   ]
+  },
+  {
+   "text": "die Stadt",
+   "status": "Success",
+   "heard": "Die Stadt.",
+   "overall": 89.2,
+   "accuracy": 82.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "die",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Stadt",
+     "score": 64.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      53
+     ]
+    }
+   ]
+  },
+  {
+   "text": "das Hotel",
+   "status": "Success",
+   "heard": "Das Hotel.",
+   "overall": 89.8,
+   "accuracy": 83.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "das",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      88,
+      98,
+      100
+     ]
+    },
+    {
+     "word": "Hotel",
+     "score": 69.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      58
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Tee",
+   "status": "Success",
+   "heard": "Der Tee.",
+   "overall": 90.4,
+   "accuracy": 84.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "Tee",
+     "score": 73.0,
+     "error": "None",
+     "phones": [
+      100,
+      61
+     ]
+    }
+   ]
+  },
+  {
+   "text": "das Brot",
+   "status": "Success",
+   "heard": "Das Brot.",
+   "overall": 90.4,
+   "accuracy": 84.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "das",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      88,
+      98,
+      100
+     ]
+    },
+    {
+     "word": "Brot",
+     "score": 70.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      58
+     ]
+    }
+   ]
+  },
+  {
+   "text": "die Freundin",
+   "status": "Success",
+   "heard": "Die Freundin.",
+   "overall": 90.4,
+   "accuracy": 84.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "die",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Freundin",
+     "score": 67.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      56
+     ]
+    }
+   ]
+  },
+  {
+   "text": "das Wasser",
+   "status": "Success",
+   "heard": "Das Wasser.",
+   "overall": 91.0,
+   "accuracy": 85.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "das",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      74,
+      83,
+      100
+     ]
+    },
+    {
+     "word": "Wasser",
+     "score": 76.0,
+     "error": "None",
+     "phones": [
+      76,
+      76,
+      76,
+      76
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Das ist lecker.",
+   "status": "Success",
+   "heard": "Das ist lecker.",
+   "overall": 91.0,
+   "accuracy": 85.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Das",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      88,
+      90,
+      100
+     ]
+    },
+    {
+     "word": "ist",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      100,
+      78,
+      100
+     ]
+    },
+    {
+     "word": "lecker",
+     "score": 67.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      56
+     ]
+    }
+   ]
+  },
+  {
+   "text": "die Tochter",
+   "status": "Success",
+   "heard": "Die Tochter.",
+   "overall": 91.0,
+   "accuracy": 85.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "die",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Tochter",
+     "score": 70.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      58
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Wie geht's?",
+   "status": "Success",
+   "heard": "Wie geht's?",
+   "overall": 91.6,
+   "accuracy": 86.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Wie",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      93,
+      100
+     ]
+    },
+    {
+     "word": "geht's",
+     "score": 76.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      63
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Sohn",
+   "status": "Success",
+   "heard": "Der Sohn.",
+   "overall": 91.6,
+   "accuracy": 86.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "Sohn",
+     "score": 79.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      66
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Das ist meine Mutter.",
+   "status": "Success",
+   "heard": "Das ist meine Mutter.",
+   "overall": 91.6,
+   "accuracy": 86.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Das",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      84,
+      97,
+      100
+     ]
+    },
+    {
+     "word": "ist",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      100,
+      78,
+      100
+     ]
+    },
+    {
+     "word": "meine",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      78,
+      100
+     ]
+    },
+    {
+     "word": "Mutter",
+     "score": 60.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      50
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Ich suche das Hotel.",
+   "status": "Success",
+   "heard": "Ich suche das Hotel.",
+   "overall": 91.6,
+   "accuracy": 86.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Ich",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "suche",
+     "score": 76.0,
+     "error": "None",
+     "phones": [
+      76,
+      76,
+      76,
+      76
+     ]
+    },
+    {
+     "word": "das",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97
+     ]
+    },
+    {
+     "word": "Hotel",
+     "score": 69.0,
+     "error": "None",
+     "phones": [
+      69,
+      69,
+      69,
+      69,
+      69
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Ist das weit?",
+   "status": "Success",
+   "heard": "Ist das weit?",
+   "overall": 91.6,
+   "accuracy": 86.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Ist",
+     "score": 68.0,
+     "error": "None",
+     "phones": [
+      100,
+      57,
+      100
+     ]
+    },
+    {
+     "word": "das",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      100,
+      81,
+      100
+     ]
+    },
+    {
+     "word": "weit",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      78
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Noch einmal, bitte.",
+   "status": "Success",
+   "heard": "Noch einmal bitte.",
+   "overall": 92.0,
+   "accuracy": 87.0,
+   "fluency": 99.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Noch",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97
+     ]
+    },
+    {
+     "word": "einmal",
+     "score": 64.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      53
+     ]
+    },
+    {
+     "word": "bitte",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Ich weiß nicht.",
+   "status": "Success",
+   "heard": "Ich weiß nicht.",
+   "overall": 92.2,
+   "accuracy": 87.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Ich",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      86,
+      100
+     ]
+    },
+    {
+     "word": "weiß",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97
+     ]
+    },
+    {
+     "word": "nicht",
+     "score": 66.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      55
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Ich verstehe nicht.",
+   "status": "Success",
+   "heard": "Ich verstehe nicht.",
+   "overall": 92.2,
+   "accuracy": 87.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Ich",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "verstehe",
+     "score": 82.0,
+     "error": "None",
+     "phones": [
+      82,
+      82,
+      82,
+      82,
+      82,
+      82,
+      82
+     ]
+    },
+    {
+     "word": "nicht",
+     "score": 79.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      66
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Die Rechnung, bitte.",
+   "status": "Success",
+   "heard": "Die Rechnung, bitte.",
+   "overall": 92.6,
+   "accuracy": 88.0,
+   "fluency": 99.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Die",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Rechnung",
+     "score": 64.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      53
+     ]
+    },
+    {
+     "word": "bitte",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "das Schnitzel",
+   "status": "Success",
+   "heard": "Das Schnitzel.",
+   "overall": 92.8,
+   "accuracy": 88.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "das",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      75,
+      82,
+      100
+     ]
+    },
+    {
+     "word": "Schnitzel",
+     "score": 82.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      68
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Wasser oder Saft?",
+   "status": "Success",
+   "heard": "Wasser oder Saft?",
+   "overall": 93.4,
+   "accuracy": 89.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Wasser",
+     "score": 82.0,
+     "error": "None",
+     "phones": [
+      68,
+      100,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "oder",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "Saft",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91,
+      91
+     ]
+    }
+   ]
+  },
+  {
+   "text": "morgen",
+   "status": "Success",
+   "heard": "Morgen.",
+   "overall": 93.4,
+   "accuracy": 89.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "morgen",
+     "score": 89.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      62
+     ]
+    }
+   ]
+  },
+  {
+   "text": "ein paar Tage",
+   "status": "Success",
+   "heard": "Ein paar Tage.",
+   "overall": 93.4,
+   "accuracy": 89.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "ein",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      81,
+      100
+     ]
+    },
+    {
+     "word": "paar",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97
+     ]
+    },
+    {
+     "word": "Tage",
+     "score": 73.0,
+     "error": "None",
+     "phones": [
+      62,
+      100,
+      100,
+      60
+     ]
+    }
+   ]
+  },
+  {
+   "text": "und",
+   "status": "Success",
+   "heard": "Und.",
+   "overall": 94.0,
+   "accuracy": 90.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "und",
+     "score": 90.0,
+     "error": "None",
+     "phones": [
+      86,
+      96,
+      83
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Auf Wiedersehen",
+   "status": "Success",
+   "heard": "Auf Wiedersehen.",
+   "overall": 94.0,
+   "accuracy": 90.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Auf",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97
+     ]
+    },
+    {
+     "word": "Wiedersehen",
+     "score": 82.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      68
+     ]
+    }
+   ]
+  },
+  {
+   "text": "sehr gut",
+   "status": "Success",
+   "heard": "Sehr gut.",
+   "overall": 94.0,
+   "accuracy": 90.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "sehr",
+     "score": 82.0,
+     "error": "None",
+     "phones": [
+      82,
+      82,
+      82
+     ]
+    },
+    {
+     "word": "gut",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97
+     ]
+    }
+   ]
+  },
+  {
+   "text": "die Mutter",
+   "status": "Success",
+   "heard": "Die Mutter.",
+   "overall": 94.0,
+   "accuracy": 90.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "die",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Mutter",
+     "score": 79.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      66
+     ]
+    }
+   ]
+  },
+  {
+   "text": "die Schwester",
+   "status": "Success",
+   "heard": "Die Schwester.",
+   "overall": 94.0,
+   "accuracy": 90.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "die",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Schwester",
+     "score": 79.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      66
+     ]
+    }
+   ]
+  },
+  {
+   "text": "meine Schwester",
+   "status": "Success",
+   "heard": "Meine Schwester.",
+   "overall": 94.0,
+   "accuracy": 90.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "meine",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      83,
+      100,
+      79,
+      100
+     ]
+    },
+    {
+     "word": "Schwester",
+     "score": 82.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      68
+     ]
+    }
+   ]
+  },
+  {
+   "text": "was",
+   "status": "Success",
+   "heard": "Was?",
+   "overall": 94.0,
+   "accuracy": 90.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "was",
+     "score": 90.0,
+     "error": "None",
+     "phones": [
+      94,
+      100,
+      81
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Freitag",
+   "status": "Success",
+   "heard": "Der Freitag.",
+   "overall": 94.0,
+   "accuracy": 90.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91
+     ]
+    },
+    {
+     "word": "Freitag",
+     "score": 88.0,
+     "error": "None",
+     "phones": [
+      88,
+      88,
+      88,
+      88,
+      88,
+      88
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Guten Tag",
+   "status": "Success",
+   "heard": "Guten Tag.",
+   "overall": 94.6,
+   "accuracy": 91.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Guten",
+     "score": 85.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      71,
+      100
+     ]
+    },
+    {
+     "word": "Tag",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Freut mich!",
+   "status": "Success",
+   "heard": "Freut mich.",
+   "overall": 94.6,
+   "accuracy": 91.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Freut",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97,
+      97
+     ]
+    },
+    {
+     "word": "mich",
+     "score": 85.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      71
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Es tut mir leid.",
+   "status": "Success",
+   "heard": "Es tut mir leid.",
+   "overall": 94.6,
+   "accuracy": 91.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Es",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "tut",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "mir",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97
+     ]
+    },
+    {
+     "word": "leid",
+     "score": 66.0,
+     "error": "None",
+     "phones": [
+      66,
+      66,
+      66
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Vater",
+   "status": "Success",
+   "heard": "Der Vater.",
+   "overall": 94.6,
+   "accuracy": 91.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "Vater",
+     "score": 88.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      73
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Opa",
+   "status": "Success",
+   "heard": "Der Opa.",
+   "overall": 94.6,
+   "accuracy": 91.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91
+     ]
+    },
+    {
+     "word": "Opa",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      76
+     ]
+    }
+   ]
+  },
+  {
+   "text": "die Straße",
+   "status": "Success",
+   "heard": "Die Straße.",
+   "overall": 94.6,
+   "accuracy": 91.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "die",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Straße",
+     "score": 82.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      68
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Zug",
+   "status": "Success",
+   "heard": "Der Zug.",
+   "overall": 94.6,
+   "accuracy": 91.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91
+     ]
+    },
+    {
+     "word": "Zug",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Zucker",
+   "status": "Success",
+   "heard": "Der Zucker.",
+   "overall": 95.2,
+   "accuracy": 92.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91
+     ]
+    },
+    {
+     "word": "Zucker",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      78
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Ich möchte Tee.",
+   "status": "Success",
+   "heard": "Ich möchte Tee.",
+   "overall": 95.2,
+   "accuracy": 92.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Ich",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "möchte",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Tee",
+     "score": 76.0,
+     "error": "None",
+     "phones": [
+      76,
+      76
+     ]
+    }
+   ]
+  },
+  {
+   "text": "die Eltern",
+   "status": "Success",
+   "heard": "Die Eltern.",
+   "overall": 95.2,
+   "accuracy": 92.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "die",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Eltern",
+     "score": 85.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      71
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Bruder",
+   "status": "Success",
+   "heard": "Der Bruder.",
+   "overall": 95.2,
+   "accuracy": 92.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "Bruder",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      76
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Ich habe einen Bruder.",
+   "status": "Success",
+   "heard": "Ich habe einen Bruder.",
+   "overall": 95.2,
+   "accuracy": 92.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Ich",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      83,
+      94
+     ]
+    },
+    {
+     "word": "habe",
+     "score": 88.0,
+     "error": "None",
+     "phones": [
+      88,
+      88,
+      88,
+      88
+     ]
+    },
+    {
+     "word": "einen",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      100,
+      80,
+      77,
+      100
+     ]
+    },
+    {
+     "word": "Bruder",
+     "score": 88.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      73
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Hast du Kinder?",
+   "status": "Success",
+   "heard": "Hast du Kinder?",
+   "overall": 95.2,
+   "accuracy": 92.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Hast",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      78,
+      100,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "du",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Kinder",
+     "score": 82.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      68
+     ]
+    }
+   ]
+  },
+  {
+   "text": "wann",
+   "status": "Success",
+   "heard": "Wann?",
+   "overall": 95.2,
+   "accuracy": 92.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "wann",
+     "score": 92.0,
+     "error": "None",
+     "phones": [
+      93,
+      100,
+      83
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Was ist das?",
+   "status": "Success",
+   "heard": "Was ist das?",
+   "overall": 95.2,
+   "accuracy": 92.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Was",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      76,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "ist",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      100,
+      76,
+      76
+     ]
+    },
+    {
+     "word": "das",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      100,
+      81,
+      76
+     ]
+    }
+   ]
+  },
+  {
+   "text": "geradeaus",
+   "status": "Success",
+   "heard": "Geradeaus.",
+   "overall": 95.2,
+   "accuracy": 92.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "geradeaus",
+     "score": 92.0,
+     "error": "None",
+     "phones": [
+      48,
+      63,
+      92,
+      100,
+      100,
+      100,
+      100,
+      95
+     ]
+    }
+   ]
+  },
+  {
+   "text": "fast",
+   "status": "Success",
+   "heard": "Fast.",
+   "overall": 95.2,
+   "accuracy": 92.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "fast",
+     "score": 92.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      77
+     ]
+    }
+   ]
+  },
+  {
+   "text": "bitte",
+   "status": "Success",
+   "heard": "Bitte.",
+   "overall": 95.8,
+   "accuracy": 93.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "bitte",
+     "score": 93.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Saft",
+   "status": "Success",
+   "heard": "Der Saft.",
+   "overall": 96.4,
+   "accuracy": 94.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "Saft",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94,
+      94
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Salat",
+   "status": "Success",
+   "heard": "Der Salat.",
+   "overall": 96.4,
+   "accuracy": 94.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "Salat",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      78
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Keks",
+   "status": "Success",
+   "heard": "Der Keks.",
+   "overall": 96.4,
+   "accuracy": 94.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "Keks",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94,
+      94
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Mir geht's gut.",
+   "status": "Success",
+   "heard": "Mir geht's gut.",
+   "overall": 96.4,
+   "accuracy": 94.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Mir",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97
+     ]
+    },
+    {
+     "word": "geht's",
+     "score": 88.0,
+     "error": "None",
+     "phones": [
+      88,
+      88,
+      88
+     ]
+    },
+    {
+     "word": "gut",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97
+     ]
+    }
+   ]
+  },
+  {
+   "text": "das Kind",
+   "status": "Success",
+   "heard": "Das Kind.",
+   "overall": 96.4,
+   "accuracy": 94.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "das",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      87,
+      99,
+      100
+     ]
+    },
+    {
+     "word": "Kind",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      76
+     ]
+    }
+   ]
+  },
+  {
+   "text": "die Familie",
+   "status": "Success",
+   "heard": "Die Familie.",
+   "overall": 96.4,
+   "accuracy": 94.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "die",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      90,
+      100
+     ]
+    },
+    {
+     "word": "Familie",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91,
+      91,
+      91,
+      91,
+      91
+     ]
+    }
+   ]
+  },
+  {
+   "text": "mein Bruder",
+   "status": "Success",
+   "heard": "Mein Bruder.",
+   "overall": 96.4,
+   "accuracy": 94.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "mein",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Bruder",
+     "score": 88.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      73
+     ]
+    }
+   ]
+  },
+  {
+   "text": "wie viel",
+   "status": "Success",
+   "heard": "Wie viel?",
+   "overall": 96.4,
+   "accuracy": 94.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "wie",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "viel",
+     "score": 88.0,
+     "error": "None",
+     "phones": [
+      88,
+      88,
+      88
+     ]
+    }
+   ]
+  },
+  {
+   "text": "das Auto",
+   "status": "Success",
+   "heard": "Das Auto.",
+   "overall": 96.4,
+   "accuracy": 94.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "das",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      88,
+      97,
+      100
+     ]
+    },
+    {
+     "word": "Auto",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91
+     ]
+    }
+   ]
+  },
+  {
+   "text": "hier",
+   "status": "Success",
+   "heard": "Hier.",
+   "overall": 96.4,
+   "accuracy": 94.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "hier",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      100,
+      85,
+      85
+     ]
+    }
+   ]
+  },
+  {
+   "text": "nicht weit",
+   "status": "Success",
+   "heard": "Nicht weit.",
+   "overall": 96.4,
+   "accuracy": 94.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "nicht",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      100,
+      76,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "weit",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Sonntag",
+   "status": "Success",
+   "heard": "Der Sonntag.",
+   "overall": 96.4,
+   "accuracy": 94.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91
+     ]
+    },
+    {
+     "word": "Sonntag",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97,
+      97,
+      97,
+      97
+     ]
+    }
+   ]
+  },
+  {
+   "text": "heute",
+   "status": "Success",
+   "heard": "Heute.",
+   "overall": 96.4,
+   "accuracy": 94.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "heute",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      83
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Wie lange bleibst du hier?",
+   "status": "Success",
+   "heard": "Wie lange bleibst du hier?",
+   "overall": 96.4,
+   "accuracy": 94.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Wie",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      91,
+      100
+     ]
+    },
+    {
+     "word": "lange",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97,
+      97
+     ]
+    },
+    {
+     "word": "bleibst",
+     "score": 82.0,
+     "error": "None",
+     "phones": [
+      82,
+      82,
+      82,
+      82,
+      82,
+      82
+     ]
+    },
+    {
+     "word": "du",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      81,
+      100
+     ]
+    },
+    {
+     "word": "hier",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      100,
+      95,
+      95
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Ich komme aus Venezuela.",
+   "status": "Success",
+   "heard": "Ich komme aus Venezuela.",
+   "overall": 97.0,
+   "accuracy": 95.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Ich",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      87,
+      100
+     ]
+    },
+    {
+     "word": "komme",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "aus",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97
+     ]
+    },
+    {
+     "word": "Venezuela",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91,
+      91,
+      91,
+      91,
+      91,
+      91,
+      91
+     ]
+    }
+   ]
+  },
+  {
+   "text": "wie",
+   "status": "Success",
+   "heard": "Wie?",
+   "overall": 97.0,
+   "accuracy": 95.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "wie",
+     "score": 95.0,
+     "error": "None",
+     "phones": [
+      93,
+      93
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Ich bleibe fast zwei Wochen.",
+   "status": "Success",
+   "heard": "Ich bleibe fast 2 Wochen.",
+   "overall": 97.0,
+   "accuracy": 95.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Ich",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      86,
+      100
+     ]
+    },
+    {
+     "word": "bleibe",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97,
+      97,
+      97
+     ]
+    },
+    {
+     "word": "fast",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91,
+      91
+     ]
+    },
+    {
+     "word": "zwei",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Wochen",
+     "score": 88.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      73
+     ]
+    }
+   ]
+  },
+  {
+   "text": "ja",
+   "status": "Success",
+   "heard": "Ja.",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "ja",
+     "score": 96.0,
+     "error": "None",
+     "phones": [
+      99,
+      91
+     ]
+    }
+   ]
+  },
+  {
+   "text": "oder",
+   "status": "Success",
+   "heard": "Oder?",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "oder",
+     "score": 96.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      88
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Kaffee",
+   "status": "Success",
+   "heard": "Der Kaffee.",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91
+     ]
+    },
+    {
+     "word": "Kaffee",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Apfel",
+   "status": "Success",
+   "heard": "Der Apfel.",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "Apfel",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      81
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Gute Nacht",
+   "status": "Success",
+   "heard": "Gute Nacht.",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Gute",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97,
+      97
+     ]
+    },
+    {
+     "word": "Nacht",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94,
+      94
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Ich wohne in Tokio.",
+   "status": "Success",
+   "heard": "Ich wohne in Tokio.",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Ich",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      85,
+      100
+     ]
+    },
+    {
+     "word": "wohne",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "in",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Tokio",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94,
+      94,
+      94
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Freund",
+   "status": "Success",
+   "heard": "Der Freund.",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "Freund",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      81
+     ]
+    }
+   ]
+  },
+  {
+   "text": "natürlich",
+   "status": "Success",
+   "heard": "Natürlich.",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "natürlich",
+     "score": 96.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      85
+     ]
+    }
+   ]
+  },
+  {
+   "text": "genau",
+   "status": "Success",
+   "heard": "Genau.",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "genau",
+     "score": 96.0,
+     "error": "None",
+     "phones": [
+      100,
+      94,
+      100,
+      92
+     ]
+    }
+   ]
+  },
+  {
+   "text": "stimmt",
+   "status": "Success",
+   "heard": "Stimmt.",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "stimmt",
+     "score": 96.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      84
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Wie viel kostet das?",
+   "status": "Success",
+   "heard": "Wie viel kostet das?",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Wie",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "viel",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91
+     ]
+    },
+    {
+     "word": "kostet",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97,
+      97,
+      97,
+      97
+     ]
+    },
+    {
+     "word": "das",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      100,
+      83,
+      79
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Flughafen",
+   "status": "Success",
+   "heard": "Der Flughafen.",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 91.0,
+     "error": "None",
+     "phones": [
+      91,
+      91,
+      91
+     ]
+    },
+    {
+     "word": "Flughafen",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Bus",
+   "status": "Success",
+   "heard": "Der Bus.",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "Bus",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97
+     ]
+    }
+   ]
+  },
+  {
+   "text": "dort",
+   "status": "Success",
+   "heard": "Dort.",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "dort",
+     "score": 96.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      91
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Montag",
+   "status": "Success",
+   "heard": "Der Montag.",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      94,
+      94,
+      94
+     ]
+    },
+    {
+     "word": "Montag",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97,
+      97,
+      97,
+      97
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Mittwoch",
+   "status": "Success",
+   "heard": "Der Mittwoch.",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97
+     ]
+    },
+    {
+     "word": "Mittwoch",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      78
+     ]
+    }
+   ]
+  },
+  {
+   "text": "dauern",
+   "status": "Success",
+   "heard": "Dauern.",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "dauern",
+     "score": 96.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      87
+     ]
+    }
+   ]
+  },
+  {
+   "text": "einen Monat",
+   "status": "Success",
+   "heard": "Einen Monat.",
+   "overall": 97.6,
+   "accuracy": 96.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "einen",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      78,
+      78,
+      79,
+      100
+     ]
+    },
+    {
+     "word": "Monat",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      81
+     ]
+    }
+   ]
+  },
+  {
+   "text": "hallo",
+   "status": "Success",
+   "heard": "Hallo.",
+   "overall": 98.2,
+   "accuracy": 97.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "hallo",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      96,
+      100,
+      100,
+      94
+     ]
+    }
+   ]
+  },
+  {
+   "text": "nein",
+   "status": "Success",
+   "heard": "Nein.",
+   "overall": 98.2,
+   "accuracy": 97.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "nein",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      92
+     ]
+    }
+   ]
+  },
+  {
+   "text": "das Bier",
+   "status": "Success",
+   "heard": "Das Bier.",
+   "overall": 98.2,
+   "accuracy": 97.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "das",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      88,
+      98,
+      100
+     ]
+    },
+    {
+     "word": "Bier",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      100,
+      81,
+      81
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Danke schön.",
+   "status": "Success",
+   "heard": "Danke schön.",
+   "overall": 98.2,
+   "accuracy": 97.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Danke",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      81,
+      100,
+      100,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "schön",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97
+     ]
+    }
+   ]
+  },
+  {
+   "text": "das Taxi",
+   "status": "Success",
+   "heard": "Das Taxi.",
+   "overall": 98.2,
+   "accuracy": 97.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "das",
+     "score": 94.0,
+     "error": "None",
+     "phones": [
+      74,
+      83,
+      100
+     ]
+    },
+    {
+     "word": "Taxi",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "danke",
+   "status": "Success",
+   "heard": "Danke.",
+   "overall": 98.8,
+   "accuracy": 98.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "danke",
+     "score": 98.0,
+     "error": "None",
+     "phones": [
+      86,
+      100,
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "das Ei",
+   "status": "Success",
+   "heard": "Das Ei.",
+   "overall": 98.8,
+   "accuracy": 98.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "das",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      88,
+      98,
+      100
+     ]
+    },
+    {
+     "word": "Ei",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Wie heißt du?",
+   "status": "Success",
+   "heard": "Wie heißt du?",
+   "overall": 98.8,
+   "accuracy": 98.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Wie",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "heißt",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      81
+     ]
+    },
+    {
+     "word": "du",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      100,
+      81
+     ]
+    }
+   ]
+  },
+  {
+   "text": "der Mann",
+   "status": "Success",
+   "heard": "Der Mann.",
+   "overall": 98.8,
+   "accuracy": 98.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "der",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97
+     ]
+    },
+    {
+     "word": "Mann",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Bitte schön.",
+   "status": "Success",
+   "heard": "Bitte schön.",
+   "overall": 98.8,
+   "accuracy": 98.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Bitte",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "schön",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Entschuldigung!",
+   "status": "Success",
+   "heard": "Entschuldigung.",
+   "overall": 98.8,
+   "accuracy": 98.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Entschuldigung",
+     "score": 98.0,
+     "error": "None",
+     "phones": [
+      100,
+      78,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      92
+     ]
+    }
+   ]
+  },
+  {
+   "text": "die Oma",
+   "status": "Success",
+   "heard": "Die Oma.",
+   "overall": 98.8,
+   "accuracy": 98.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "die",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Oma",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      86
+     ]
+    }
+   ]
+  },
+  {
+   "text": "warum",
+   "status": "Success",
+   "heard": "Warum?",
+   "overall": 98.8,
+   "accuracy": 98.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "warum",
+     "score": 98.0,
+     "error": "None",
+     "phones": [
+      93,
+      100,
+      100,
+      100,
+      98
+     ]
+    }
+   ]
+  },
+  {
+   "text": "sechs",
+   "status": "Success",
+   "heard": "6.",
+   "overall": 98.8,
+   "accuracy": 98.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "sechs",
+     "score": 98.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      97
+     ]
+    }
+   ]
+  },
+  {
+   "text": "sieben",
+   "status": "Success",
+   "heard": "7.",
+   "overall": 98.8,
+   "accuracy": 98.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "sieben",
+     "score": 98.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      94
+     ]
+    }
+   ]
+  },
+  {
+   "text": "zehn",
+   "status": "Success",
+   "heard": "10.",
+   "overall": 98.8,
+   "accuracy": 98.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "zehn",
+     "score": 98.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      96
+     ]
+    }
+   ]
+  },
+  {
+   "text": "wie lange",
+   "status": "Success",
+   "heard": "Wie lange?",
+   "overall": 98.8,
+   "accuracy": 98.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "wie",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "lange",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97,
+      97
+     ]
+    }
+   ]
+  },
+  {
+   "text": "die Woche",
+   "status": "Success",
+   "heard": "Die Woche.",
+   "overall": 98.8,
+   "accuracy": 98.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "die",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Woche",
+     "score": 97.0,
+     "error": "None",
+     "phones": [
+      97,
+      97,
+      97,
+      97
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Ein Kaffee, bitte.",
+   "status": "Success",
+   "heard": "Ein Kaffee, bitte.",
+   "overall": 99.4,
+   "accuracy": 100.0,
+   "fluency": 99.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Ein",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Kaffee",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "bitte",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "auch",
+   "status": "Success",
+   "heard": "Auch.",
+   "overall": 99.4,
+   "accuracy": 99.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "auch",
+     "score": 99.0,
+     "error": "None",
+     "phones": [
+      100,
+      99
+     ]
+    }
+   ]
+  },
+  {
+   "text": "bleiben",
+   "status": "Success",
+   "heard": "Bleiben.",
+   "overall": 99.4,
+   "accuracy": 99.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "bleiben",
+     "score": 99.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      97
+     ]
+    }
+   ]
+  },
+  {
+   "text": "tschüss",
+   "status": "Success",
+   "heard": "Tschüss.",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "tschüss",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "die Milch",
+   "status": "Success",
+   "heard": "Die Milch.",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "die",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Milch",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "Kaffee mit Milch",
+   "status": "Success",
+   "heard": "Kaffee mit Milch.",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "Kaffee",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "mit",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100
+     ]
+    },
+    {
+     "word": "Milch",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "gut",
+   "status": "Success",
+   "heard": "Gut.",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "gut",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "gern",
+   "status": "Success",
+   "heard": "Gern.",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "gern",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "vielleicht",
+   "status": "Success",
+   "heard": "Vielleicht.",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "vielleicht",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "wer",
+   "status": "Success",
+   "heard": "Wer?",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "wer",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "wo",
+   "status": "Success",
+   "heard": "Wo?",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "wo",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "eins",
+   "status": "Success",
+   "heard": "1.",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "eins",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      99,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "zwei",
+   "status": "Success",
+   "heard": "2.",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "zwei",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "drei",
+   "status": "Success",
+   "heard": "3.",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "drei",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "vier",
+   "status": "Success",
+   "heard": "4.",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "vier",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "fünf",
+   "status": "Success",
+   "heard": "5.",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "fünf",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "acht",
+   "status": "Success",
+   "heard": "8.",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "acht",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "neun",
+   "status": "Success",
+   "heard": "9.",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "neun",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "links",
+   "status": "Success",
+   "heard": "Links.",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "links",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "rechts",
+   "status": "Success",
+   "heard": "Rechts.",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "rechts",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "text": "gestern",
+   "status": "Success",
+   "heard": "Gestern.",
+   "overall": 100.0,
+   "accuracy": 100.0,
+   "fluency": 100.0,
+   "completeness": 100.0,
+   "words": [
+    {
+     "word": "gestern",
+     "score": 100.0,
+     "error": "None",
+     "phones": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+     ]
+    }
+   ]
+  }
+ ]
+}
