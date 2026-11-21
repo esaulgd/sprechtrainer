@@ -1,0 +1,42 @@
+# Selects native-speaker recordings (Wiktionary/Commons) per card, filtered with Azure scoring.
+# Runs after the native-recordings lookup report changes, or by hand.
+name: Select native recordings
+
+on:
+  push:
+    branches: [main]
+    paths: ["tools/fetch_native.py", ".github/workflows/native.yml", "qa/native-audio.json"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: native
+  cancel-in-progress: false
+
+jobs:
+  select:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Download, score and select
+        env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: japaneast
+        run: python3 tools/fetch_native.py
+
+      - name: Commit
+        run: |
+          git add audio/native qa/native-selection.md
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Select native recordings"
+          git pull --rebase -q origin main
+          git push

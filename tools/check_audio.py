@@ -17,6 +17,11 @@ def to_wav16k(path):
     return subprocess.run(["ffmpeg", "-v", "error", "-i", path, "-ac", "1", "-ar", "16000",
                            "-sample_fmt", "s16", "-f", "wav", "-"], check=True, capture_output=True).stdout
 
+def to_wav16k_bytes(data):
+    """Same as to_wav16k, for audio already in memory."""
+    return subprocess.run(["ffmpeg", "-v", "error", "-i", "-", "-ac", "1", "-ar", "16000",
+                           "-sample_fmt", "s16", "-f", "wav", "-"], input=data, check=True, capture_output=True).stdout
+
 def assess(text, wav, key, region):
     params = {"ReferenceText": text, "GradingSystem": "HundredMark", "Granularity": "Phoneme",
               "Dimension": "Comprehensive", "EnableMiscue": True}
