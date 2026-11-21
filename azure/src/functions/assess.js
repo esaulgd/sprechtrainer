@@ -1,5 +1,5 @@
 // Sprechtrainer pronunciation-scoring proxy (Azure Functions, Node.js, v4 programming model).
-// Paste this into the portal editor of an HTTP-triggered function named "assess".
+// Deployed from GitHub by .github/workflows/proxy.yml (Flex Consumption plan).
 //
 // App settings (Function App → Settings → Environment variables):
 //   SPEECH_KEY     Azure Speech resource key       (secret)
@@ -15,10 +15,7 @@ const { app } = require("@azure/functions");
 const MAX_BYTES = 1_200_000;   // ~37 s of 16 kHz audio; Azure scores at most 30 s
 const MAX_TEXT = 300;
 
-app.http("assess", {
-  methods: ["POST"],
-  authLevel: "anonymous",
-  handler: async (request, context) => {
+async function handler(request, context) {
     const json = (status, obj) => ({ status, jsonBody: obj });
 
     const pass = process.env.PASSPHRASE || "";
@@ -61,5 +58,7 @@ app.http("assess", {
       context.error(e);
       return json(502, { error: "could not reach Azure Speech" });
     }
-  }
-});
+}
+
+app.http("assess", { methods: ["POST"], authLevel: "anonymous", handler });
+module.exports = { handler };

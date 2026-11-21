@@ -1,0 +1,10 @@
+{
+  "name": "sprechtrainer-score",
+  "version": "1.0.0",
+  "description": "Pronunciation-scoring proxy for Sprechtrainer (Azure Functions)",
+  "main": "src/functions/*.js",
+  "private": true,
+  "dependencies": {
+    "@azure/functions": "^4.6.0"
+  }
+}
