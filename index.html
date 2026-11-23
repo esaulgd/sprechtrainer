@@ -383,7 +383,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
    Compiled to roughly follow Duolingo German Section 1 (units 1–4) and the
    free Memrise German lessons up to "Saying How Long You're Staying".
    The German text is the card's id: fixing a typo resets that card. */
-const APP_VERSION = "0.9";
+const APP_VERSION = "0.10";
 
 const VOCAB_RAW = `Café|hallo|hello
 Café|tschüss|bye
@@ -1293,6 +1293,8 @@ function revealArticle(){
     slot.removeAttribute("aria-label");
   }
   document.getElementById("art-hint").hidden = true;
+  // the meaning appears together with the article: after the first recording or "listen first"
+  if (cur) document.getElementById("meaning").textContent = cur.card.en;
 }
 function unlockPlays(){
   revealArticle();
