@@ -260,10 +260,9 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
     <div class="card" id="study-card">
       <div class="meta"><span id="c-group"></span><span class="badge" id="c-badge"></span></div>
       <p class="prompt" id="prompt" lang="de"></p>
-      <p class="meaning" id="meaning"></p>
-
       <p class="ipa" id="ipa" hidden></p>
       <p class="phtip" id="phtip" hidden></p>
+      <p class="meaning" id="meaning" style="margin-top:6px"></p>
       <p class="meaning" id="art-hint" hidden>Say it with the article you think is right.</p>
       <div class="recrow">
         <button type="button" class="rec" id="rec" aria-label="Record your pronunciation">
@@ -410,7 +409,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
    Compiled to roughly follow Duolingo German Section 1 (units 1–4) and the
    free Memrise German lessons up to "Saying How Long You're Staying".
    The German text is the card's id: fixing a typo resets that card. */
-const APP_VERSION = "0.13";
+const APP_VERSION = "0.14";
 
 const VOCAB_RAW = `Café|hallo|hello
 Café|tschüss|bye
