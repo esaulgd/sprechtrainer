@@ -13,6 +13,8 @@ API = "https://de.wiktionary.org/w/api.php"
 UA = {"User-Agent": "Sprechtrainer/0.12 (personal language-learning app; github.com/esaulgd/sprechtrainer)"}
 # Articles in citation form; Wiktionary's entries for them are long multi-meaning pages.
 ARTICLES = {"der": "deːɐ̯", "die": "diː", "das": "das"}
+# Words Wiktionary has no German entry for (contractions, names).
+MANUAL = {"geht's": "ɡeːt͡s", "saúl": "saˈuːl"}
 
 def card_texts():
     html = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
@@ -101,7 +103,7 @@ def main():
             if whole:
                 out[c] = {"ipa": whole, "approx": False}
             else:
-                parts = [ARTICLES.get(w.lower()) or lookup(w) for w in ws[1:]]
+                parts = [ARTICLES.get(w.lower()) or MANUAL.get(w.lower()) or lookup(w) for w in ws[1:]]
                 if all(parts): out[c] = {"ipa": " ".join(parts), "approx": True}
         if c not in out: missing.append(c)
     os.makedirs(os.path.join(ROOT, "data"), exist_ok=True)

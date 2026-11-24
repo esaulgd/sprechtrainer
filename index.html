@@ -81,6 +81,22 @@ section.view{padding:6px 0 40px}
 .prompt.long{font-size:28px}
 .artslot{display:inline-block;min-width:1.9em;padding:0 .18em;border-radius:10px;background:var(--line);color:var(--muted);font-size:.8em;vertical-align:.08em;text-align:center}
 .artslot.shown{background:var(--accent-soft);color:var(--accent)}
+.ipa{text-align:center;margin:4px 0 0;font-size:20px;line-height:1.6;word-break:break-word;font-family:"Doulos SIL","Charis SIL","Noto Sans","Segoe UI",var(--body)}
+.ipa .br{color:var(--muted)}
+.ipa .approx{color:var(--warn);font-size:15px;margin-right:4px;cursor:help}
+.ph{border:0;background:none;padding:0 1px;font:inherit;color:var(--ink);cursor:pointer;border-bottom:2px dotted transparent}
+.ph:hover,.ph.on{border-bottom-color:var(--accent);color:var(--accent)}
+.ph.mark{color:var(--muted)}
+.phtip{text-align:center;font-size:14px;margin:4px 0 0;min-height:21px;color:var(--ink)}
+.phtip b{color:var(--accent)}
+.row .ipa-s{font-size:13px;color:var(--muted);font-family:"Doulos SIL","Charis SIL","Noto Sans",var(--body)}
+.snd-group{font-family:var(--display);font-weight:600;font-size:18px;margin:22px 0 8px}
+.snd{display:grid;grid-template-columns:56px 1fr auto;gap:10px;align-items:center;padding:9px 14px;border-top:1px solid var(--line)}
+.snd:first-child{border-top:0}
+.snd .sym{font-size:24px;text-align:center;font-family:"Doulos SIL","Charis SIL","Noto Sans",var(--body)}
+.snd .txt b{display:block;font-size:15px}
+.snd .txt span{font-size:14px;color:var(--muted)}
+.snd .ex{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:5px 11px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap}
 .meaning{text-align:center;color:var(--muted);margin:0;min-height:26px}
 
 .recrow{display:flex;flex-direction:column;align-items:center;margin-top:18px}
@@ -221,6 +237,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
     <nav class="tabs" role="tablist">
       <button type="button" role="tab" id="tab-study" aria-selected="true" data-view="study">Study</button>
       <button type="button" role="tab" id="tab-words" aria-selected="false" data-view="words">Words</button>
+      <button type="button" role="tab" id="tab-sounds" aria-selected="false" data-view="sounds">Sounds</button>
       <button type="button" role="tab" id="tab-settings" aria-selected="false" data-view="settings">Settings</button>
     </nav>
   </div>
@@ -243,6 +260,8 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
       <p class="prompt" id="prompt" lang="de"></p>
       <p class="meaning" id="meaning"></p>
 
+      <p class="ipa" id="ipa" hidden></p>
+      <p class="phtip" id="phtip" hidden></p>
       <p class="meaning" id="art-hint" hidden>Say it with the article you think is right.</p>
       <div class="recrow">
         <button type="button" class="rec" id="rec" aria-label="Record your pronunciation">
@@ -293,6 +312,12 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
   <section class="view" id="view-words" hidden>
     <div class="wsum" id="wsum"></div>
     <div id="wlist"></div>
+  </section>
+
+  <!-- SOUNDS -->
+  <section class="view" id="view-sounds" hidden>
+    <p class="status" style="margin:14px 0 0">The IPA symbols you'll meet in German, compared to Spanish. Tap an example to hear it. IPA is from Wiktionary.</p>
+    <div id="sounds-list"></div>
   </section>
 
   <!-- SETTINGS -->
@@ -383,7 +408,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
    Compiled to roughly follow Duolingo German Section 1 (units 1–4) and the
    free Memrise German lessons up to "Saying How Long You're Staying".
    The German text is the card's id: fixing a typo resets that card. */
-const APP_VERSION = "0.11";
+const APP_VERSION = "0.12";
 
 const VOCAB_RAW = `Café|hallo|hello
 Café|tschüss|bye
@@ -746,6 +771,103 @@ function suggestRating(score){
   if (score === null || score === undefined) return 0;
   return score >= 90 ? 5 : score >= 78 ? 4 : score >= 60 ? 3 : score >= 40 ? 2 : 1;
 }
+/* IPA: split a transcription into sounds, and explain each for a Spanish speaker. */
+const IPA_INFO = {
+  // vowels
+  "a":  ["short a", "Like Spanish a, but clipped short."],
+  "aː": ["long a", "Spanish a held about twice as long (Name, Tag)."],
+  "ɛ":  ["short open e", "Like the e in Spanish 'perro', a bit more open (Bett, essen)."],
+  "ɛː": ["long open e", "An open e held long, written ä (Käse, spät)."],
+  "e":  ["closed e", "A tight e, short; mostly in unstressed syllables."],
+  "eː": ["long closed e", "Tighter than Spanish e, toward i, held long (See, geben)."],
+  "ə":  ["schwa", "A weak, relaxed 'uh' (bitte, Name). Never a full Spanish e."],
+  "ɐ":  ["vocalic r", "The ending -er sounds like a short, dark a (Vater, Mutter)."],
+  "ɐ̯": ["r glide", "An r after a long vowel turns into a light 'a' glide (der, wir, Uhr)."],
+  "ɪ":  ["short i", "Looser than Spanish i, a little toward e (ist, Kind)."],
+  "i":  ["closed i", "A tight i, short; mostly in unstressed syllables."],
+  "iː": ["long i", "Spanish i held long (Liebe, Bier)."],
+  "ɔ":  ["short open o", "Like Spanish o (Sonne, kommen)."],
+  "o":  ["closed o", "A tight o, short; mostly in unstressed syllables."],
+  "oː": ["long closed o", "Lips rounded tight, toward u, held long (Brot, Sohn)."],
+  "ʊ":  ["short u", "Looser than Spanish u, a little toward o (und, Mutter)."],
+  "u":  ["closed u", "A tight u, short; mostly in unstressed syllables."],
+  "uː": ["long u", "Spanish u held long (gut, Uhr)."],
+  "ʏ":  ["short ü", "Tongue as for i, lips rounded, relaxed (fünf, Glück)."],
+  "y":  ["closed ü", "A tight ü, short."],
+  "yː": ["long ü", "Say i and round your lips tightly, held long (müde, Tür)."],
+  "œ":  ["short ö", "Tongue as for e, lips rounded, open (zwölf, können)."],
+  "ø":  ["closed ö", "A tight ö, short."],
+  "øː": ["long ö", "A tight e with rounded lips, held long (schön, hören)."],
+  "aɪ̯": ["ai", "Like Spanish 'baile' (ein, Wein)."],
+  "aʊ̯": ["au", "Like Spanish 'causa' (Haus, auch)."],
+  "ɔʏ̯": ["oi", "Like Spanish 'hoy' (heute, Häuser)."],
+  // consonants
+  "p": ["p", "With a small puff of air at the start of a stressed syllable."],
+  "t": ["t", "With a small puff of air; also how a final d sounds (Hund)."],
+  "k": ["k", "With a small puff of air; also how a final g sounds (Tag)."],
+  "b": ["b", "Lips fully closed, never the soft Spanish b between vowels (aber)."],
+  "d": ["d", "Tongue fully closed, never soft like Spanish 'lado' (oder)."],
+  "ɡ": ["g", "Fully closed, never soft like Spanish 'agua' (sagen)."],
+  "f": ["f", "As in Spanish; also German v (Vater)."],
+  "v": ["v", "English v: upper teeth on lower lip, buzzing (Wasser, wie). Not b."],
+  "s": ["sharp s", "As in Spanish (das, Straße)."],
+  "z": ["buzzing s", "Like English 'zoo' (Sonne, lesen). Spanish has no such sound."],
+  "ʃ": ["sh", "As in English 'she' (Schule, Stadt)."],
+  "ʒ": ["buzzing sh", "Like French j; only in loanwords."],
+  "ç": ["soft ch", "Whisper the y of 'ya', tongue high (ich, Milch). Not the Spanish j."],
+  "x": ["hard ch", "The Spanish j of 'jamón', softer (Buch, acht)."],
+  "h": ["h", "A real breath out, like a soft Spanish j (Haus)."],
+  "j": ["j", "Spanish y as in 'ya' (ja, Jahr)."],
+  "l": ["l", "As in Spanish."],
+  "m": ["m", "As in Spanish."],
+  "n": ["n", "As in Spanish."],
+  "ŋ": ["ng", "As in English 'sing', with no g at the end (Junge, links)."],
+  "ʁ": ["throat r", "A light gargle at the back, never tapped or rolled (rot, Brot)."],
+  "r": ["rolled r", "Used in some regions; standard German uses the throat r [ʁ]."],
+  "ʔ": ["glottal stop", "A tiny catch before a vowel at the start of a word (ein, und). Don't link words as in Spanish."],
+  "t͡s": ["ts", "Always how German z sounds (Zeit, zehn)."],
+  "p͡f": ["pf", "p and f together (Apfel)."],
+  "t͡ʃ": ["ch as in 'chico'", "As in Spanish 'chico' (Deutsch)."],
+  "n̩": ["syllabic n", "The vowel before it disappears: haben ≈ 'haa-bn'."],
+  "l̩": ["syllabic l", "The vowel before it disappears: Apfel ≈ 'ap-fl'."],
+  "m̩": ["syllabic m", "The vowel before it disappears."],
+  // marks
+  "ˈ": ["stress", "The syllable after this mark is stressed."],
+  "ˌ": ["secondary stress", "A lighter stress on the syllable after this mark."]
+};
+const IPA_ALIAS = { "ts": "t͡s", "ʦ": "t͡s", "pf": "p͡f", "tʃ": "t͡ʃ", "ʧ": "t͡ʃ", "g": "ɡ", "ʀ": "ʁ",
+                    "aɪ": "aɪ̯", "aʊ": "aʊ̯", "ɔʏ": "ɔʏ̯", "ɔɪ̯": "ɔʏ̯", "ɔɪ": "ɔʏ̯", "ɐ̯": "ɐ̯" };
+const IPA_MULTI = ["aɪ̯", "aʊ̯", "ɔʏ̯", "ɔɪ̯", "aɪ", "aʊ", "ɔʏ", "t͡s", "p͡f", "t͡ʃ", "d͡ʒ", "ts", "pf", "tʃ"];
+function tokenizeIpa(str){
+  const out = [];
+  const s = (str || "").normalize("NFD").replace(/[\[\]\/]/g, "");
+  let i = 0;
+  while (i < s.length){
+    const ch = s[i];
+    if (ch === " "){ out.push({ sym: " ", space: true }); i++; continue; }
+    if (ch === "ˈ" || ch === "ˌ" || ch === "." || ch === "‿"){ out.push({ sym: ch, mark: true }); i++; continue; }
+    let sym = IPA_MULTI.find(m => s.startsWith(m.normalize("NFD"), i));
+    sym = sym ? sym.normalize("NFD") : ch;
+    i += sym.length;
+    if (sym.endsWith("͡") && i < s.length){ sym += s[i]; i++; }          // tie bar: t͡s
+    while (i < s.length && (/[̀-ͯ]/.test(s[i]) || s[i] === "ː" || s[i] === "ˑ")){
+      sym += s[i]; i++;
+      if (sym.endsWith("͡") && i < s.length){ sym += s[i]; i++; }
+    }
+    out.push({ sym: sym.normalize("NFC") });
+  }
+  return out;
+}
+/* Explanation for one token: exact, alias, then without length/diacritics. */
+function ipaInfo(sym){
+  const tries = [sym, IPA_ALIAS[sym], sym.replace(/ː/g, ""), sym.normalize("NFD").replace(/[̀-͢͠-ͯ]/g, "").normalize("NFC")];
+  for (const t of tries){
+    if (!t) continue;
+    if (IPA_INFO[t]) return { key: t, name: IPA_INFO[t][0], tip: IPA_INFO[t][1] + (t !== sym && /ː/.test(sym) ? " Held long." : "") };
+    if (IPA_ALIAS[t] && IPA_INFO[IPA_ALIAS[t]]) return { key: IPA_ALIAS[t], name: IPA_INFO[IPA_ALIAS[t]][0], tip: IPA_INFO[IPA_ALIAS[t]][1] };
+  }
+  return null;
+}
 /* ==================== END LOGIC ==================== */
 
 /* ==================== STORAGE ==================== */
@@ -792,7 +914,7 @@ const hasProgress = () => Object.keys(store.cards).length > 0;
 /* ==================== SPEECH (model voice) ==================== */
 const synth = window.speechSynthesis;
 let voice = null;
-let modelFiles = {}, modelVoice = "", nativeCards = {};
+let modelFiles = {}, modelVoice = "", nativeCards = {}, ipaCards = {};
 const nativeEl = new Audio(); nativeEl.preload = "auto";
 function pickVoice(){
   if (!synth) return;
@@ -822,6 +944,11 @@ async function loadModelAudio(){
     const r2 = await fetch("audio/native/manifest.json", { cache: "no-cache" });
     if (r2.ok) nativeCards = (await r2.json()).cards || {};
   }catch(e){}
+  try{
+    const r3 = await fetch("data/ipa.json", { cache: "no-cache" });
+    if (r3.ok) ipaCards = (await r3.json()).cards || {};
+  }catch(e){}
+  if (cur && cur.revealed) renderIpa();
   await loadScoreBaseline();
   renderCredits();
   if (cur){
@@ -1271,6 +1398,7 @@ function showNext(){
   const card = CARDS.find(c => c.id === item.id);
   cur = { item, card, rating: 0, recorded: 0, revealed: false };
   preloadModel(card.de);
+  document.getElementById("ipa").hidden = true; document.getElementById("phtip").hidden = true;
   document.getElementById("c-group").textContent = card.group;
   document.getElementById("c-badge").textContent = item.isNew ? "New" : (item.failed ? "Again" : "Review");
   updateCardFlag();
@@ -1303,8 +1431,64 @@ function revealArticle(){
     slot.removeAttribute("aria-label");
   }
   document.getElementById("art-hint").hidden = true;
-  // the meaning appears together with the article: after the first recording or "listen first"
-  if (cur) document.getElementById("meaning").textContent = cur.card.en;
+  // the meaning and IPA appear together with the article: after the first recording or "listen first"
+  if (cur){ document.getElementById("meaning").textContent = cur.card.en; cur.revealed = true; renderIpa(); }
+}
+function ipaHtml(text, interactive){
+  const e = ipaCards[text];
+  if (!e) return "";
+  const toks = tokenizeIpa(e.ipa).map(t => {
+    if (t.space) return " ";
+    const info = ipaInfo(t.sym);
+    if (!interactive || !info) return `<span class="${t.mark ? "ph mark" : ""}">${t.sym}</span>`;
+    return `<button type="button" class="ph${t.mark ? " mark" : ""}" data-sym="${t.sym}">${t.sym}</button>`;
+  }).join("");
+  const approx = e.approx ? `<span class="approx" title="Stitched together from the single words; real speech blends them">≈</span>` : "";
+  return `${approx}<span class="br">[</span>${toks}<span class="br">]</span>`;
+}
+function renderIpa(){
+  const el = document.getElementById("ipa"), tip = document.getElementById("phtip");
+  const html = cur ? ipaHtml(cur.card.de, true) : "";
+  el.innerHTML = html; el.hidden = !html;
+  tip.hidden = true; tip.innerHTML = "";
+  el.querySelectorAll(".ph").forEach(b => b.onclick = () => {
+    const info = ipaInfo(b.dataset.sym);
+    el.querySelectorAll(".ph.on").forEach(x => x.classList.remove("on"));
+    b.classList.add("on");
+    tip.innerHTML = info ? `<b>[${b.dataset.sym}] ${info.name}</b>: ${info.tip}` : "";
+    tip.hidden = !info;
+  });
+}
+function renderSounds(){
+  const groups = [
+    ["Vowels", ["aː","a","eː","ɛ","ɛː","ə","ɐ","ɐ̯","iː","ɪ","oː","ɔ","uː","ʊ","yː","ʏ","øː","œ"]],
+    ["Diphthongs", ["aɪ̯","aʊ̯","ɔʏ̯"]],
+    ["Consonants", ["ç","x","ʁ","v","z","s","ʃ","t͡s","p͡f","ŋ","ʔ","h","j","b","d","ɡ","p","t","k","n̩"]],
+    ["Marks", ["ˈ","ː"]]
+  ];
+  // first card whose IPA contains the sound; single words with a native recording first
+  const cards = Object.keys(ipaCards).sort((a, b) => (nativeCards[b] ? 1 : 0) - (nativeCards[a] ? 1 : 0) || a.length - b.length);
+  const example = key => cards.find(c => key === "ː" ? ipaCards[c].ipa.includes("ː")
+                                       : tokenizeIpa(ipaCards[c].ipa).some(t => { const i = ipaInfo(t.sym); return i && i.key === key; }));
+  const list = document.getElementById("sounds-list");
+  list.innerHTML = "";
+  for (const [title, keys] of groups){
+    const h = document.createElement("h2"); h.className = "snd-group"; h.textContent = title;
+    const box = document.createElement("div"); box.className = "rows";
+    for (const k of keys){
+      const info = k === "ː" ? { name: "long", tip: "Hold the sound before it longer: Staat [ʃtaːt] vs Stadt [ʃtat]." } : ipaInfo(k);
+      if (!info) continue;
+      const ex = example(k);
+      const row = document.createElement("div"); row.className = "snd";
+      row.innerHTML = `<span class="sym">${k}</span><span class="txt"><b>${info.name}</b><span>${info.tip}</span></span>` +
+        (ex ? `<button type="button" class="ex" data-card="${ex}">${ex}</button>` : "<span></span>");
+      const btn = row.querySelector(".ex");
+      if (btn) btn.onclick = () => { const n = nativeCards[ex] || {}; const src = ["german","swiss","austrian"].find(x => n[x]);
+                                      src ? playFileOn(nativeEl, "audio/" + n[src].file) : speakModel(ex); };
+      box.appendChild(row);
+    }
+    list.append(h, box);
+  }
 }
 function unlockPlays(){
   revealArticle();
@@ -1480,7 +1664,8 @@ function renderWords(){
       else { const d = s.due - today; pill = `<span class="pill later">${d === 1 ? "Tomorrow" : d < 30 ? d + " days" : Math.round(d / 30) + " mo"}</span>`; }
       const r = document.createElement("button");
       r.type = "button"; r.className = "row";
-      r.innerHTML = `<span><span class="de" lang="de">${c.de}</span><span class="en">${c.en}</span></span>${pill}`;
+      const ipa = ipaCards[c.de];
+      r.innerHTML = `<span><span class="de" lang="de">${c.de}</span><span class="en">${c.en}${ipa ? ` · <span class="ipa-s">${ipa.approx ? "≈" : ""}[${ipa.ipa}]</span>` : ""}</span></span>${pill}`;
       r.setAttribute("aria-label", `${c.de}, ${c.en}. Tap to hear it.`);
       r.onclick = () => { const n = nativeCards[c.de] || {}; const src = ["german", "swiss", "austrian"].find(k => n[k]); src ? playFileOn(nativeEl, "audio/" + n[src].file) : speakModel(c.de); };
       box.appendChild(r);
@@ -1580,7 +1765,7 @@ document.addEventListener("keydown", e => {
 });
 
 /* tabs (hash routing) */
-const VIEWS = ["study", "words", "settings"];
+const VIEWS = ["study", "words", "sounds", "settings"];
 function show(view){
   if (!VIEWS.includes(view)) view = "study";
   VIEWS.forEach(v => {
@@ -1589,6 +1774,7 @@ function show(view){
   });
   if (view !== "study"){ abortRecording(); stopPlayback(); }
   if (view === "words") renderWords();
+  if (view === "sounds") renderSounds();
   if (view === "settings"){ pickVoice(); renderStoreStatus(); }
 }
 document.querySelectorAll("nav.tabs button").forEach(b => {
