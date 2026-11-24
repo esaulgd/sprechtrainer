@@ -1,0 +1,33 @@
+# Looks up IPA transcriptions on German Wiktionary for all cards and commits data/ipa.json.
+name: Look up IPA
+
+on:
+  push:
+    branches: [main]
+    paths: ["index.html", "tools/fetch_ipa.py", ".github/workflows/ipa.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ipa
+  cancel-in-progress: true
+
+jobs:
+  ipa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - name: Look up IPA
+        run: python3 -u tools/fetch_ipa.py
+      - name: Commit
+        run: |
+          git add data/ipa.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update IPA from Wiktionary"
+          git pull --rebase -q origin main
+          git push
