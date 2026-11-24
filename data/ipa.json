@@ -141,6 +141,10 @@
    "ipa": "ˌviː ˈɡeːt͡s",
    "approx": false
   },
+  "Mir geht's gut.": {
+   "ipa": "miːɐ̯ ɡeːt͡s ɡuːt",
+   "approx": true
+  },
   "gut": {
    "ipa": "ɡuːt",
    "approx": false
@@ -152,6 +156,10 @@
   "auch": {
    "ipa": "aʊ̯x",
    "approx": false
+  },
+  "Ich heiße Saúl.": {
+   "ipa": "ɪç ˈhaɪ̯sə saˈuːl",
+   "approx": true
   },
   "Wie heißt du?": {
    "ipa": "viː haɪ̯st duː",
