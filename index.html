@@ -81,13 +81,15 @@ section.view{padding:6px 0 40px}
 .prompt.long{font-size:28px}
 .artslot{display:inline-block;min-width:1.9em;padding:0 .18em;border-radius:10px;background:var(--line);color:var(--muted);font-size:.8em;vertical-align:.08em;text-align:center}
 .artslot.shown{background:var(--accent-soft);color:var(--accent)}
-.ipa{text-align:center;margin:4px 0 0;font-size:20px;line-height:1.6;word-break:break-word;font-family:"Doulos SIL","Charis SIL","Noto Sans","Segoe UI",var(--body)}
+.ipa{text-align:center;margin:6px 0 0;font-size:30px;line-height:1.5;word-break:break-word;font-family:"Doulos SIL","Charis SIL","Noto Sans","Segoe UI",var(--body)}
 .ipa .br{color:var(--muted)}
-.ipa .approx{color:var(--warn);font-size:15px;margin-right:4px;cursor:help}
-.ph{border:0;background:none;padding:0 1px;font:inherit;color:var(--ink);cursor:pointer;border-bottom:2px dotted transparent}
-.ph:hover,.ph.on{border-bottom-color:var(--accent);color:var(--accent)}
+.ipa .w{white-space:nowrap;display:inline-block}
+.ipa .gap{display:inline-block;width:16px}
+.ipa .approx{color:var(--warn);font-size:20px;margin-right:4px;cursor:help}
+.ph{border:0;background:none;padding:3px 1px;min-width:20px;border-radius:6px;-webkit-tap-highlight-color:transparent;font:inherit;color:var(--ink);cursor:pointer;border-bottom:2px dotted transparent}
+.ph:hover,.ph.on{border-bottom-color:var(--accent);color:var(--accent);background:var(--accent-soft,rgba(178,24,48,.08))}
 .ph.mark{color:var(--muted)}
-.phtip{text-align:center;font-size:14px;margin:4px 0 0;min-height:21px;color:var(--ink)}
+.phtip{text-align:center;font-size:15px;margin:4px 0 0;min-height:21px;color:var(--ink)}
 .phtip b{color:var(--accent)}
 .row .ipa-s{font-size:13px;color:var(--muted);font-family:"Doulos SIL","Charis SIL","Noto Sans",var(--body)}
 .snd-group{font-family:var(--display);font-weight:600;font-size:18px;margin:22px 0 8px}
@@ -408,7 +410,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
    Compiled to roughly follow Duolingo German Section 1 (units 1–4) and the
    free Memrise German lessons up to "Saying How Long You're Staying".
    The German text is the card's id: fixing a typo resets that card. */
-const APP_VERSION = "0.12";
+const APP_VERSION = "0.13";
 
 const VOCAB_RAW = `Café|hallo|hello
 Café|tschüss|bye
@@ -1437,14 +1439,20 @@ function revealArticle(){
 function ipaHtml(text, interactive){
   const e = ipaCards[text];
   if (!e) return "";
-  const toks = tokenizeIpa(e.ipa).map(t => {
-    if (t.space) return " ";
+  // group symbols into words so a word never breaks across lines and word gaps stay clear
+  const words = [[]];
+  for (const t of tokenizeIpa(e.ipa)){
+    if (t.space){ if (words[words.length-1].length) words.push([]); continue; }
     const info = ipaInfo(t.sym);
-    if (!interactive || !info) return `<span class="${t.mark ? "ph mark" : ""}">${t.sym}</span>`;
-    return `<button type="button" class="ph${t.mark ? " mark" : ""}" data-sym="${t.sym}">${t.sym}</button>`;
-  }).join("");
+    words[words.length-1].push(!interactive || !info
+      ? `<span class="${t.mark ? "ph mark" : ""}">${t.sym}</span>`
+      : `<button type="button" class="ph${t.mark ? " mark" : ""}" data-sym="${t.sym}">${t.sym}</button>`);
+  }
+  const ws = words.filter(w => w.length);
+  if (!ws.length) return "";
+  ws[0].unshift(`<span class="br">[</span>`); ws[ws.length-1].push(`<span class="br">]</span>`);
   const approx = e.approx ? `<span class="approx" title="Stitched together from the single words; real speech blends them">≈</span>` : "";
-  return `${approx}<span class="br">[</span>${toks}<span class="br">]</span>`;
+  return approx + ws.map(w => `<span class="w">${w.join("")}</span>`).join(interactive ? `<span class="gap"> </span>` : " ");
 }
 function renderIpa(){
   const el = document.getElementById("ipa"), tip = document.getElementById("phtip");
