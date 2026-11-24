@@ -1,0 +1,545 @@
+{
+ "source": "de.wiktionary.org (CC BY-SA)",
+ "cards": {
+  "hallo": {
+   "ipa": "ˈhalo",
+   "approx": false
+  },
+  "tschüss": {
+   "ipa": "t͡ʃʏs",
+   "approx": false
+  },
+  "danke": {
+   "ipa": "ˈdaŋkə",
+   "approx": false
+  },
+  "bitte": {
+   "ipa": "ˈbɪtə",
+   "approx": false
+  },
+  "ja": {
+   "ipa": "jaː",
+   "approx": false
+  },
+  "nein": {
+   "ipa": "naɪ̯n",
+   "approx": false
+  },
+  "und": {
+   "ipa": "ʊnt",
+   "approx": false
+  },
+  "oder": {
+   "ipa": "ˈoːdɐ",
+   "approx": false
+  },
+  "der Kaffee": {
+   "ipa": "deːɐ̯ ˈkafe",
+   "approx": false
+  },
+  "der Tee": {
+   "ipa": "deːɐ̯ teː",
+   "approx": false
+  },
+  "die Milch": {
+   "ipa": "diː mɪlç",
+   "approx": false
+  },
+  "das Wasser": {
+   "ipa": "das ˈvasɐ",
+   "approx": false
+  },
+  "das Brot": {
+   "ipa": "das bʁoːt",
+   "approx": false
+  },
+  "der Wein": {
+   "ipa": "deːɐ̯ vaɪ̯n",
+   "approx": false
+  },
+  "das Bier": {
+   "ipa": "das biːɐ̯",
+   "approx": false
+  },
+  "der Saft": {
+   "ipa": "deːɐ̯ zaft",
+   "approx": false
+  },
+  "der Zucker": {
+   "ipa": "deːɐ̯ ˈt͡sʊkɐ",
+   "approx": false
+  },
+  "der Apfel": {
+   "ipa": "deːɐ̯ ˈap͡fl̩",
+   "approx": false
+  },
+  "das Ei": {
+   "ipa": "das aɪ̯",
+   "approx": false
+  },
+  "die Wurst": {
+   "ipa": "diː vʊʁst",
+   "approx": false
+  },
+  "der Salat": {
+   "ipa": "deːɐ̯ zaˈlaːt",
+   "approx": false
+  },
+  "das Schnitzel": {
+   "ipa": "das ˈʃnɪt͡sl̩",
+   "approx": false
+  },
+  "der Keks": {
+   "ipa": "deːɐ̯ keːks",
+   "approx": false
+  },
+  "Kaffee mit Milch": {
+   "ipa": "ˈkafe mɪt mɪlç",
+   "approx": true
+  },
+  "Ein Kaffee, bitte.": {
+   "ipa": "aɪ̯n ˈkafe ˈbɪtə",
+   "approx": true
+  },
+  "Ich möchte Tee.": {
+   "ipa": "ɪç ˈmœçtə teː",
+   "approx": true
+  },
+  "Wasser oder Saft?": {
+   "ipa": "ˈvasɐ ˈoːdɐ zaft",
+   "approx": true
+  },
+  "Das ist lecker.": {
+   "ipa": "das ɪst ˈlɛkɐ",
+   "approx": true
+  },
+  "Die Rechnung, bitte.": {
+   "ipa": "diː ˈʁɛçnʊŋ ˈbɪtə",
+   "approx": true
+  },
+  "Guten Morgen": {
+   "ipa": "ˈɡuːtn̩ ˈmɔʁɡn̩",
+   "approx": true
+  },
+  "Guten Tag": {
+   "ipa": "ˈɡuːtn̩ taːk",
+   "approx": true
+  },
+  "Guten Abend": {
+   "ipa": "ˈɡuːtn̩ ˈaːbn̩t",
+   "approx": true
+  },
+  "Gute Nacht": {
+   "ipa": "ˈɡuːtə naxt",
+   "approx": true
+  },
+  "Auf Wiedersehen": {
+   "ipa": "aʊ̯f ˈviːdɐˌzeːən",
+   "approx": true
+  },
+  "Wie geht's?": {
+   "ipa": "ˌviː ˈɡeːt͡s",
+   "approx": false
+  },
+  "gut": {
+   "ipa": "ɡuːt",
+   "approx": false
+  },
+  "sehr gut": {
+   "ipa": "ˈzeːɐ̯  ˌɡuːt",
+   "approx": false
+  },
+  "auch": {
+   "ipa": "aʊ̯x",
+   "approx": false
+  },
+  "Wie heißt du?": {
+   "ipa": "viː haɪ̯st duː",
+   "approx": true
+  },
+  "Woher kommst du?": {
+   "ipa": "voˈheːɐ̯ kɔmst duː",
+   "approx": true
+  },
+  "Ich komme aus Venezuela.": {
+   "ipa": "ɪç ˈkɔmə aʊ̯s venet͡suˈeːla",
+   "approx": true
+  },
+  "Ich wohne in Tokio.": {
+   "ipa": "ɪç ˈvoːnə ɪn ˈtoːki̯oː",
+   "approx": true
+  },
+  "Freut mich!": {
+   "ipa": "fʁɔɪ̯t mɪç",
+   "approx": true
+  },
+  "der Mann": {
+   "ipa": "deːɐ̯ man",
+   "approx": false
+  },
+  "die Frau": {
+   "ipa": "diː fʁaʊ̯",
+   "approx": false
+  },
+  "der Junge": {
+   "ipa": "deːɐ̯ ˈjʊŋə",
+   "approx": false
+  },
+  "das Mädchen": {
+   "ipa": "das ˈmɛːtçən",
+   "approx": false
+  },
+  "das Kind": {
+   "ipa": "das kɪnt",
+   "approx": false
+  },
+  "der Freund": {
+   "ipa": "deːɐ̯ fʁɔɪ̯nt",
+   "approx": false
+  },
+  "die Freundin": {
+   "ipa": "diː ˈfʁɔɪ̯ndɪn",
+   "approx": false
+  },
+  "Danke schön.": {
+   "ipa": "ˈdaŋkə ˌʃøːn",
+   "approx": false
+  },
+  "Bitte schön.": {
+   "ipa": "ˈbɪtə ˌʃøːn",
+   "approx": false
+  },
+  "Entschuldigung!": {
+   "ipa": "ɛntˈʃʊldɪɡʊŋ",
+   "approx": false
+  },
+  "Es tut mir leid.": {
+   "ipa": "ɛs tuːt miːɐ̯ laɪ̯t",
+   "approx": true
+  },
+  "Kein Problem.": {
+   "ipa": "kaɪ̯n pʁoˈbleːm",
+   "approx": true
+  },
+  "gern": {
+   "ipa": "ɡɛʁn",
+   "approx": false
+  },
+  "vielleicht": {
+   "ipa": "fiˈlaɪ̯çt",
+   "approx": false
+  },
+  "natürlich": {
+   "ipa": "naˈtyːɐ̯lɪç",
+   "approx": false
+  },
+  "genau": {
+   "ipa": "ɡəˈnaʊ̯",
+   "approx": false
+  },
+  "stimmt": {
+   "ipa": "ʃtɪmt",
+   "approx": false
+  },
+  "Ich weiß nicht.": {
+   "ipa": "ɪç vaɪ̯s nɪçt",
+   "approx": true
+  },
+  "Ich verstehe nicht.": {
+   "ipa": "ɪç fɛɐ̯ˈʃteːə nɪçt",
+   "approx": true
+  },
+  "Noch einmal, bitte.": {
+   "ipa": "nɔx ˈaɪ̯nmaːl ˈbɪtə",
+   "approx": true
+  },
+  "Sprechen Sie Englisch?": {
+   "ipa": "ˈʃpʁɛçn̩ ziː ˈɛŋlɪʃ",
+   "approx": true
+  },
+  "die Familie": {
+   "ipa": "diː faˈmiːli̯ə",
+   "approx": false
+  },
+  "der Vater": {
+   "ipa": "deːɐ̯ ˈfaːtɐ",
+   "approx": false
+  },
+  "die Mutter": {
+   "ipa": "diː ˈmʊtɐ",
+   "approx": false
+  },
+  "die Eltern": {
+   "ipa": "diː ˈɛltɐn",
+   "approx": false
+  },
+  "der Bruder": {
+   "ipa": "deːɐ̯ ˈbʁuːdɐ",
+   "approx": false
+  },
+  "die Schwester": {
+   "ipa": "diː ˈʃvɛstɐ",
+   "approx": false
+  },
+  "der Sohn": {
+   "ipa": "deːɐ̯ zoːn",
+   "approx": false
+  },
+  "die Tochter": {
+   "ipa": "diː ˈtɔxtɐ",
+   "approx": false
+  },
+  "der Opa": {
+   "ipa": "deːɐ̯ ˈoːpa",
+   "approx": false
+  },
+  "die Oma": {
+   "ipa": "diː ˈoːma",
+   "approx": false
+  },
+  "mein Bruder": {
+   "ipa": "maɪ̯n ˈbʁuːdɐ",
+   "approx": true
+  },
+  "meine Schwester": {
+   "ipa": "ˈmaɪ̯nə ˈʃvɛstɐ",
+   "approx": true
+  },
+  "Das ist meine Mutter.": {
+   "ipa": "das ɪst ˈmaɪ̯nə ˈmʊtɐ",
+   "approx": true
+  },
+  "Ich habe einen Bruder.": {
+   "ipa": "ɪç ˈhaːbə ˈaɪ̯nən ˈbʁuːdɐ",
+   "approx": true
+  },
+  "Hast du Kinder?": {
+   "ipa": "hast duː ˈkɪndɐ",
+   "approx": true
+  },
+  "wer": {
+   "ipa": "veːɐ̯",
+   "approx": false
+  },
+  "was": {
+   "ipa": "vas",
+   "approx": false
+  },
+  "wo": {
+   "ipa": "voː",
+   "approx": false
+  },
+  "wann": {
+   "ipa": "van",
+   "approx": false
+  },
+  "wie": {
+   "ipa": "viː",
+   "approx": false
+  },
+  "warum": {
+   "ipa": "vaˈʁʊm",
+   "approx": false
+  },
+  "wie viel": {
+   "ipa": "viː ˈfiːl",
+   "approx": false
+  },
+  "Was ist das?": {
+   "ipa": "vas ɪst das",
+   "approx": false
+  },
+  "Wie viel kostet das?": {
+   "ipa": "viː fiːl ˈkoːstət das",
+   "approx": true
+  },
+  "eins": {
+   "ipa": "aɪ̯ns",
+   "approx": false
+  },
+  "zwei": {
+   "ipa": "t͡svaɪ̯",
+   "approx": false
+  },
+  "drei": {
+   "ipa": "dʁaɪ̯",
+   "approx": false
+  },
+  "vier": {
+   "ipa": "fiːɐ̯",
+   "approx": false
+  },
+  "fünf": {
+   "ipa": "fʏnf",
+   "approx": false
+  },
+  "sechs": {
+   "ipa": "zɛks",
+   "approx": false
+  },
+  "sieben": {
+   "ipa": "ˈziːbn̩",
+   "approx": false
+  },
+  "acht": {
+   "ipa": "axt",
+   "approx": false
+  },
+  "neun": {
+   "ipa": "nɔɪ̯n",
+   "approx": false
+  },
+  "zehn": {
+   "ipa": "t͡seːn",
+   "approx": false
+  },
+  "die Stadt": {
+   "ipa": "diː ʃtat",
+   "approx": false
+  },
+  "die Straße": {
+   "ipa": "diː ˈʃtʁaːsə",
+   "approx": false
+  },
+  "der Bahnhof": {
+   "ipa": "deːɐ̯ ˈbaːnˌhoːf",
+   "approx": false
+  },
+  "der Flughafen": {
+   "ipa": "deːɐ̯ ˈfluːkˌhaːfn̩",
+   "approx": false
+  },
+  "das Hotel": {
+   "ipa": "das hoˈtɛl",
+   "approx": false
+  },
+  "der Zug": {
+   "ipa": "deːɐ̯ t͡suːk",
+   "approx": false
+  },
+  "der Bus": {
+   "ipa": "deːɐ̯ bʊs",
+   "approx": false
+  },
+  "das Taxi": {
+   "ipa": "das ˈtaksi",
+   "approx": false
+  },
+  "das Auto": {
+   "ipa": "das ˈaʊ̯to",
+   "approx": false
+  },
+  "Wo ist der Bahnhof?": {
+   "ipa": "voː ɪst deːɐ̯ ˈbaːnˌhoːf",
+   "approx": true
+  },
+  "hier": {
+   "ipa": "hiːɐ̯",
+   "approx": false
+  },
+  "dort": {
+   "ipa": "dɔʁt",
+   "approx": false
+  },
+  "links": {
+   "ipa": "lɪŋks",
+   "approx": false
+  },
+  "rechts": {
+   "ipa": "ʁɛçt͡s",
+   "approx": false
+  },
+  "geradeaus": {
+   "ipa": "ɡəʁaːdəˈʔaʊ̯s",
+   "approx": false
+  },
+  "Ich suche das Hotel.": {
+   "ipa": "ɪç ˈzuːxə das hoˈtɛl",
+   "approx": true
+  },
+  "Ist das weit?": {
+   "ipa": "ɪst das vaɪ̯t",
+   "approx": true
+  },
+  "nicht weit": {
+   "ipa": "nɪçt vaɪ̯t",
+   "approx": true
+  },
+  "der Montag": {
+   "ipa": "deːɐ̯ ˈmoːnˌtaːk",
+   "approx": false
+  },
+  "der Dienstag": {
+   "ipa": "deːɐ̯ ˈdiːnsˌtaːk",
+   "approx": false
+  },
+  "der Mittwoch": {
+   "ipa": "deːɐ̯ ˈmɪtˌvɔx",
+   "approx": false
+  },
+  "der Donnerstag": {
+   "ipa": "deːɐ̯ ˈdɔnɐsˌtaːk",
+   "approx": false
+  },
+  "der Freitag": {
+   "ipa": "deːɐ̯ ˈfʁaɪ̯ˌtaːk",
+   "approx": false
+  },
+  "der Samstag": {
+   "ipa": "deːɐ̯ ˈzamstaːk",
+   "approx": false
+  },
+  "der Sonntag": {
+   "ipa": "deːɐ̯ ˈzɔnˌtaːk",
+   "approx": false
+  },
+  "heute": {
+   "ipa": "ˈhɔɪ̯tə",
+   "approx": false
+  },
+  "morgen": {
+   "ipa": "ˈmɔʁɡn̩",
+   "approx": false
+  },
+  "gestern": {
+   "ipa": "ˈɡɛstɐn",
+   "approx": false
+  },
+  "wie lange": {
+   "ipa": "viː ˈlaŋə",
+   "approx": true
+  },
+  "bleiben": {
+   "ipa": "ˈblaɪ̯bn̩",
+   "approx": false
+  },
+  "fast": {
+   "ipa": "fast",
+   "approx": false
+  },
+  "dauern": {
+   "ipa": "ˈdaʊ̯ɐn",
+   "approx": false
+  },
+  "die Woche": {
+   "ipa": "diː ˈvɔxə",
+   "approx": false
+  },
+  "ein paar Tage": {
+   "ipa": "aɪ̯n paːɐ̯ ˈtaːɡə",
+   "approx": true
+  },
+  "einen Monat": {
+   "ipa": "ˈaɪ̯nən ˈmoːnat",
+   "approx": true
+  },
+  "Wie lange bleibst du hier?": {
+   "ipa": "viː ˈlaŋə blaɪ̯pst duː hiːɐ̯",
+   "approx": true
+  },
+  "Ich bleibe fast zwei Wochen.": {
+   "ipa": "ɪç ˈblaɪ̯bə fast t͡svaɪ̯ ˈvɔxn̩",
+   "approx": true
+  }
+ }
+}
